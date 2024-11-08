@@ -173,171 +173,11 @@ var spark3 = {
   }
 }
 
-var spark4 = {
-  chart: {
-    id: 'spark4',
-    group: 'sparks',
-    type: 'line',
-    height: 80,
-    sparkline: {
-      enabled: true
-    },
-    dropShadow: {
-      enabled: true,
-      top: 1,
-      left: 1,
-      blur: 2,
-      opacity: 0.5,
-    }
-  },
-  series: [{
-    data: [15, 75, 47, 65, 14, 32, 19, 54, 44, 61]
-  }],
-  stroke: {
-    curve: 'smooth'
-  },
-  markers: {
-    size: 0
-  },
-  grid: {
-    padding: {
-      top: 20,
-      bottom: 10,
-      left: 110
-    }
-  },
-  colors: ['#fff'],
-  xaxis: {
-    crosshairs: {
-      width: 1
-    },
-  },
-  tooltip: {
-    x: {
-      show: false
-    },
-    y: {
-      title: {
-        formatter: function formatter(val) {
-          return '';
-        }
-      }
-    }
-  }
-}
-
-var spark5 = {
-  chart: {
-    id: 'spark5',
-    group: 'sparks',
-    type: 'line',
-    height: 80,
-    sparkline: {
-      enabled: true
-    },
-    dropShadow: {
-      enabled: true,
-      top: 1,
-      left: 1,
-      blur: 2,
-      opacity: 0.5,
-    }
-  },
-  series: [{
-    data: [15, 75, 47, 65, 14, 32, 19, 54, 44, 61]
-  }],
-  stroke: {
-    curve: 'smooth'
-  },
-  markers: {
-    size: 0
-  },
-  grid: {
-    padding: {
-      top: 20,
-      bottom: 10,
-      left: 110
-    }
-  },
-  colors: ['#fff'],
-  xaxis: {
-    crosshairs: {
-      width: 1
-    },
-  },
-  tooltip: {
-    x: {
-      show: false
-    },
-    y: {
-      title: {
-        formatter: function formatter(val) {
-          return '';
-        }
-      }
-    }
-  }
-}
-
-var spark6 = {
-  chart: {
-    id: 'spark6',
-    group: 'sparks',
-    type: 'line',
-    height: 80,
-    sparkline: {
-      enabled: true
-    },
-    dropShadow: {
-      enabled: true,
-      top: 1,
-      left: 1,
-      blur: 2,
-      opacity: 0.5,
-    }
-  },
-  series: [{
-    data: [15, 75, 47, 65, 14, 32, 19, 54, 44, 61]
-  }],
-  stroke: {
-    curve: 'smooth'
-  },
-  markers: {
-    size: 0
-  },
-  grid: {
-    padding: {
-      top: 20,
-      bottom: 10,
-      left: 110
-    }
-  },
-  colors: ['#fff'],
-  xaxis: {
-    crosshairs: {
-      width: 1
-    },
-  },
-  tooltip: {
-    x: {
-      show: false
-    },
-    y: {
-      title: {
-        formatter: function formatter(val) {
-          return '';
-        }
-      }
-    }
-  }
-}
 
 new ApexCharts(document.querySelector("#spark1"), spark1).render();
 new ApexCharts(document.querySelector("#spark2"), spark2).render();
 new ApexCharts(document.querySelector("#spark3"), spark3).render();
-new ApexCharts(document.querySelector("#spark4"), spark4).render();
-new ApexCharts(document.querySelector("#spark5"), spark4).render();
-new ApexCharts(document.querySelector("#spark6"), spark4).render();
+
 
 
 var optionsLine = {
@@ -361,20 +201,20 @@ var optionsLine = {
   },
   //colors: ["#3F51B5", '#2196F3'],
   series: [{
-      name: "Music",
+      name: "TRINITY",
       data: [1, 15, 26, 20, 33, 27]
     },
     {
-      name: "Photos",
+      name: "SAVED",
       data: [3, 33, 21, 42, 19, 32]
     },
     {
-      name: "Files",
+      name: "RAW",
       data: [0, 39, 52, 11, 29, 43]
     }
   ],
   title: {
-    text: 'Media',
+    text: 'VALIDITI',
     align: 'left',
     offsetY: 25,
     offsetX: 20
@@ -397,7 +237,7 @@ var optionsLine = {
       bottom: 0
     }
   },
-  labels: ['01/15/2002', '01/16/2002', '01/17/2002', '01/18/2002', '01/19/2002', '01/20/2002'],
+  labels: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6'],
   xaxis: {
     tooltip: {
       enabled: false
@@ -441,7 +281,7 @@ var optionsCircle4 = {
     lineCap: 'round'
   },
   series: [71, 63, 77],
-  labels: ['June', 'May', 'April'],
+  labels: ['TRINITY', 'SAVED', 'RAW'],
   legend: {
     show: true,
     floating: true,
@@ -468,17 +308,17 @@ var optionsBar = {
     },
   },
   series: [{
-    name: 'PRODUCT A',
-    data: [14, 25, 21, 17, 12, 13, 11, 19]
+    name: 'TRINITY',
+    data: [14, 25, 21, 17, 12, 13]
   }, {
-    name: 'PRODUCT B',
-    data: [13, 23, 20, 8, 13, 27, 33, 12]
+    name: 'SAVED',
+    data: [13, 23, 20, 8, 13, 27]
   }, {
-    name: 'PRODUCT C',
-    data: [11, 17, 15, 15, 21, 14, 15, 13]
+    name: 'RAW',
+    data: [11, 17, 15, 15, 21, 14]
   }],
   xaxis: {
-    categories: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2', '2012 Q3', '2012 Q4'],
+    categories: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6'],
   },
   fill: {
     opacity: 1
@@ -503,20 +343,20 @@ var optionsArea = {
     curve: 'straight'
   },
   series: [{
-      name: "Music",
+      name: "TRINITY",
       data: [11, 15, 26, 20, 33, 27]
     },
     {
-      name: "Photos",
+      name: "SAVED",
       data: [32, 33, 21, 42, 19, 32]
     },
     {
-      name: "Files",
+      name: "RAW",
       data: [20, 39, 52, 11, 29, 43]
     }
   ],
   xaxis: {
-    categories: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2'],
+    categories: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6',],
   },
   tooltip: {
     followCursor: true

@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  background-color: hsl(192, 100%, 15%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 a {
@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: beige;
+  color: rgb(72, 74, 104);
   font-family: "Nunito", sans-serif;
 }
 
@@ -75,7 +75,7 @@ h6 {
   border-radius: 50px;
 }
 #hero h1 span {
-  color: #3d32a5;
+  color: #ffffff;
 }
 #hero h1 {
   margin: 0 0 10px 0;
