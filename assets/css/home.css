@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  background-color: hsl(0, 0%, 100%);
+  background-color: #dddcdc;
 }
 
 a {
@@ -32,8 +32,8 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 70vh;
-  background: url("../img/hero-bg.jpg") top center;
+  height: 65vh;
+  background: url("../img/earth2.jpg") top center;
   background-size: cover;
   position: relative;
 }
@@ -138,7 +138,7 @@ h6 {
 
 @media (max-height: 500px) {
   #hero {
-    height: 150vh;
+    height: 100vh;
   }
 }
 
@@ -173,7 +173,6 @@ section {
 }
 
 .section-title h3 {
-  margin: 15px 0 0 0;
   font-size: 32px;
   font-weight: 700;
 }
@@ -183,7 +182,7 @@ section {
 }
 
 .section-title p {
-  margin: 15px auto 0 auto;
+  margin: 0 auto 0 auto;
   font-weight: 600;
 }
 
@@ -193,3 +192,40 @@ section {
   }
 }
 
+.title-container {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 0vh;
+  margin-top: 90px;
+}
+
+.subject-container {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 0vh;
+  margin-top: 60px;
+}
+
+.button-container {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 0vh;
+  margin-top: 60px;
+}
+
+.button-container button {
+  box-shadow: 2px 2px 5px 0px #00154e;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #dfdfdf;
+  border-color: rgb(0, 21, 80, 0.5);
+  height: 5vh;
+  width: 10vw;
+}

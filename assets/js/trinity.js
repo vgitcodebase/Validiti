@@ -42,7 +42,7 @@ var spark1 = {
     }
   },
   series: [{
-    data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21]
+    data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21, 66, 41]
   }],
   stroke: {
     curve: 'smooth'
@@ -90,7 +90,7 @@ var spark2 = {
     }
   },
   series: [{
-    data: [12, 14, 2, 47, 32, 44, 14, 55, 41, 69]
+    data: [12, 14, 2, 47, 32, 44, 14, 55, 41, 69, 12, 14]
   }],
   stroke: {
     curve: 'smooth'
@@ -138,7 +138,7 @@ var spark3 = {
     }
   },
   series: [{
-    data: [47, 45, 74, 32, 56, 31, 44, 33, 45, 19]
+    data: [47, 45, 74, 32, 56, 31, 44, 33, 45, 19, 47, 45]
   }],
   stroke: {
     curve: 'smooth'
@@ -202,15 +202,15 @@ var optionsLine = {
   //colors: ["#3F51B5", '#2196F3'],
   series: [{
       name: "TRINITY",
-      data: [1, 15, 26, 20, 33, 27]
+      data: [0, 26, 25, 28, 27, 25, 10, 26, 25, 28, 27, 25]
     },
     {
       name: "SAVED",
-      data: [3, 33, 21, 42, 19, 32]
+      data: [0, 33, 29, 32, 31, 32, 20, 33, 29, 32, 31, 32]
     },
     {
       name: "RAW",
-      data: [0, 39, 52, 11, 29, 43]
+      data: [0, 28, 26, 31, 29, 27, 30, 28, 26, 31, 29, 27]
     }
   ],
   title: {
@@ -237,7 +237,7 @@ var optionsLine = {
       bottom: 0
     }
   },
-  labels: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6'],
+  labels: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6', 'MARK 7', 'MARK 8', 'MARK 9', 'MARK 10', 'MARK 11', 'MARK 12'],
   xaxis: {
     tooltip: {
       enabled: false
@@ -256,7 +256,7 @@ chartLine.render();
 var optionsCircle4 = {
   chart: {
     type: 'radialBar',
-    height: 350,
+    height: 345,
     width: 380,
   },
   plotOptions: {
@@ -308,17 +308,20 @@ var optionsBar = {
     },
   },
   series: [{
-    name: 'TRINITY',
-    data: [14, 25, 21, 17, 12, 13]
-  }, {
-    name: 'SAVED',
-    data: [13, 23, 20, 8, 13, 27]
-  }, {
-    name: 'RAW',
-    data: [11, 17, 15, 15, 21, 14]
-  }],
+    name: "TRINITY",
+    data: [30, 26, 25, 28, 27, 25, 20, 26, 25, 28, 27, 25],
+  },
+  {
+    name: "SAVED",
+    data: [40, 33, 29, 32, 31, 32, 10, 33, 29, 32, 31, 32],
+  },
+  {
+    name: "RAW",
+    data: [10, 28, 26, 31, 29, 27, 30, 28, 26, 31, 29, 27],
+  }
+],
   xaxis: {
-    categories: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6'],
+    categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
   },
   fill: {
     opacity: 1
@@ -343,20 +346,20 @@ var optionsArea = {
     curve: 'straight'
   },
   series: [{
-      name: "TRINITY",
-      data: [11, 15, 26, 20, 33, 27]
-    },
-    {
-      name: "SAVED",
-      data: [32, 33, 21, 42, 19, 32]
-    },
-    {
-      name: "RAW",
-      data: [20, 39, 52, 11, 29, 43]
-    }
-  ],
+    name: "TRINITY",
+    data: [0, 26, 25, 28, 27, 25, 20, 26, 25, 28, 27, 25]
+  },
+  {
+    name: "SAVED",
+    data: [0, 33, 29, 32, 31, 32, 10, 33, 29, 32, 31, 32]
+  },
+  {
+    name: "RAW",
+    data: [0, 28, 26, 31, 29, 27, 30, 28, 26, 31, 29, 27]
+  }
+],
   xaxis: {
-    categories: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6',],
+    categories: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6','MARK 7', 'MARK 8', 'MARK 9', 'MARK 10', 'MARK 11', 'MARK 12'],
   },
   tooltip: {
     followCursor: true

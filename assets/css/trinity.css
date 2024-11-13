@@ -1,12 +1,12 @@
 
 body {
-  background: #343E59;
-  color: #777;
+  background: #ffffff;
+  color: #0813af;
   font-family: Montserrat, Arial, sans-serif;
 }
 
 .body-bg {
-  background: #F3F4FA !important;
+  background: #fdfdfd !important;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 body {
-  background: #252c3f;
+  background: #dddcdc;
   min-height: 100vh;
 }
 
@@ -24,21 +24,21 @@ body {
 }
 
 .box {
-  opacity: .75;
-  background: linear-gradient(45deg,#00121b,hsl(192, 88%, 76%, .1));
+  border-radius: 7.5px;
+  opacity: .85;
+  background: linear-gradient(45deg,#000c42,#2b5688);
   padding: 25px 20px;
 }
 
 .shadow {
-  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  box-shadow: 0px 1px 15px 1px rgba(37, 2, 119, 0.08);
 }
 .sparkboxes .box {
   padding-top: 10px;
   padding-bottom: 10px;
-  text-shadow: 0 1px 1px 1px #666;
+  text-shadow: 0 1px 1px 1px #01125f;
   box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
   position: relative;
-  border-radius: 5px;
 }
 
 .sparkboxes .box .details {
@@ -55,25 +55,33 @@ body {
 
 
 .sparkboxes .box1 {
-  background: linear-gradient( 135deg,  rgba(69, 65, 78, 0.08));
+  border-radius: 7.5px;
+  background: linear-gradient( 135deg,  rgba(5, 21, 116, 0.08));
 }
 
 .sparkboxes .box2 {
+  border-radius: 7.5px;
   background: linear-gradient( 135deg,  rgba(69, 65, 78, 0.08));
 }
 
 .sparkboxes .box3 {
+  border-radius: 7.5px;
   background: linear-gradient( 135deg,  rgba(69, 65, 78, 0.08));
 }
 
 .sparkboxes .box4 {
+  border-radius: 7.5px;
   background: linear-gradient( 135deg,  rgba(69, 65, 78, 0.08));
 }
 
 .sparkboxes .box5 {
+  border-radius: 7.5px;
   background: linear-gradient( 135deg,  rgba(69, 65, 78, 0.08));
 }
 
 .sparkboxes .box6 {
+  border-radius: 7.5px;
   background: linear-gradient( 135deg,  rgba(69, 65, 78, 0.08));
 }
+
+
