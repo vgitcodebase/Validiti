@@ -37,8 +37,8 @@ var moreCount = 0;
 var optionsBarChart = {
   chart: {
     type: 'bar',
-    height: 550,
-    width: 600
+    height: 'auto',
+    width: 'auto'
   },
   plotOptions: {
     bar: {
