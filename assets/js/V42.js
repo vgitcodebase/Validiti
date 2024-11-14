@@ -24,8 +24,10 @@ window.Apex = {
   }
 };
 
-
-
+// Get the video and button elements
+const video = document.getElementById('video');
+const buttons = document.querySelectorAll('.button');
+const chart = document.getElementById('bar');
 
 var agreeCount = 0;
 var disagreeCount = 0;
@@ -61,10 +63,7 @@ var optionsBarChart = {
     categories: ['AGREE', 'DISAGREE', 'LESS', 'MORE']
   },
   yaxis: {
-    show: false
-  
-    
-    
+    show: false    
   },
   fill: {
     opacity: 1,
