@@ -39,6 +39,10 @@ var optionsBarChart = {
     type: 'bar',
 
   },
+  responsive: [{
+    breakpoint: undefined,
+    options: {},
+}],
   plotOptions: {
     bar: {
       horizontal: false,
