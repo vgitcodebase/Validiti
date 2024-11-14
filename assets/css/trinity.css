@@ -39,6 +39,7 @@ body {
   text-shadow: 0 1px 1px 1px #01125f;
   box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
   position: relative;
+  margin-bottom: 10px;
 }
 
 .sparkboxes .box .details {
