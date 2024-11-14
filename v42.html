@@ -1,42 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Trinity</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Validiti</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+<!-- Favicons -->
+<link href="assets/img/logo.png" rel="icon">
+<link href="assets/img/logo.png" rel="apple-touch-icon">
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="" href="/assets/css/v42.css">
 
-  <!-- Favicons -->
-  <link href="assets/img/logo.png" rel="icon">
-  <link href="assets/img/logo.png" rel="apple-touch-icon">
+<style>
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Lato", sans-serif;
+}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url('/assets/img/earth2.jpg');
+  min-height: 70%;
+}
 
-  <!-- Template Main CSS File -->
-    <link rel="stylesheet" href="assets/css/v42.css" />
-</head>   
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("/assets/img/earth2.jpg");
+  min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("/assets/img/vlogo.ico");
+  min-height: 400px;
+}
+
+.bgimg-4 {
+  opacity: 0.7;
+  max-height: 60vh;
+  width: 45vh;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+</style>
+</head>
 <body>
-<div style="margin-top: 20px; margin-bottom: 20px">
-<span onclick="location.href='home.html'" style="color:  #01125f; font-family: 'new times roman'; font-size: 45px;"><img style="margin-bottom: 12px; margin-left: 55px; width: 45px" src="assets/img/vlogo.ico">V42</span>
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="home.html" class="w3-bar-item w3-button">HOME</a>
+    <a href="trinity.html" class="w3-bar-item w3-button w3-hide-small"> TRINITY</a>
+    <a href="v42.html" class="w3-bar-item w3-button w3-hide-small"> V42</a>
+    <a href="mailto:contact@validiti.com" class="w3-bar-item w3-button w3-hide-small"> CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="trinity.html" class="w3-bar-item w3-button" onclick="toggleFunction()">TRINITY</a>
+    <a href="v42.html" class="w3-bar-item w3-button" onclick="toggleFunction()">V42</a>
+    <a href="mailto:contact@validiti.com" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+  </div>
 </div>
-<div id="wrapper">
+
+
+
+
+<div class="w3-padding-top-64" id="wrapper">
   <div class="content-area">
     <div class="container-fluid">
       <div class="main">
         <div class="row sparkboxes mt-2">
-          <div style="height: 550px; margin-bottom: 110px" class="row mt-2">
+          <div style=" margin-bottom: 110px" class="row mt-2">
             <div class="col-md-8">
               <iframe id="video" style="border-radius: 15px" width="100%" height="100%" src="https://www.youtube.com/embed/BpEqR_hUWEQ" title="Create a MongoDB Database on DigitalOcean" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -48,24 +118,25 @@
           </div>
           <div class="button-container">
             <div>
-              <button id="less" style="font-size: 20px; background-color: rgb(255, 255, 255, .5);" type="button" class="button">LESS</button>
+              <button id="less" style="background-color: rgb(255, 255, 255, .5);" type="button" class="button">LESS</button>
             </div>
             <div>
-              <button id="disagree" style="font-size: 20px; background-color: rgb(255, 255, 255, .5);" type="button" class="button">DISAGREE</button>
+              <button id="disagree" style="background-color: rgb(255, 255, 255, .5);" type="button" class="button">DISAGREE</button>
             </div>
             <div>
-              <button id="agree" style="font-size: 20px; background-color: rgb(255, 255, 255, .5);" type="button" class="button">AGREE</button>
+              <button id="agree" style="background-color: rgb(255, 255, 255, .5);" type="button" class="button">AGREE</button>
             </div>
             <div>
-              <button id="more" style="font-size: 20px; background-color: rgb(255, 255, 255, .5);" type="button" class="button">MORE</button>
+              <button id="more" style="background-color: rgb(255, 255, 255, .5);" type="button" class="button">MORE</button>
             </div>
           </div>
-          
+                   
         <div style="text-align: center; margin-top: 30px" class="title">
           <p style="color:  #01125f; font-size: 30px; font-family: 'new times roman'">SEE MORE <img onclick="location.href='#databelow'" style="margin-top: -5px; width: 45px" src="assets/img/vlogo.ico" alt=""> DATA BELOW</p>
         </div>
+          
         <div id="databelow" style="text-align: center; margin-top: 30px" class="title"><br>
-          <p style="color:  #01125f; font-size: 30px; font-family: 'new times roman'; margin-bottom: 40px">DISCOVER A WHOLE NEW WAY TO COMMUNICATE WITH YOUR AUDIENCE</p>
+          <p style="margin-top: 30px; color:  #01125f; font-size: 30px; font-family: 'new times roman'; margin-bottom: 40px">DISCOVER A WHOLE NEW WAY TO COMMUNICATE WITH YOUR AUDIENCE</p>
           <p style="color: black; font-size: 20px; margin-left: 100px; margin-right: 100px">Current mechanisms for interaction and analysis do not provide enough understanding of audiences. Consequently, content and advertisement creation and placement involve more guesswork than they should. With V42, mass responsory communication improves our understanding of audiences through greater capture of preferences, at each instance in a piece of content. It also enables live communication between a content creator and an audience, allowing for adjustments to content in response to the aggregated voice of the audience, in real-time. V42 can process and display these responses for audiences of practically limitless size. Mass communication has primarily focused on one person speaking to many. V42 empowers the many to speak back to the one.</p>
         </div>  
         <div class="row mt-4">
@@ -75,10 +146,6 @@
             </div>
           </div>
         </div>
-        <div id="databelow" style="text-align: center; margin-top: 30px" class="title"><br>
-          <p style="color: #01125f; font-size: 30px; font-family: 'new times roman'">CONTACT US TO SETUP A DEMO TODAY</p>
-          <a href="mailto:contact@validiti.com" style="color: #01125f; font-size: 20px; margin-left: 100px; margin-right: 100px">contact@validiti.com</a>
-        </div><br><br> 
       </div>
     </div>
   </div>
@@ -86,5 +153,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
 <script src="assetsdark/dist/apexcharts.js"></script>
 <script src="assets/js/V42.js"></script>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
 </body>
 </html>
