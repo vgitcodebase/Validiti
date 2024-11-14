@@ -1,22 +1,4 @@
 
-body {
-  background: #ffffff;
-  color: #ffffff;
-  font-family: Montserrat, Arial, sans-serif;
-}
-
-.body-bg {
-  background: #ffffff !important;
-}
-
-h1, h2, h3, h4, h5, h6, strong {
-  font-weight: 600;
-}
-
-body {
-  background: #dddcdc;
-  min-height: 100vh;
-}
 
 .content-area {
   max-width: 95%;
@@ -63,8 +45,7 @@ body {
   justify-content: space-around;
   background-color: #dfdfdf;
   border-color: rgb(0, 21, 80, 0.5);
-  height: 5.5vh;
-  width: 20vw;
+  width: 10vw;
 }
 
 
