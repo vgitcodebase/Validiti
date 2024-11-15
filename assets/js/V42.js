@@ -84,7 +84,7 @@ var optionsBarChart = {
   },
   responsive: [
     {
-      breakpoint: 768, // adjust this value to match your smaller screen size
+      breakpoint: 1080, // adjust this value to match your smaller screen size
       options: {
         chart: {
           height: 200 // adjust this value to set the chart height on smaller screens
@@ -108,12 +108,12 @@ document.getElementById('disagree').addEventListener('click', function() {
   updateChart();
 });
 
-document.getElementById('less').addEventListener('click', function() {
+document.getElementById('more').addEventListener('click', function() {
   lessCount++;
   updateChart();
 });
 
-document.getElementById('more').addEventListener('click', function() {
+document.getElementById('less').addEventListener('click', function() {
   moreCount++;
   updateChart();
 });
@@ -167,12 +167,12 @@ document.getElementById('disagree').addEventListener('click', function() {
   updateAreaChart();
 });
 
-document.getElementById('less').addEventListener('click', function() {
+document.getElementById('more').addEventListener('click', function() {
   lessCount++;
   updateAreaChart();
 });
 
-document.getElementById('more').addEventListener('click', function() {
+document.getElementById('less').addEventListener('click', function() {
   moreCount++;
   updateAreaChart();
 });
@@ -188,11 +188,11 @@ function updateAreaChart() {
       data: disagreeClicksPerMinute
     },
     {
-      name: 'LESS',
+      name: 'MORE',
       data: lessClicksPerMinute
     },
     {
-      name: 'MORE',
+      name: 'LESS',
       data: moreClicksPerMinute
     }
   ];
@@ -212,7 +212,7 @@ var optionsArea = {
     data: [0, 0, 0, 0]
   }],
   xaxis: {
-    categories: ['AGREE', 'DISAGREE', 'LESS', 'MORE']
+    categories: ['AGREE', 'DISAGREE', 'MORE', 'LESS']
   },
   tooltip: {
     followCursor: true
