@@ -70,6 +70,7 @@ body {
   border-radius: 5px;
 }
 
+
 .sparkboxes .box .details {
   position: absolute;
   color: #fff;
@@ -82,24 +83,27 @@ body {
   color: #fff;
 }
 
-
 .sparkboxes .box1 {
-  height: 10vh;
+  margin-bottom: 10px;
+  height: 100px;
   background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
 }
 
 .sparkboxes .box2 {
-  height: 10vh;
+  margin-bottom: 10px;
+  height: 100px;
   background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
 }
 
 .sparkboxes .box3 {
-  height: 10vh;
+  margin-bottom: 10px;
+  height: 100px;
   background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
 }
 
 .sparkboxes .box4 {
-  height: 10vh;
+  margin-bottom: 10px;
+  height: 100px;
   background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);
 }
 
