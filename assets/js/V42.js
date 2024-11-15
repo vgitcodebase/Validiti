@@ -36,27 +36,18 @@ var moreCount = 0;
 
 var optionsBarChart = {
   chart: {
+    height: 440,
     type: 'bar',
-
+    stacked: true,
   },
-  responsive: [{
-    breakpoint: undefined,
-    options: {},
-}],
   plotOptions: {
     bar: {
+      columnWidth: '30%',
       horizontal: false,
-      columnWidth: '50%',
-      endingShape: 'rounded'
-    }
+    },
   },
   dataLabels: {
-    enabled: false
-  },
-  stroke: {
-    show: true,
-    width: 2,
-    colors: ['transparent']
+    enabled: false,
   },
   series: [{
     name: 'Button Clicks',
@@ -66,10 +57,16 @@ var optionsBarChart = {
     categories: ['AGREE', 'DISAGREE', 'LESS', 'MORE']
   },
   yaxis: {
-    show: false    
+    show: true,
+    tickAmount: 10,
+    labels: {
+      formatter: function(val) {
+        return Math.floor(val);
+      }
+    }
   },
   fill: {
-    opacity: 1,
+    opacity: 1
   },
   legend: {
     show: false
@@ -78,18 +75,6 @@ var optionsBarChart = {
     y: {
       formatter: function(val) {
         return Math.round(val) + '%'
-      }
-    }
-  },
-  grid: {
-    xaxis: {
-      lines: {
-        show: false
-      }
-    },
-    yaxis: {
-      lines: {
-        show: false
       }
     }
   },
@@ -134,7 +119,6 @@ function updateChart() {
 
 
 
-
 var optionsArea = {
   chart: {
     height: 380,
@@ -145,24 +129,20 @@ var optionsArea = {
     curve: 'straight'
   },
   series: [{
-      name: "AGREE",
-      data: [11, 15, 26, 20, 33, 27, 20, 39, 52, 11, 29, 43]
+      name: "Music",
+      data: [11, 15, 26, 20, 33, 27]
     },
     {
-      name: "DISAGREE",
-      data: [32, 33, 21, 42, 19, 32, 10, 12, 42, 18, 41, 22]
+      name: "Photos",
+      data: [32, 33, 21, 42, 19, 32]
     },
     {
-      name: "MORE",
-      data: [20, 39, 52, 11, 29, 43, 10, 12, 42, 18, 41, 22]
-    },
-    {
-      name: "LESS",
-      data: [20, 12, 42, 18, 41, 22, 10, 12, 42, 18, 41, 22]
-    },
+      name: "Files",
+      data: [20, 39, 52, 11, 29, 43]
+    }
   ],
   xaxis: {
-    categories: ['MARK 1', 'MARK 2', 'MARK 3', 'MARK 4', 'MARK 5', 'MARK 6', 'MARK 7', 'MARK 8', 'MARK 9', 'MARK 10', 'MARK 11', 'MARK 12'],
+    categories: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2'],
   },
   tooltip: {
     followCursor: true
@@ -179,5 +159,3 @@ var chartArea = new ApexCharts(
 );
 
 chartArea.render();
-
-
