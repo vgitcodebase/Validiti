@@ -56,7 +56,7 @@ body {
 /* Update height on smaller screens */
 @media (max-width: 768px) {
   .boxchart {
-    height: 45vh; /* new height for smaller screens */
+    height: 30vh; /* new height for smaller screens */
   }
 }
 
@@ -139,7 +139,7 @@ body {
   .sparkboxes .box1 {
     width: 50px;
     margin-bottom: 10px;
-    height: 50px;
+    height: 30px;
     background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
   }
 }
