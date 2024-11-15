@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>V42</title>
+    <!-- Favicons -->
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+          <i class="fa fa-bars"></i>
+        </a>
+        <a href="home.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="trinity.html" class="w3-bar-item w3-button w3-hide-small"> TRINITY</a>
+        <a href="v42.html" class="w3-bar-item w3-button w3-hide-small"> V42</a>
+        <a href="mailto:contact@validiti.com" class="w3-bar-item w3-button w3-hide-small"> CONTACT</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+        </a>
+      </div>
+
+      <!-- Navbar on small screens -->
+      <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+        <a href="trinity.html" class="w3-bar-item w3-button" onclick="toggleFunction()">TRINITY</a>
+        <a href="v42.html" class="w3-bar-item w3-button" onclick="toggleFunction()">V42</a>
+        <a href="mailto:contact@validiti.com" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div class="content-area">
+        <div class="container-fluid">
+          <div class="main">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="boxvideo shadow mt-4">
+                  <iframe class="video" id="video" style="border-radius: 7.5px" src="https://www.youtube.com/embed/BpEqR_hUWEQ" title="Create a MongoDB Database on DigitalOcean" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="boxvideo shadow mt-4">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row sparkboxes mt-4">
+              <div class="col-md-3">
+                <div id="agree" class="box box1"><h3 class="unselectable" id="agreetext">hello</h3></div>
+              </div>
+              <div class="col-md-3">
+                <div id="disagree" class="box box2"><h3 class="unselectable" id="agreetext">click</h3></div>
+              </div>
+              <div class="col-md-3">
+                <div id="less" class="box box3"><h3 class="unselectable" id="agreetext">me</h3></div>
+              </div>
+              <div class="col-md-3">
+                <div id="more" class="box box4"><h3 class="unselectable" id="agreetext">please</h3></div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="box shadow mt-4">
+                  <div id="areachart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="assetsdark/dist/apexcharts.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
