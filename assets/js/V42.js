@@ -87,7 +87,7 @@ var optionsBarChart = {
       breakpoint: 768, // adjust this value to match your smaller screen size
       options: {
         chart: {
-          height: 250 // adjust this value to set the chart height on smaller screens
+          height: 200 // adjust this value to set the chart height on smaller screens
         }
       }
     }
