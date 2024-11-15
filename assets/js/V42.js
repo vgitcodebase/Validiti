@@ -34,6 +34,7 @@ var disagreeCount = 0;
 var lessCount = 0;
 var moreCount = 0;
 
+
 var optionsBarChart = {
   chart: {
     height: 440,
@@ -129,8 +130,74 @@ function updateChart() {
   }]);
 }
 
+// Initialize arrays to store click counts per minute for each button
+var agreeClicksPerMinute = [];
+var disagreeClicksPerMinute = [];
+var lessClicksPerMinute = [];
+var moreClicksPerMinute = [];
 
+// Initialize minutes elapsed
+var minutesElapsed = 0;
 
+// Update click counts per minute for each button
+video.addEventListener('timeupdate', function() {
+  var currentTime = video.currentTime;
+  var newMinutesElapsed = Math.floor(currentTime / 60);
+  if (newMinutesElapsed > minutesElapsed) {
+    minutesElapsed = newMinutesElapsed;
+    agreeClicksPerMinute.push(agreeCount);
+    disagreeClicksPerMinute.push(disagreeCount);
+    lessClicksPerMinute.push(lessCount);
+    moreClicksPerMinute.push(moreCount);
+    agreeCount = 0;
+    disagreeCount = 0;
+    lessCount = 0;
+    moreCount = 0;
+  }
+});
+
+// Update area chart with click counts per minute for each button
+document.getElementById('agree').addEventListener('click', function() {
+  agreeCount++;
+  updateAreaChart();
+});
+
+document.getElementById('disagree').addEventListener('click', function() {
+  disagreeCount++;
+  updateAreaChart();
+});
+
+document.getElementById('less').addEventListener('click', function() {
+  lessCount++;
+  updateAreaChart();
+});
+
+document.getElementById('more').addEventListener('click', function() {
+  moreCount++;
+  updateAreaChart();
+});
+
+function updateAreaChart() {
+  var seriesData = [
+    {
+      name: 'AGREE',
+      data: agreeClicksPerMinute
+    },
+    {
+      name: 'DISAGREE',
+      data: disagreeClicksPerMinute
+    },
+    {
+      name: 'LESS',
+      data: lessClicksPerMinute
+    },
+    {
+      name: 'MORE',
+      data: moreClicksPerMinute
+    }
+  ];
+  chartArea.updateSeries(seriesData);
+}
 var optionsArea = {
   chart: {
     height: 380,
@@ -141,20 +208,11 @@ var optionsArea = {
     curve: 'straight'
   },
   series: [{
-      name: "Music",
-      data: [11, 15, 26, 20, 33, 27]
-    },
-    {
-      name: "Photos",
-      data: [32, 33, 21, 42, 19, 32]
-    },
-    {
-      name: "Files",
-      data: [20, 39, 52, 11, 29, 43]
-    }
-  ],
+    name: 'Button Clicks',
+    data: [0, 0, 0, 0]
+  }],
   xaxis: {
-    categories: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2'],
+    categories: ['AGREE', 'DISAGREE', 'LESS', 'MORE']
   },
   tooltip: {
     followCursor: true
