@@ -45,6 +45,10 @@ body {
   padding: 25px 20px;
 }
 
+#bar {
+  margin-left: 20px;
+}
+
 #agreetext {
   padding-top: 1vh;
   position: relative;

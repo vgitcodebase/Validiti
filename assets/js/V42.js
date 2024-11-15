@@ -57,7 +57,7 @@ var optionsBarChart = {
     categories: ['AGREE', 'DISAGREE', 'LESS', 'MORE']
   },
   yaxis: {
-    show: true,
+    show: false,
     tickAmount: 10,
     labels: {
       formatter: function(val) {
@@ -65,8 +65,11 @@ var optionsBarChart = {
       }
     }
   },
+  grid: {
+    show: false,
+  },
   fill: {
-    opacity: 1
+    opacity: 1,
   },
   legend: {
     show: false
@@ -78,7 +81,7 @@ var optionsBarChart = {
       }
     }
   },
-  colors: ['#007bff', '#dc3545', '#ffc107', '#28a745'] // blue, red, yellow, green
+  
 }
 
 var chartBarChart = new ApexCharts(document.querySelector('#bar'), optionsBarChart);
