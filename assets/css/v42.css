@@ -168,7 +168,7 @@ body {
   .sparkboxes .box3 {
     width: 50px;
     margin-bottom: 10px;
-    height: 50px;
+    height: 20px;
     background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
   }
 }
