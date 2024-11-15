@@ -55,7 +55,7 @@ var optionsBarChart = {
     data: [0, 0, 0, 0]
   }],
   xaxis: {
-    categories: ['AGREE', 'DISAGREE', 'LESS', 'MORE']
+    categories: ['AGREE', 'DISAGREE', 'MORE', 'LESS']
   },
   yaxis: {
     show: false,
