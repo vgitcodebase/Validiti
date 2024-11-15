@@ -71,6 +71,21 @@ body {
   flex: 1;
 }
 
+/* Hide small screen text by default */
+.small-screen-text {
+  display: none;
+}
+
+/* Show small screen text on smaller screens */
+@media (max-width: 768px) {
+  .unselectable {
+    display: none;
+  }
+  .small-screen-text {
+    display: block;
+  }
+}
+
 .sparkboxes .box {
   padding-top: 10px;
   padding-bottom: 10px;
