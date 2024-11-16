@@ -40,9 +40,9 @@ body {
 }
 
 /* Update height on smaller screens */
-@media (max-width: 1080) {
+@media (max-width: 768px) {
   .boxvideo {
-    height: 35vh; /* new height for smaller screens */
+    height: 200px; /* new height for smaller screens */
   }
 }
 
