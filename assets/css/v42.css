@@ -42,7 +42,8 @@ body {
 /* Update height on smaller screens */
 @media (max-width: 768px) {
   .boxvideo {
-    height: 200px; /* new height for smaller screens */
+    padding: 10px 10px;
+    height: 300px; /* new height for smaller screens */
   }
 }
 
