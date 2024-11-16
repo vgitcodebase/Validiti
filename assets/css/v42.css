@@ -94,6 +94,7 @@ body {
   text-align: center;
   margin: 0 auto;
   color: #000000;
+  opacity: 0.5;
 }
 
 .button-disabled {
@@ -119,6 +120,7 @@ body {
   text-align: center;
   margin: 0 auto;
   color: #000000;
+  opacity: 0.7;
 }
 
 /* Hide small screen text by default */
