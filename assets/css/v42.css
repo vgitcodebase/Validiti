@@ -89,7 +89,7 @@ body {
 }
 
 #smalltext {
-  padding-top: 1vh;
+  padding-top: 5px;
   position: relative;
   text-align: center;
   margin: 0 auto;
@@ -119,16 +119,6 @@ body {
   text-align: center;
   margin: 0 auto;
   color: #000000;
-}
-
-@media (max-width: 768px) {
-  #sparktext {
-    padding-top: 0px;
-    text-align: center;
-    margin: 0 auto;
-    color: #000000;
-    font-size: 15px;
-  }
 }
 
 /* Hide small screen text by default */
