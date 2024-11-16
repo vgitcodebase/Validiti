@@ -89,6 +89,7 @@ body {
 }
 
 .sparkboxes {
+  width: 100%;
   display: flex;
   flex-wrap: nowrap;
 }
