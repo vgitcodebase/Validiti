@@ -75,7 +75,17 @@ body {
   text-align: center;
   margin: 0 auto;
   color: #000000;
-  font-size: 15px;
+  font-size: 25px;
+}
+
+@media (max-width: 1080px) {
+  #howto {
+    padding-top: 15px;
+    text-align: center;
+    margin: 0 auto;
+    color: #000000;
+    font-size: 15px;
+  }
 }
 
 #smalltext {
@@ -83,7 +93,7 @@ body {
   position: relative;
   text-align: center;
   margin: 0 auto;
-  color: #fff;
+  color: #000000;
 }
 
 .button-disabled {
@@ -103,7 +113,13 @@ body {
   flex: 1;
 }
 
-
+#sparktext {
+  font-weight: 100;
+  padding-top: 25px;
+  text-align: center;
+  margin: 0 auto;
+  color: #000000;
+}
 
 /* Hide small screen text by default */
 .small-screen-text {
@@ -135,7 +151,6 @@ body {
     height: 50px;
   }
 }
-
 
 .sparkboxes .box .details {
   position: relative;
@@ -172,7 +187,6 @@ body {
   .sparkboxes .box2 {
     height: 50px;
   }
-  
 }
 
 .sparkboxes .box3 {
@@ -185,7 +199,6 @@ body {
   .sparkboxes .box3 {
     height: 50px;
   }
-  
 }
 
 .sparkboxes .box4 {
@@ -197,8 +210,7 @@ body {
 @media (max-width: 1080px) {
   .sparkboxes .box4 {
     height: 50px;
-  }
-  
+  } 
 }
 
 .unselectable {
