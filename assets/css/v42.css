@@ -97,10 +97,7 @@ body {
   flex: 1;
 }
 
-#smallagreetext {
-  text-align: center;
-  font-size: 15px;
-}
+
 
 /* Hide small screen text by default */
 .small-screen-text {
@@ -145,26 +142,14 @@ body {
   background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
 }
 
-@media (max-width: 768px) {
-  .sparkboxes .box1 {
-    margin-bottom: 10px;
-    height: 50px;
-    background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
-  }
-}
+
 
 .sparkboxes .box2 {
   margin-bottom: 10px;
   height: 100px;
   background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
 }
-@media (max-width: 768px) {
-  .sparkboxes .box2 {
-    margin-bottom: 10px;
-    height: 50px;
-    background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
-  }
-}
+
 
 .sparkboxes .box3 {
   margin-bottom: 10px;
@@ -172,13 +157,7 @@ body {
   background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
 }
 
-@media (max-width: 768px) {
-  .sparkboxes .box3 {
-    margin-bottom: 10px;
-    height: 30px;
-    background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
-  }
-}
+
 
 .sparkboxes .box4 {
   margin-bottom: 10px;
@@ -186,13 +165,7 @@ body {
   background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);
 }
 
-@media (max-width: 768px) {
-  .sparkboxes .box4 {
-    margin-bottom: 10px;
-    height: 50px;
-    background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);
-  }
-}
+
 
 .unselectable {
   -webkit-user-select: none; /* Safari */
