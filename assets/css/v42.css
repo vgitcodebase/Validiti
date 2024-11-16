@@ -63,20 +63,18 @@ body {
 .box {
   border-radius: 7.5px;
   background-color: #2B2D3E;
-  padding: 25px 20px;
 }
 
 #bar {
   margin-left: 0px;
 }
 
-#agreetext {
+#smalltext {
   padding-top: 1vh;
   position: relative;
   text-align: center;
   margin: 0 auto;
   color: #fff;
-  font-size: 50px;
 }
 
 .button-disabled {
@@ -89,7 +87,6 @@ body {
 }
 
 .sparkboxes {
-  display: flex;
   flex-wrap: nowrap;
 }
 
@@ -125,7 +122,7 @@ body {
 
 
 .sparkboxes .box .details {
-  position: absolute;
+  position: relative;
   color: #fff;
   transform: scale(0.7) translate(-22px, 20px);
 }
@@ -142,6 +139,11 @@ body {
   background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
 }
 
+@media (max-width: 1080px) {
+  .sparkboxes .box1 {
+    height: 50px;
+  }
+}
 
 
 .sparkboxes .box2 {
@@ -150,6 +152,12 @@ body {
   background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
 }
 
+@media (max-width: 1080px) {
+  .sparkboxes .box2 {
+    height: 50px;
+  }
+  
+}
 
 .sparkboxes .box3 {
   margin-bottom: 10px;
@@ -157,7 +165,12 @@ body {
   background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
 }
 
-
+@media (max-width: 1080px) {
+  .sparkboxes .box3 {
+    height: 50px;
+  }
+  
+}
 
 .sparkboxes .box4 {
   margin-bottom: 10px;
@@ -165,7 +178,12 @@ body {
   background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);
 }
 
-
+@media (max-width: 1080px) {
+  .sparkboxes .box4 {
+    height: 50px;
+  }
+  
+}
 
 .unselectable {
   -webkit-user-select: none; /* Safari */
