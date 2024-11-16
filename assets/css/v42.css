@@ -115,10 +115,20 @@ body {
 
 #sparktext {
   font-weight: 100;
-  padding-top: 20px;
+  padding-top: 25px;
   text-align: center;
   margin: 0 auto;
   color: #000000;
+}
+
+@media (max-width: 1080px) {
+  #sparktext {
+    padding-top: 15px;
+    text-align: center;
+    margin: 0 auto;
+    color: #000000;
+    font-size: 15px;
+  }
 }
 
 /* Hide small screen text by default */
