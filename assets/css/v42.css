@@ -121,9 +121,9 @@ body {
   color: #000000;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 768px) {
   #sparktext {
-    padding-top: 15px;
+    padding-top: 0px;
     text-align: center;
     margin: 0 auto;
     color: #000000;
