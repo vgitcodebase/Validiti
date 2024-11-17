@@ -49,6 +49,7 @@ body {
   }
   
   .boxvideo iframe {
+    margin-bottom: 40vh;
     width: 100%;
     height: auto;
     border-radius: 0;
