@@ -41,7 +41,7 @@ body {
 
 @media (max-width: 768px) {
   .boxvideo {
-    margin-left: -25px;
+    max-width: 100%;
     position: relative;
     width: 100vw;
     height: auto;
