@@ -27,6 +27,11 @@ body {
   margin: 0 auto;
 }
 
+#video {
+  width: 100%;  
+  height: 100%;
+}
+
 .boxvideo {
   border-radius: 7.5px;
   height: 480px;
@@ -34,27 +39,13 @@ body {
   padding: 25px 20px;
 }
 
-#video {
-  width: 100%;  
-  height: 100%;
-}
-
+/* Update height on smaller screens */
 @media (max-width: 768px) {
   .boxvideo {
-    min-width: 100vw;
-    position: relative;
-    height: auto;
-    padding: 0;
-  }
-  
-  .boxvideo iframe {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
+    padding: 10px 10px;
+    height: 300px; /* new height for smaller screens */
   }
 }
-
-
 
 .boxchart {
   border-radius: 7.5px;
