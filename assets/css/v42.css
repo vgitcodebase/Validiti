@@ -27,16 +27,30 @@ body {
   margin: 0 auto;
 }
 
-#video {
-  width: 100%;  
-  height: 100%;
-}
-
 .boxvideo {
   border-radius: 7.5px;
   height: 480px;
   background-color: #2B2D3E;
   padding: 25px 20px;
+}
+
+#video {
+  width: 100%;  
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .boxvideo {
+    width: 100vw;
+    height: auto;
+    padding: 0;
+  }
+  
+  .boxvideo iframe {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
 }
 
 /* Update height on smaller screens */
