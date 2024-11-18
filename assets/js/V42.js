@@ -1,3 +1,91 @@
+
+var player;
+var playbackInterval;
+
+function onYouTubeIframeAPIReady() {
+  console.log('onYouTubeIframeAPIReady...');
+  player = new YT.Player('video', {
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange,
+      'onPlaybackQualityChange': onPlaybackQualityChange,
+      'onError': onPlayerError
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  console.log("YouTube Player is ready");
+}
+
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    console.log("Video is playing");
+
+    // Start logging progress every second
+    playbackInterval = setInterval(function () {
+      logCurrentTime();
+    }, 1000);
+  } else {
+    console.log("Player state changed:", event.data);
+    if (event.data !== YT.PlayerState.PLAYING) {
+      clearInterval(playbackInterval);
+    }
+  }
+}
+
+function onPlaybackQualityChange(event) {
+  console.log("Playback quality changed to:", event.data);
+}
+
+function onPlayerError(event) {
+  console.error("An error occurred:", event.data);
+}
+
+function logCurrentTime() {
+  const currentTime = player.getCurrentTime();
+  const duration = player.getDuration();
+  console.log(`Current time: ${currentTime.toFixed(1)}s / ${duration.toFixed(1)}s`);
+}
+
+onYouTubeIframeAPIReady();
+
+// Function to send API data
+function sendApiData(videoID, option) {
+  const currentTime = player.getCurrentTime()
+  const payload = {
+    videoID,
+    timestamp: currentTime.toFixed(1),
+    response: option,
+  };
+  console.log("Payload:", payload);
+
+  fetch('http://localhost:4020/api/v1/video-response', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Response submitted successfully:", data);
+    })
+    .catch((error) => {
+      console.error("Error submitting response:", error);
+    });
+}
+
+
+// -----------------------------------------------------------
+// MongoDB Data Storage Code is above 
+// -----------------------------------------------------------
+
 window.Apex = {
   chart: {
     foreColor: '#ccc',
@@ -28,6 +116,7 @@ window.Apex = {
 const video = document.getElementById('video');
 const buttons = document.querySelectorAll('.button');
 const chart = document.getElementById('bar');
+const videoID = video.getAttribute("src").split("/").pop();
 
 var agreeCount = 0;
 var disagreeCount = 0;
@@ -61,7 +150,7 @@ var optionsBarChart = {
     show: false,
     tickAmount: 10,
     labels: {
-      formatter: function(val) {
+      formatter: function (val) {
         return Math.floor(val);
       }
     }
@@ -77,7 +166,7 @@ var optionsBarChart = {
   },
   tooltip: {
     y: {
-      formatter: function(val) {
+      formatter: function (val) {
         return Math.round(val) + '%'
       }
     }
@@ -98,23 +187,27 @@ var chartBarChart = new ApexCharts(document.querySelector('#bar'), optionsBarCha
 chartBarChart.render();
 
 // Update chart when button is clicked
-document.getElementById('agree').addEventListener('click', function() {
+document.getElementById('agree').addEventListener('click', function () {
   agreeCount++;
+  sendApiData(videoID, "agree");
   updateChart();
 });
 
-document.getElementById('disagree').addEventListener('click', function() {
+document.getElementById('disagree').addEventListener('click', function () {
   disagreeCount++;
+  sendApiData(videoID, "disagree");
   updateChart();
 });
 
-document.getElementById('more').addEventListener('click', function() {
+document.getElementById('more').addEventListener('click', function () {
   lessCount++;
+  sendApiData(videoID, "more");
   updateChart();
 });
 
-document.getElementById('less').addEventListener('click', function() {
+document.getElementById('less').addEventListener('click', function () {
   moreCount++;
+  sendApiData(videoID, "less");
   updateChart();
 });
 
@@ -140,7 +233,7 @@ var moreClicksPerMinute = [];
 var minutesElapsed = 0;
 
 // Update click counts per minute for each button
-video.addEventListener('timeupdate', function() {
+video.addEventListener('timeupdate', function () {
   var currentTime = video.currentTime;
   var newMinutesElapsed = Math.floor(currentTime / 60);
   if (newMinutesElapsed > minutesElapsed) {
@@ -157,22 +250,22 @@ video.addEventListener('timeupdate', function() {
 });
 
 // Update area chart with click counts per minute for each button
-document.getElementById('agree').addEventListener('click', function() {
+document.getElementById('agree').addEventListener('click', function () {
   agreeCount++;
   updateAreaChart();
 });
 
-document.getElementById('disagree').addEventListener('click', function() {
+document.getElementById('disagree').addEventListener('click', function () {
   disagreeCount++;
   updateAreaChart();
 });
 
-document.getElementById('more').addEventListener('click', function() {
+document.getElementById('more').addEventListener('click', function () {
   lessCount++;
   updateAreaChart();
 });
 
-document.getElementById('less').addEventListener('click', function() {
+document.getElementById('less').addEventListener('click', function () {
   moreCount++;
   updateAreaChart();
 });
