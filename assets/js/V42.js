@@ -60,7 +60,7 @@ function sendApiData(videoID, option) {
   };
   console.log("Payload:", payload);
 
-  fetch('http://localhost:4020/api/v1/video-response', {
+  fetch('https://api.validiti.com/api/v1/video-response', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
