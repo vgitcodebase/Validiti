@@ -32,7 +32,7 @@ function showToast(message) {
 
 // Variables to manage button states and clicks
 let isVideoPlaying = false;
-const clickLimits = {};
+let clickLimits = {};
 const maxClicksPerRange = 4;
 
 // Enable or disable buttons
@@ -74,19 +74,16 @@ function onPlayerStateChange(event) {
     isVideoPlaying = true;
     setButtonState(true);
 
-    // Fetch stored responses when the video starts or resumes
-    fetchStoredResponses();
-
     // Start logging progress every second
     playbackInterval = setInterval(function () {
       logCurrentTime();
 
-      // Check if a new time slot has started and fetch stored responses
+      // Check if the user has entered a new or old time slot
       const currentTime = player.getCurrentTime();
       const newMinutesElapsed = Math.floor((currentTime - 1) / 60) + 1; // Ensure ranges start at 1-based
-      if (newMinutesElapsed > minutesElapsed) {
+      if (newMinutesElapsed !== minutesElapsed) {
         minutesElapsed = newMinutesElapsed;
-        fetchStoredResponses();
+        clearChartData();
       }
     }, 1000);
   } else {
@@ -249,6 +246,16 @@ function getCurrentTimeRange() {
   const rangeStart = Math.floor((currentTime === 0 ? 0 : (currentTime - 1)) / 60) * 60 + 1; // Adjust for 1-based range
   const rangeEnd = rangeStart + 59; // End of the range
   return `${rangeStart}-${rangeEnd}`;
+}
+
+function clearChartData() {
+  agreeCount = 0;
+  disagreeCount = 0;
+  moreCount = 0;
+  lessCount = 0;
+  clickLimits = {};
+  updateChart();
+  updateAreaChart();
 }
 
 function fetchStoredResponses() {
