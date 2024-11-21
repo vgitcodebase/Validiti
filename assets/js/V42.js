@@ -407,3 +407,17 @@ var chartArea = new ApexCharts(
 );
 
 chartArea.render();
+
+// Get the button element
+const button = document.getElementById('box1');
+
+// Add an event listener to the button
+button.addEventListener('click', () => {
+  // Check if the Vibration API is supported
+  if ('vibrate' in navigator) {
+    // Vibrate the device for 500ms
+    navigator.vibrate(500);
+  } else {
+    console.log('Vibration API is not supported on this device');
+  }
+});
