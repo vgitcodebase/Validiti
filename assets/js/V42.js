@@ -108,7 +108,7 @@ function onPlayerStateChange(event) {
         minutesElapsed = newMinutesElapsed;
         clearChartData();
       }
-    }, 1000);
+    }, 500);
   } else {
     console.log("Player state changed:", event.data);
     if (event.data !== YT.PlayerState.PLAYING) {
