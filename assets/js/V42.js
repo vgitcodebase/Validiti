@@ -35,6 +35,7 @@ function showToast(message) {
   // Add media query for mobile devices
   toast.style.cssText += `
     @media (max-width: 768px) {
+      margin-left: -20px;
       padding: 5px 10px;
       font-size: 4px;
     }
