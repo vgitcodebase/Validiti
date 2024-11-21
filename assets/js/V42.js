@@ -97,9 +97,20 @@ function onPlayerStateChange(event) {
     isVideoPlaying = true;
     setButtonState(true);
 
+    // Fetch stored responses when the video starts or resumes
+    fetchStoredResponses();
+
     // Start logging progress every second
     playbackInterval = setInterval(function () {
       logCurrentTime();
+
+      // Check if a new time slot has started and fetch stored responses
+      const currentTime = player.getCurrentTime();
+      const newMinutesElapsed = Math.floor((currentTime - 1) / 60) + 1; // Ensure ranges start at 1-based
+      if (newMinutesElapsed > minutesElapsed) {
+        minutesElapsed = newMinutesElapsed;
+        fetchStoredResponses();
+      }
     }, 1000);
   } else {
     console.log("Player state changed:", event.data);
