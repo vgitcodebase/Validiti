@@ -16,6 +16,11 @@ toastContainer.style.zIndex = '1000';
 document.body.appendChild(toastContainer);
 
 function showToast(message) {
+  // Remove existing toast notifications
+  while (toastContainer.firstChild) {
+    toastContainer.removeChild(toastContainer.firstChild);
+  }
+
   const toast = document.createElement('div');
   toast.style.background = '#333';
   toast.style.color = '#fff';
@@ -25,10 +30,10 @@ function showToast(message) {
   toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
   toast.textContent = message;
   toastContainer.appendChild(toast);
+
   setTimeout(() => {
     toast.remove();
-    popupVisible = false;
-  }, 3000);
+  }, 2000);
 }
 
 // Variables to manage button states and clicks
@@ -293,10 +298,6 @@ function handleButtonClick(option) {
   }
 
   clickLimits[timeRange]++;
-
-  if (popupVisible) {
-    return; // Return early if the popup is already visible
-  }
 
   if (option === "agree") {
     agreeCount++;
