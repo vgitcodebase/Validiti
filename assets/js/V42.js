@@ -25,12 +25,20 @@ function showToast(message) {
   toast.style.textAlign ='center';
   toast.style.background = '#333';
   toast.style.color = '#fff';
-  toast.style.padding = '10px 15px';
+  toast.style.padding = '5px 10px';
   toast.style.marginTop = '5px';
   toast.style.borderRadius = '5px';
   toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
   toast.textContent = message;
   toastContainer.appendChild(toast);
+
+  // Add media query for mobile devices
+  toast.style.cssText += `
+    @media (max-width: 768px) {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  `;
 
   setTimeout(() => {
     toast.remove();
