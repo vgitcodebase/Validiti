@@ -22,6 +22,7 @@ function showToast(message) {
   }
 
   const toast = document.createElement('div');
+  toast.style.pointerEvents = 'none';
   toast.style.textAlign ='center';
   toast.style.background = '#333';
   toast.style.color = '#fff';
@@ -34,6 +35,7 @@ function showToast(message) {
 
   // Check screen size and apply different styles if necessary
   if (window.innerWidth < 768) {
+    toast.style.pointerEvents = 'none';
     toast.style.maxWidth = '60vw';
     toast.style.fontFamily = 'Times New Roman', Times, serif;
     toast.style.padding = '2px 5px';
