@@ -409,7 +409,7 @@ var chartArea = new ApexCharts(
 chartArea.render();
 
 // Get the button element
-const button = document.getElementById('box1');
+const button = document.getElementById('agree');
 
 // Add an event listener to the button
 button.addEventListener('click', () => {
