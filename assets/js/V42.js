@@ -294,6 +294,10 @@ function handleButtonClick(option) {
 
   clickLimits[timeRange]++;
 
+  if (popupVisible) {
+    return; // Return early if the popup is already visible
+  }
+
   if (option === "agree") {
     agreeCount++;
   } else if (option === "disagree") {
