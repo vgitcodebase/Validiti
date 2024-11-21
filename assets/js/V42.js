@@ -32,14 +32,14 @@ function showToast(message) {
   toast.textContent = message;
   toastContainer.appendChild(toast);
 
-  // Add media query for mobile devices
-  toast.style.cssText += `
-    @media (max-width: 768px) {
-      margin-left: -20px;
-      padding: 5px 10px;
-      font-size: 4px;
-    }
-  `;
+  // Check screen size and apply different styles if necessary
+  if (window.innerWidth < 768) {
+    toast.style.textAlign ='right';
+    toast.style.padding = '2px 5px';
+    toast.style.marginTop = '2px';
+    toast.style.borderRadius = '3px';
+    toast.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+  }
 
   setTimeout(() => {
     toast.remove();
