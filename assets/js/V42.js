@@ -37,11 +37,14 @@ function showToast(message) {
   if (window.innerWidth < 768) {
     toast.style.pointerEvents = 'none';
     toast.style.maxWidth = '60vw';
-    toast.style.fontFamily = 'Times New Roman', Times, serif;
     toast.style.padding = '2px 5px';
     toast.style.marginTop = '2px';
     toast.style.borderRadius = '3px';
     toast.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+    toast.style.position = 'fixed';
+    toast.style.bottom = '20px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
   }
 
   setTimeout(() => {
@@ -438,7 +441,7 @@ vbuttonagree.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(50);
+    navigator.vibrate(30);
   } else {
     console.log('Vibration API is not supported on this device');
   }
@@ -449,7 +452,7 @@ vbuttondisagree.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(50);
+    navigator.vibrate(30);
   } else {
     console.log('Vibration API is not supported on this device');
   }
@@ -460,7 +463,7 @@ vbuttonmore.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(50);
+    navigator.vibrate(30);
   } else {
     console.log('Vibration API is not supported on this device');
   }
@@ -471,7 +474,7 @@ vbuttonless.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(50);
+    navigator.vibrate(30);
   } else {
     console.log('Vibration API is not supported on this device');
   }
