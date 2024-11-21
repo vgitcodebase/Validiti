@@ -419,7 +419,7 @@ vbuttonagree.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(100);
+    navigator.vibrate(50);
   } else {
     console.log('Vibration API is not supported on this device');
   }
@@ -430,7 +430,7 @@ vbuttondisagree.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(100);
+    navigator.vibrate(50);
   } else {
     console.log('Vibration API is not supported on this device');
   }
@@ -441,7 +441,7 @@ vbuttonmore.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(100);
+    navigator.vibrate(50);
   } else {
     console.log('Vibration API is not supported on this device');
   }
@@ -452,7 +452,7 @@ vbuttonless.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(100);
+    navigator.vibrate(50);
   } else {
     console.log('Vibration API is not supported on this device');
   }
