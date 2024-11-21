@@ -22,7 +22,7 @@ function showToast(message) {
   }
 
   const toast = document.createElement('div');
-  toast.style.justifyContent ='center';
+  toast.style.textAlign ='center';
   toast.style.background = '#333';
   toast.style.color = '#fff';
   toast.style.padding = '10px 15px';
