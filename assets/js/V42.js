@@ -409,14 +409,50 @@ var chartArea = new ApexCharts(
 chartArea.render();
 
 // Get the button element
-const button = document.getElementById('agree');
+const vbuttonagree = document.getElementById('agree');
+const vbuttondisagree = document.getElementById('disagree');
+const vbuttonmore = document.getElementById('more');
+const vbuttonless = document.getElementById('less');
 
 // Add an event listener to the button
-button.addEventListener('click', () => {
+vbuttonagree.addEventListener('click', () => {
   // Check if the Vibration API is supported
   if ('vibrate' in navigator) {
     // Vibrate the device for 500ms
-    navigator.vibrate(500);
+    navigator.vibrate(100);
+  } else {
+    console.log('Vibration API is not supported on this device');
+  }
+});
+
+// Add an event listener to the button
+vbuttondisagree.addEventListener('click', () => {
+  // Check if the Vibration API is supported
+  if ('vibrate' in navigator) {
+    // Vibrate the device for 500ms
+    navigator.vibrate(100);
+  } else {
+    console.log('Vibration API is not supported on this device');
+  }
+});
+
+// Add an event listener to the button
+vbuttonmore.addEventListener('click', () => {
+  // Check if the Vibration API is supported
+  if ('vibrate' in navigator) {
+    // Vibrate the device for 500ms
+    navigator.vibrate(100);
+  } else {
+    console.log('Vibration API is not supported on this device');
+  }
+});
+
+// Add an event listener to the button
+vbuttonless.addEventListener('click', () => {
+  // Check if the Vibration API is supported
+  if ('vibrate' in navigator) {
+    // Vibrate the device for 500ms
+    navigator.vibrate(100);
   } else {
     console.log('Vibration API is not supported on this device');
   }
