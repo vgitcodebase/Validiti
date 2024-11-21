@@ -36,7 +36,7 @@ function showToast(message) {
   toast.style.cssText += `
     @media (max-width: 768px) {
       padding: 5px 10px;
-      font-size: 14px;
+      font-size: 4px;
     }
   `;
 
