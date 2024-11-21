@@ -34,7 +34,8 @@ function showToast(message) {
 
   // Check screen size and apply different styles if necessary
   if (window.innerWidth < 768) {
-    toast.style.textAlign ='right';
+    toast.style.maxWidth = '60vw';
+    toast.style.fontFamily = 'Times New Roman', Times, serif;
     toast.style.padding = '2px 5px';
     toast.style.marginTop = '2px';
     toast.style.borderRadius = '3px';
