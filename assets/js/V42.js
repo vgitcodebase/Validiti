@@ -1,3 +1,53 @@
+// Get the video and button elements
+const video = document.getElementById('video');
+const buttons = document.querySelectorAll('.button');
+const chart = document.getElementById('bar');
+const videoSrc = video.getAttribute("src");
+const videoID = videoSrc.includes('?') ? videoSrc.split('?')[0].split("/").pop() : videoSrc.split("/").pop();
+const development = false
+const BASE_URL = development ? 'http://localhost:4020' : 'https://api.validiti.com'
+
+// Add toast container
+const toastContainer = document.createElement('div');
+toastContainer.style.position = 'fixed';
+toastContainer.style.bottom = '20px';
+toastContainer.style.left = '20px';
+toastContainer.style.zIndex = '1000';
+document.body.appendChild(toastContainer);
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.style.background = '#333';
+  toast.style.color = '#fff';
+  toast.style.padding = '10px 15px';
+  toast.style.marginTop = '5px';
+  toast.style.borderRadius = '5px';
+  toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+  toast.textContent = message;
+  toastContainer.appendChild(toast);
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+// Variables to manage button states and clicks
+let isVideoPlaying = false;
+const clickLimits = {};
+const maxClicksPerRange = 4;
+
+// Enable or disable buttons
+function setButtonState(enabled) {
+  buttons.forEach(button => {
+    button.disabled = !enabled;
+    button.style.cursor = enabled ? 'pointer' : 'not-allowed';
+    button.style.opacity = enabled ? '1' : '0.5';
+  });
+}
+
+// Initialize with buttons disabled
+setButtonState(false);
+
+// ----------------------------------------------------
 
 var player;
 var playbackInterval;
@@ -21,6 +71,8 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
     console.log("Video is playing");
+    isVideoPlaying = true;
+    setButtonState(true);
 
     // Start logging progress every second
     playbackInterval = setInterval(function () {
@@ -29,6 +81,8 @@ function onPlayerStateChange(event) {
   } else {
     console.log("Player state changed:", event.data);
     if (event.data !== YT.PlayerState.PLAYING) {
+      isVideoPlaying = false;
+      setButtonState(false);
       clearInterval(playbackInterval);
     }
   }
@@ -60,7 +114,7 @@ function sendApiData(videoID, option) {
   };
   console.log("Payload:", payload);
 
-  fetch('https://api.validiti.com/api/v1/video-response', {
+  fetch(`${BASE_URL}/api/v1/video-response`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -112,17 +166,10 @@ window.Apex = {
   }
 };
 
-// Get the video and button elements
-const video = document.getElementById('video');
-const buttons = document.querySelectorAll('.button');
-const chart = document.getElementById('bar');
-const videoID = video.getAttribute("src").split("/").pop();
-
 var agreeCount = 0;
 var disagreeCount = 0;
 var lessCount = 0;
 var moreCount = 0;
-
 
 var optionsBarChart = {
   chart: {
@@ -186,30 +233,86 @@ var optionsBarChart = {
 var chartBarChart = new ApexCharts(document.querySelector('#bar'), optionsBarChart);
 chartBarChart.render();
 
-// Update chart when button is clicked
-document.getElementById('agree').addEventListener('click', function () {
-  agreeCount++;
-  sendApiData(videoID, "agree");
-  updateChart();
-});
+function getCurrentTimeRange() {
+  const currentTime = player.getCurrentTime();
+  const rangeStart = Math.floor((currentTime === 0 ? 0 : (currentTime - 1)) / 60) * 60 + 1; // Adjust for 1-based range
+  const rangeEnd = rangeStart + 59; // End of the range
+  return `${rangeStart}-${rangeEnd}`;
+}
 
-document.getElementById('disagree').addEventListener('click', function () {
-  disagreeCount++;
-  sendApiData(videoID, "disagree");
-  updateChart();
-});
+function fetchStoredResponses() {
+  const timeRange = getCurrentTimeRange();
 
-document.getElementById('more').addEventListener('click', function () {
-  lessCount++;
-  sendApiData(videoID, "more");
-  updateChart();
-});
+  fetch(`${BASE_URL}/api/v1/get-responses?videoID=${videoID}&timeRange=${timeRange}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(`Stored responses for range ${timeRange}:`, data);
 
-document.getElementById('less').addEventListener('click', function () {
-  moreCount++;
-  sendApiData(videoID, "less");
+      const storedData = data.data
+      // Update counts with fetched data
+      agreeCount = storedData.agree || 0;
+      disagreeCount = storedData.disagree || 0;
+      moreCount = storedData.more || 0;
+      lessCount = storedData.less || 0;
+
+      // Update the charts with the new values
+      updateChart();
+      updateAreaChart();
+    })
+    .catch(error => {
+      console.error("Error fetching stored responses:", error);
+    });
+}
+
+// Button click event handler
+function handleButtonClick(option) {
+  if (!isVideoPlaying) {
+    showToast("Please start the video before selecting options.");
+    return;
+  }
+
+  const timeRange = getCurrentTimeRange();
+  console.log('Selected Time range:', timeRange);
+
+  if (!clickLimits[timeRange]) {
+    clickLimits[timeRange] = 0;
+    // Fetch stored responses only when the time range is accessed for the first time
+    fetchStoredResponses();
+  }
+
+  if (clickLimits[timeRange] >= maxClicksPerRange) {
+    showToast(`You can only select up to ${maxClicksPerRange} responses in the 60 seconds.`);
+    return;
+  }
+
+  clickLimits[timeRange]++;
+
+  if (option === "agree") {
+    agreeCount++;
+  } else if (option === "disagree") {
+    disagreeCount++;
+  } else if (option === "more") {
+    moreCount++;
+  } else if (option === "less") {
+    lessCount++;
+  }
+
+  // Send API data and update charts
+  sendApiData(videoID, option);
   updateChart();
-});
+  updateAreaChart();
+}
+
+// Attach event listeners to buttons
+document.getElementById('agree').addEventListener('click', () => handleButtonClick("agree"));
+document.getElementById('disagree').addEventListener('click', () => handleButtonClick("disagree"));
+document.getElementById('more').addEventListener('click', () => handleButtonClick("more"));
+document.getElementById('less').addEventListener('click', () => handleButtonClick("less"));
 
 function updateChart() {
   var totalInput = agreeCount + disagreeCount + lessCount + moreCount;
@@ -217,7 +320,7 @@ function updateChart() {
   var disagreePercentage = (disagreeCount / totalInput) * 100;
   var lessPercentage = (lessCount / totalInput) * 100;
   var morePercentage = (moreCount / totalInput) * 100;
-  var seriesData = [agreePercentage, disagreePercentage, lessPercentage, morePercentage];
+  var seriesData = [agreePercentage, disagreePercentage, morePercentage, lessPercentage];
   chartBarChart.updateSeries([{
     data: seriesData
   }]);
@@ -249,48 +352,29 @@ video.addEventListener('timeupdate', function () {
   }
 });
 
-// Update area chart with click counts per minute for each button
-document.getElementById('agree').addEventListener('click', function () {
-  agreeCount++;
-  updateAreaChart();
-});
-
-document.getElementById('disagree').addEventListener('click', function () {
-  disagreeCount++;
-  updateAreaChart();
-});
-
-document.getElementById('more').addEventListener('click', function () {
-  lessCount++;
-  updateAreaChart();
-});
-
-document.getElementById('less').addEventListener('click', function () {
-  moreCount++;
-  updateAreaChart();
-});
-
+// Update area chart function
 function updateAreaChart() {
-  var seriesData = [
+  const seriesData = [
     {
       name: 'AGREE',
-      data: agreeClicksPerMinute
+      data: [agreeCount]
     },
     {
       name: 'DISAGREE',
-      data: disagreeClicksPerMinute
+      data: [disagreeCount]
     },
     {
       name: 'MORE',
-      data: lessClicksPerMinute
+      data: [moreCount]
     },
     {
       name: 'LESS',
-      data: moreClicksPerMinute
+      data: [lessCount]
     }
   ];
   chartArea.updateSeries(seriesData);
 }
+
 var optionsArea = {
   chart: {
     height: 380,
