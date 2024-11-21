@@ -68,6 +68,7 @@ function onPlayerReady(event) {
   console.log("YouTube Player is ready");
 }
 
+
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
     console.log("Video is playing");
