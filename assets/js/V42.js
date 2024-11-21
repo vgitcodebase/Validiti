@@ -27,6 +27,7 @@ function showToast(message) {
   toastContainer.appendChild(toast);
   setTimeout(() => {
     toast.remove();
+    popupVisible = false;
   }, 3000);
 }
 
