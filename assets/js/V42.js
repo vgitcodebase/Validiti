@@ -16,44 +16,20 @@ toastContainer.style.zIndex = '1000';
 document.body.appendChild(toastContainer);
 
 function showToast(message) {
-  // Remove existing toast notifications
-  while (toastContainer.firstChild) {
-    toastContainer.removeChild(toastContainer.firstChild);
-  }
-
   const toast = document.createElement('div');
-  toast.style.pointerEvents = 'none';
-  toast.style.textAlign ='center';
   toast.style.background = '#333';
   toast.style.color = '#fff';
-  toast.style.padding = '5px 10px';
+  toast.style.padding = '10px 15px';
   toast.style.marginTop = '5px';
   toast.style.borderRadius = '5px';
   toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
   toast.textContent = message;
   toastContainer.appendChild(toast);
-
-  // Check screen size and apply different styles if necessary
-  if (window.innerWidth < 768) {
-    toast.style.pointerEvents = 'none';
-    toast.style.maxWidth = '60vw';
-    toast.style.padding = '2px 5px';
-    toast.style.marginTop = '2px';
-    toast.style.borderRadius = '3px';
-    toast.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-    toast.style.position = 'fixed';
-    toast.style.bottom = '20px';
-    toast.style.left = '50%';
-    toast.style.transform = 'translateX(-50%)';
-  }
-
   setTimeout(() => {
     toast.remove();
-  }, 2000);
+  }, 3000);
 }
 
-
-// Variables to manage button states and clicks
 let isVideoPlaying = false;
 let clickLimits = {};
 const maxClicksPerRange = 4;
@@ -91,25 +67,21 @@ function onPlayerReady(event) {
   console.log("YouTube Player is ready");
 }
 
-
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
     console.log("Video is playing");
     isVideoPlaying = true;
     setButtonState(true);
 
-    // Start logging progress every second
     playbackInterval = setInterval(function () {
       logCurrentTime();
-
-      // Check if the user has entered a new or old time slot
       const currentTime = player.getCurrentTime();
       const newMinutesElapsed = Math.floor((currentTime - 1) / 60) + 1; // Ensure ranges start at 1-based
       if (newMinutesElapsed !== minutesElapsed) {
         minutesElapsed = newMinutesElapsed;
         clearChartData();
       }
-    }, 100);
+    }, 1000);
   } else {
     console.log("Player state changed:", event.data);
     if (event.data !== YT.PlayerState.PLAYING) {
@@ -279,7 +251,6 @@ function clearChartData() {
   lessCount = 0;
   clickLimits = {};
   updateChart();
-  updateAreaChart();
 }
 
 function fetchStoredResponses() {
@@ -304,7 +275,6 @@ function fetchStoredResponses() {
 
       // Update the charts with the new values
       updateChart();
-      updateAreaChart();
     })
     .catch(error => {
       console.error("Error fetching stored responses:", error);
@@ -347,7 +317,6 @@ function handleButtonClick(option) {
   // Send API data and update charts
   sendApiData(videoID, option);
   updateChart();
-  updateAreaChart();
 }
 
 // Attach event listeners to buttons
@@ -368,7 +337,6 @@ function updateChart() {
   }]);
 }
 
-// Initialize arrays to store click counts per minute for each button
 var agreeClicksPerMinute = [];
 var disagreeClicksPerMinute = [];
 var lessClicksPerMinute = [];
@@ -394,107 +362,86 @@ video.addEventListener('timeupdate', function () {
   }
 });
 
-// Update area chart function
-function updateAreaChart() {
-  const seriesData = [
-    {
-      name: 'AGREE',
-      data: [agreeCount]
-    },
-    {
-      name: 'DISAGREE',
-      data: [disagreeCount]
-    },
-    {
-      name: 'MORE',
-      data: [moreCount]
-    },
-    {
-      name: 'LESS',
-      data: [lessCount]
-    }
-  ];
-  chartArea.updateSeries(seriesData);
+// --------------------------------
+// Data from the API
+function fetchAndRenderChart(videoID) {
+  fetch(`${BASE_URL}/api/v1/all-responses?videoID=${videoID}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch data: " + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("API Response:", data);
+
+      // Process the data from the API response
+      const chartData = data.data;
+
+      // Extract data for the chart
+      const xAxisCategories = chartData.map(item => item.range); // Time ranges
+      const agreeData = chartData.map(item => item.agree);       // Agree counts
+      const disagreeData = chartData.map(item => item.disagree); // Disagree counts
+      const moreData = chartData.map(item => item.more);         // More counts
+      const lessData = chartData.map(item => item.less);         // Less counts
+
+      // Update the Apex Chart Configuration
+      const options = {
+        chart: {
+          type: 'area',
+          height: 400,
+          stacked: false,
+          toolbar: {
+            show: false
+          }
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        series: [
+          { name: 'Agree', data: agreeData },
+          { name: 'Disagree', data: disagreeData },
+          { name: 'More', data: moreData },
+          { name: 'Less', data: lessData }
+        ],
+        xaxis: {
+          categories: xAxisCategories, // X-axis labels
+          title: {
+            text: 'Time Ranges (seconds)'
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Interactions'
+          },
+          labels: {
+            formatter: val => Math.round(val)
+          }
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          followCursor: true
+        },
+        colors: ['#00E396', '#FEB019', '#FF4560', '#775DD0'], // Colors for the lines
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.3,
+            stops: [0, 90, 100]
+          }
+        }
+      };
+      const chartV2 = new ApexCharts(document.querySelector("#areaChartNew"), options);
+      chartV2.render();
+    })
+    .catch(error => {
+      console.error("Error fetching data for chart:", error);
+    });
 }
 
-var optionsArea = {
-  chart: {
-    height: 380,
-    type: 'area',
-    stacked: false,
-  },
-  stroke: {
-    curve: 'straight'
-  },
-  series: [{
-    name: 'Button Clicks',
-    data: [0, 0, 0, 0]
-  }],
-  xaxis: {
-    categories: ['AGREE', 'DISAGREE', 'MORE', 'LESS']
-  },
-  tooltip: {
-    followCursor: true
-  },
-  fill: {
-    opacity: 1,
-  },
+// Call the function with the videoID
+fetchAndRenderChart(videoID);
 
-}
-
-var chartArea = new ApexCharts(
-  document.querySelector("#areachart"),
-  optionsArea
-);
-
-chartArea.render();
-
-// Get the button element
-const vbuttonagree = document.getElementById('agree');
-const vbuttondisagree = document.getElementById('disagree');
-const vbuttonmore = document.getElementById('more');
-const vbuttonless = document.getElementById('less');
-
-// Add an event listener to the button
-vbuttonagree.addEventListener('click', () => {
-  // Check if the Vibration API is supported
-  if ('vibrate' in navigator) {
-    // Vibrate the device for 500ms
-    navigator.vibrate(30);
-  } else {
-    console.log('Vibration API is not supported on this device');
-  }
-});
-
-// Add an event listener to the button
-vbuttondisagree.addEventListener('click', () => {
-  // Check if the Vibration API is supported
-  if ('vibrate' in navigator) {
-    // Vibrate the device for 500ms
-    navigator.vibrate(30);
-  } else {
-    console.log('Vibration API is not supported on this device');
-  }
-});
-
-// Add an event listener to the button
-vbuttonmore.addEventListener('click', () => {
-  // Check if the Vibration API is supported
-  if ('vibrate' in navigator) {
-    // Vibrate the device for 500ms
-    navigator.vibrate(30);
-  } else {
-    console.log('Vibration API is not supported on this device');
-  }
-});
-
-// Add an event listener to the button
-vbuttonless.addEventListener('click', () => {
-  // Check if the Vibration API is supported
-  if ('vibrate' in navigator) {
-    // Vibrate the device for 500ms
-    navigator.vibrate(30);
-  } else {
-    console.log('Vibration API is not supported on this device');
-  }
-});
