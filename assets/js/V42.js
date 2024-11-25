@@ -405,10 +405,12 @@ function fetchAndRenderChart(videoID) {
           { name: 'Less', data: lessData }
         ],
         xaxis: {
-          categories: xAxisCategories, // X-axis labels
           title: {
-            text: 'Time Ranges (seconds)'
-          }
+            text: 'Time Ranges (minutes)'
+          },
+          labels: {
+            formatter: val => Math.round(val)
+          },
         },
         yaxis: {
           title: {
