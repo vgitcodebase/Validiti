@@ -52,6 +52,7 @@ function showToast(message) {
   }, 2000);
 }
 
+
 // Variables to manage button states and clicks
 let isVideoPlaying = false;
 let clickLimits = {};
