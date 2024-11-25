@@ -364,76 +364,84 @@ video.addEventListener('timeupdate', function () {
 
 // --------------------------------
 // Data from the API
-const chartData = [
-  { range: "1-60", agree: 61, disagree: 25, more: 13, less: 13 },
-  { range: "61-120", agree: 11, disagree: 8, more: 6, less: 2 },
-  { range: "121-180", agree: 6, disagree: 7, more: 4, less: 1 },
-  { range: "181-240", agree: 1, disagree: 3, more: 44, less: 2 },
-  { range: "241-300", agree: 5, disagree: 13, more: 12, less: 1 },
-  { range: "301-360", agree: 0, disagree: 111, more: 9, less: 2 },
-  { range: "361-420", agree: 70, disagree: 2, more: 3, less: 3 },
-  { range: "421-480", agree: 3, disagree: 6, more: 3, less: 2 },
-  { range: "481-540", agree: 3, disagree: 20, more: 12, less: 2 },
-  { range: "541-600", agree: 2, disagree: 1, more: 2, less: 1 }
-];
+function fetchAndRenderChart(videoID) {
+  fetch(`${BASE_URL}/api/v1/all-responses?videoID=${videoID}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch data: " + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("API Response:", data);
 
-// Extract data for the chart
-const xAxisCategories = chartData.map(item => item.range); // Time ranges
-const agreeData = chartData.map(item => item.agree);       // Agree counts
-const disagreeData = chartData.map(item => item.disagree); // Disagree counts
-const moreData = chartData.map(item => item.more);         // More counts
-const lessData = chartData.map(item => item.less);         // Less counts
+      // Process the data from the API response
+      const chartData = data.data;
 
-// Apex Chart Configuration
-const options = {
-  chart: {
-      type: 'area',
-      height: 400,
-      stacked: false,
-      toolbar: {
-          show: false
-      }
-  },
-  stroke: {
-      curve: 'smooth'
-  },
-  series: [
-      { name: 'Agree', data: agreeData },
-      { name: 'Disagree', data: disagreeData },
-      { name: 'More', data: moreData },
-      { name: 'Less', data: lessData }
-  ],
-  xaxis: {
-      categories: xAxisCategories, // X-axis labels
-      title: {
-          text: 'Time Ranges (seconds)'
-      }
-  },
-  yaxis: {
-      title: {
-          text: 'Interactions'
-      },
-      labels: {
-          formatter: val => Math.round(val)
-      }
-  },
-  tooltip: {
-      shared: true,
-      intersect: false,
-      followCursor: true
-  },
-  colors: ['#00E396', '#FEB019', '#FF4560', '#775DD0'], // Colors for the lines
-  fill: {
-      type: 'gradient',
-      gradient: {
-          shadeIntensity: 1,
-          opacityFrom: 0.7,
-          opacityTo: 0.3,
-          stops: [0, 90, 100]
-      }
-  }
-};
+      // Extract data for the chart
+      const xAxisCategories = chartData.map(item => item.range); // Time ranges
+      const agreeData = chartData.map(item => item.agree);       // Agree counts
+      const disagreeData = chartData.map(item => item.disagree); // Disagree counts
+      const moreData = chartData.map(item => item.more);         // More counts
+      const lessData = chartData.map(item => item.less);         // Less counts
 
-// Render the chart
-const chartV2 = new ApexCharts(document.querySelector("#areaChartNew"), options);
-chartV2.render();
+      // Update the Apex Chart Configuration
+      const options = {
+        chart: {
+          type: 'area',
+          height: 400,
+          stacked: false,
+          toolbar: {
+            show: false
+          }
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        series: [
+          { name: 'Agree', data: agreeData },
+          { name: 'Disagree', data: disagreeData },
+          { name: 'More', data: moreData },
+          { name: 'Less', data: lessData }
+        ],
+        xaxis: {
+          categories: xAxisCategories, // X-axis labels
+          title: {
+            text: 'Time Ranges (seconds)'
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Interactions'
+          },
+          labels: {
+            formatter: val => Math.round(val)
+          }
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          followCursor: true
+        },
+        colors: ['#00E396', '#FEB019', '#FF4560', '#775DD0'], // Colors for the lines
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.3,
+            stops: [0, 90, 100]
+          }
+        }
+      };
+      const chartV2 = new ApexCharts(document.querySelector("#areaChartNew"), options);
+      chartV2.render();
+    })
+    .catch(error => {
+      console.error("Error fetching data for chart:", error);
+    });
+}
+
+// Call the function with the videoID
+fetchAndRenderChart(videoID);
+
