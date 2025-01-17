@@ -405,13 +405,13 @@ function fetchAndRenderChart(videoID) {
           { name: 'More', data: moreData },
           { name: 'Less', data: lessData }
         ],
-        xaxis: {
+        yaxis: {
           categories: xAxisCategories, // X-axis labels
           title: {
             text: 'Time Ranges (seconds)'
           }
         },
-        yaxis: {
+        xaxis: {
           title: {
             text: 'Interactions'
           },
