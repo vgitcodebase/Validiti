@@ -1,4 +1,5 @@
 // Get the video and button elements
+const TIME_RANGE = 60;
 const video = document.getElementById('video');
 const buttons = document.querySelectorAll('.button');
 const chart = document.getElementById('bar');
@@ -76,7 +77,7 @@ function onPlayerStateChange(event) {
     playbackInterval = setInterval(function () {
       logCurrentTime();
       const currentTime = player.getCurrentTime();
-      const newMinutesElapsed = Math.floor((currentTime - 1) / 60) + 1; // Ensure ranges start at 1-based
+      const newMinutesElapsed = Math.floor((currentTime - 1) / TIME_RANGE) + 1;
       if (newMinutesElapsed !== minutesElapsed) {
         minutesElapsed = newMinutesElapsed;
         clearChartData();
@@ -239,7 +240,7 @@ chartBarChart.render();
 
 function getCurrentTimeRange() {
   const currentTime = player.getCurrentTime();
-  const rangeStart = Math.floor((currentTime === 0 ? 0 : (currentTime - 1)) / 60) * 60 + 1; // Adjust for 1-based range
+  const rangeStart = Math.floor((currentTime === 0 ? 0 : (currentTime - 1)) / TIME_RANGE) * TIME_RANGE + 1; // Adjust for 1-based range
   const rangeEnd = rangeStart + 59; // End of the range
   return `${rangeStart}-${rangeEnd}`;
 }
@@ -298,7 +299,7 @@ function handleButtonClick(option) {
   }
 
   if (clickLimits[timeRange] >= maxClicksPerRange) {
-    showToast(`You can only select up to ${maxClicksPerRange} responses in the 60 seconds.`);
+    showToast(`You can only select up to ${maxClicksPerRange} responses in the ${TIME_RANGE} seconds.`);
     return;
   }
 
@@ -348,7 +349,7 @@ var minutesElapsed = 0;
 // Update click counts per minute for each button
 video.addEventListener('timeupdate', function () {
   var currentTime = video.currentTime;
-  var newMinutesElapsed = Math.floor(currentTime / 60);
+  var newMinutesElapsed = Math.floor(currentTime / TIME_RANGE);
   if (newMinutesElapsed > minutesElapsed) {
     minutesElapsed = newMinutesElapsed;
     agreeClicksPerMinute.push(agreeCount);
@@ -405,12 +406,10 @@ function fetchAndRenderChart(videoID) {
           { name: 'Less', data: lessData }
         ],
         xaxis: {
+          categories: xAxisCategories, // X-axis labels
           title: {
-            text: 'Time Ranges (minutes)'
-          },
-          labels: {
-            formatter: val => Math.round(val)
-          },
+            text: 'Time Ranges (seconds)'
+          }
         },
         yaxis: {
           title: {
@@ -446,4 +445,3 @@ function fetchAndRenderChart(videoID) {
 
 // Call the function with the videoID
 fetchAndRenderChart(videoID);
-
