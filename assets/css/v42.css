@@ -1,4 +1,10 @@
-
+@media screen and (max-width: 1080px) and (orientation: portrait) {
+  body{
+    background: #343E59;
+    color: #777;
+    font-family: Montserrat, Arial, sans-serif;
+  }
+}
 body {
   background: #343E59;
   color: #777;
@@ -62,7 +68,7 @@ body {
 }
 
 /* Update height on smaller screens */
-@media (max-width: 1080px) and (orientation: portrait) {
+@media (max-width: 1080px) {
   .boxchart {
     height: 220px; /* new height for smaller screens */
   }
