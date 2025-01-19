@@ -6,7 +6,7 @@ body {
 }
 
 .body-bg {
-  background: #fdfdfd !important;
+  background: #ffffff !important;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 body {
-  background: #ffffff;
+  background: #ebebeb;
   min-height: 100vh;
 }
 
