@@ -225,7 +225,7 @@ var optionsBarChart = {
   },
   responsive: [
     {
-      breakpoint: 1080, // adjust this value to match your smaller screen size
+      breakpoint: 760, // adjust this value to match your smaller screen size
       options: {
         chart: {
           height: 200 // adjust this value to set the chart height on smaller screens
