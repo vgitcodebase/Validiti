@@ -408,7 +408,7 @@ function fetchAndRenderChart(videoID) {
         xaxis: {
           categories: xAxisCategories,
           title: {
-            text: 'Range Count'
+            text: 'Input Points'
           }
         },
         yaxis: {
