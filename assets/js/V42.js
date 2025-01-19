@@ -1,5 +1,5 @@
 // Get the video and button elements
-const TIME_RANGE = 15;
+const TIME_RANGE = 30;
 const video = document.getElementById('video');
 const buttons = document.querySelectorAll('.button');
 const chart = document.getElementById('bar');
