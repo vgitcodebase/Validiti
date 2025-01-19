@@ -380,7 +380,7 @@ function fetchAndRenderChart(videoID) {
       const chartData = data.data;
 
       // Extract data for the chart
-      const xAxisCategories = chartData.map(item => item.range); // Time ranges
+      const xAxisCategories = chartData.map((item, index) => index + 1); // Time ranges
       const agreeData = chartData.map(item => item.agree);       // Agree counts
       const disagreeData = chartData.map(item => item.disagree); // Disagree counts
       const moreData = chartData.map(item => item.more);         // More counts
@@ -406,9 +406,9 @@ function fetchAndRenderChart(videoID) {
           { name: 'Less', data: lessData }
         ],
         xaxis: {
-          categories: xAxisCategories, // X-axis labels
+          categories: xAxisCategories,
           title: {
-            text: 'Time Ranges (seconds)'
+            text: 'Range Count'
           }
         },
         yaxis: {
