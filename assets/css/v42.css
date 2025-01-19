@@ -62,7 +62,7 @@ body {
 }
 
 /* Update height on smaller screens */
-@media (max-width: 1080px) {
+@media (max-width: 1080px) and (orientation: portrait) {
   .boxchart {
     height: 220px; /* new height for smaller screens */
   }
