@@ -1,15 +1,11 @@
 @media screen and (max-width: 1080px) and (orientation: portrait) {
-  body{
+  .body{
     background: #343E59;
     color: #777;
     font-family: Montserrat, Arial, sans-serif;
   }
 }
-body {
-  background: #343E59;
-  color: #777;
-  font-family: Montserrat, Arial, sans-serif;
-}
+
 
 .body-bg {
   background: #F3F4FA !important;
