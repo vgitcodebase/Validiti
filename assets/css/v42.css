@@ -8,6 +8,8 @@
 
 
 h1, h2, h3, h4, h5, h6, strong {
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
   font-weight: 600;
 }
 
@@ -104,8 +106,6 @@ body {
 
 @media (max-width: 768px) {
   #howto {
-    -webkit-user-select: none; /* Safari */
-    user-select: none;
     padding-top: 15px;
     text-align: center;
     margin: 0 auto;
@@ -115,6 +115,8 @@ body {
 }
 
 #smalltext {
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
   padding-top: 5px;
   position: relative;
   text-align: center;
