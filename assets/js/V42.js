@@ -33,7 +33,7 @@ function showToast(message) {
 
 let isVideoPlaying = false;
 let clickLimits = {};
-const maxClicksPerRange = 4;
+const maxClicksPerRange = 6;
 
 // Enable or disable buttons
 function setButtonState(enabled) {
@@ -320,6 +320,8 @@ function handleButtonClick(option) {
   sendApiData(videoID, option);
   updateChart();
 }
+
+
 
 // Attach event listeners to buttons
 document.getElementById('agree').addEventListener('click', () => handleButtonClick("agree"));
