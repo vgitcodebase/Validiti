@@ -1,9 +1,3 @@
-
-// Remove the ApexCharts import
-// import ApexCharts from 'apexcharts';
-
-// Add the Chart.js import
-import Chart from 'chart.js/auto';
 // Get the video and button elements
 const TIME_RANGE = 30;
 const video = document.getElementById('video');
@@ -39,7 +33,7 @@ function showToast(message) {
 
 let isVideoPlaying = false;
 let clickLimits = {};
-const maxClicksPerRange = 6;
+const maxClicksPerRange = 4;
 
 // Enable or disable buttons
 function setButtonState(enabled) {
@@ -151,71 +145,54 @@ function sendApiData(videoID, option) {
 // MongoDB Data Storage Code is above 
 // -----------------------------------------------------------
 
-window.Apex = {
-  chart: {
-    foreColor: '#ccc',
-    toolbar: {
-      show: false
-    },
-  },
-  stroke: {
-    width: 3
-  },
-  dataLabels: {
-    enabled: false
-  },
-  tooltip: {
-    theme: 'dark'
-  },
-  grid: {
-    borderColor: "#535A6C",
-    xaxis: {
-      lines: {
-        show: true
-      }
-    }
-  }
-};
-
+// Initialize counts
 var agreeCount = 0;
 var disagreeCount = 0;
 var lessCount = 0;
 var moreCount = 0;
 
-const ctxBarChart = document.getElementById('bar').getContext('2d');
-const barChart = new Chart(ctxBarChart, {
+// Get the context of the canvas element
+var ctx = document.getElementById('bar').getContext('2d');
+
+// Define the chart data
+var chartData = {
+  labels: ['A', 'D', 'M', 'L'],
+  datasets: [{
+    label: 'Button Clicks',
+    data: [0, 0, 0, 0],
+    backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)'
+    ],
+    borderColor: [
+      'rgba(255, 99, 132, 1)',
+      'rgba(54, 162, 235, 1)',
+      'rgba(255, 206, 86, 1)',
+      'rgba(75, 192, 192, 1)'
+    ],
+    borderWidth: 1
+  }]
+};
+
+// Create the chart
+var chartBarChart = new Chart(ctx, {
   type: 'bar',
-  data: {
-    labels: ['A', 'D', 'M', 'L'],
-    datasets: [{
-      label: 'Button Clicks',
-      data: [0, 0, 0, 0],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-      ],
-      borderWidth: 1
-    }]
-  },
+  data: chartData,
   options: {
+    title: {
+      display: false
+    },
     scales: {
-      y: {
-        beginAtZero: true
-      }
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
     }
   }
 });
-
-var chartBarChart = new ApexCharts(document.querySelector('#bar'), optionsBarChart);
-chartBarChart.render();
 
 function getCurrentTimeRange() {
   const currentTime = player.getCurrentTime();
@@ -300,7 +277,6 @@ function handleButtonClick(option) {
 }
 
 
-
 // Attach event listeners to buttons
 document.getElementById('agree').addEventListener('click', () => handleButtonClick("agree"));
 document.getElementById('disagree').addEventListener('click', () => handleButtonClick("disagree"));
@@ -314,8 +290,9 @@ function updateChart() {
   var lessPercentage = (lessCount / totalInput) * 100;
   var morePercentage = (moreCount / totalInput) * 100;
   var seriesData = [agreePercentage, disagreePercentage, morePercentage, lessPercentage];
-  barChart.data.datasets[0].data = seriesData;
-  barChart.update();
+  chartBarChart.updateSeries([{
+    data: seriesData
+  }]);
 }
 
 var agreeClicksPerMinute = [];
@@ -366,52 +343,74 @@ function fetchAndRenderChart(videoID) {
       const moreData = chartData.map(item => item.more);         // More counts
       const lessData = chartData.map(item => item.less);         // Less counts
 
-      // Create the area chart
-      const ctxAreaChart = document.getElementById('areaChartNew').getContext('2d');
-      const areaChart = new Chart(ctxAreaChart, {
+      // Create the Chart.js configuration
+      const options = {
         type: 'line',
         data: {
           labels: xAxisCategories,
-          datasets: [{
-            label: 'Agree',
-            data: agreeData,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-          }, {
-            label: 'Disagree',
-            data: disagreeData,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-          }, {
-            label: 'More',
-            data: moreData,
-            backgroundColor: 'rgba(255, 206, 86, 0.2)',
-            borderColor: 'rgba(255, 206, 86, 1)',
-            borderWidth: 1
-          }, {
-            label: 'Less',
-            data: lessData,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-          }]
+          datasets: [
+            { label: 'Agree', data: agreeData, borderColor: '#00E396', fill: false },
+            { label: 'Disagree', data: disagreeData, borderColor: '#FEB019', fill: false },
+            { label: 'More', data: moreData, borderColor: '#FF4560', fill: false },
+            { label: 'Less', data: lessData, borderColor: '#775DD0', fill: false }
+          ]
         },
         options: {
+          responsive: true,
           scales: {
+            x: {
+              type: 'linear',
+              position: 'bottom',
+              title: {
+                display: true,
+                text: 'Input Points'
+              }
+            },
             y: {
-              beginAtZero: true
+              type: 'linear',
+              title: {
+                display: true,
+                text: 'Interactions'
+              },
+              ticks: {
+                callback: function(value, index, values) {
+                  return Math.round(value);
+                }
+              }
             }
           },
-          plugins: {
-            title: {
-              display: true,
-              text: 'Interactions Over Time'
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+            followCursor: true,
+            intersectMode: 'index',
+            callbacks: {
+              label: function(tooltipItem, data) {
+                const label = data.labels[tooltipItem.index];
+                const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                return `${label}: ${value}`;
+              }
+            }
+          },
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              fontColor: '#000'
+            }
+          },
+          layout: {
+            padding: {
+              left: 20,
+              right: 20
             }
           }
         }
-      });
+      };
+
+      // Render the Chart.js chart
+      const ctx = document.querySelector("#areaChartNew").getContext('2d');
+      const chart = new Chart(ctx, options);
     })
     .catch(error => {
       console.error("Error fetching data for chart:", error);
@@ -420,3 +419,10 @@ function fetchAndRenderChart(videoID) {
 
 // Call the function with the videoID
 fetchAndRenderChart(videoID);
+function updateChart() {
+  // Update the chart data
+  chartData.datasets[0].data = [agreeCount, disagreeCount, moreCount, lessCount];
+
+  // Update the chart
+  chartBarChart.update();
+}
