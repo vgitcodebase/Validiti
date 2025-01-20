@@ -156,15 +156,15 @@ var ctx = document.getElementById('bar').getContext('2d');
 
 // Define the chart data
 var chartData = {
-  labels: ['A', 'D', 'M', 'L'],
+  labels: ['AGREE', 'DISAGREE', 'MORE', 'LESS'],
   datasets: [{
-    label: 'Button Clicks',
+    label: false,
     data: [0, 0, 0, 0],
     backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(255, 206, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)'
+      'rgb(255, 99, 133)',
+      'rgb(54, 163, 235)',
+      'rgb(255, 207, 86)',
+      'rgb(75, 192, 192)'
     ],
     borderColor: [
       'rgba(255, 99, 132, 1)',
@@ -181,15 +181,30 @@ var chartBarChart = new Chart(ctx, {
   type: 'bar',
   data: chartData,
   options: {
+    plugins: {
+      legend: {
+         display: false
+      }
+   },
     title: {
       display: false
     },
     scales: {
-      yAxes: [{
+      x: {
+        grid: {
+          display: false
+        },
+      },
+      
+      y: {
+        display: false,
         ticks: {
-          beginAtZero: true
+          precision: 0
+        },
+        grid: {
+          display: false
         }
-      }]
+      }
     }
   }
 });
