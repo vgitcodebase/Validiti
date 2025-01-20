@@ -1,3 +1,9 @@
+
+// Remove the ApexCharts import
+// import ApexCharts from 'apexcharts';
+
+// Add the Chart.js import
+import Chart from 'chart.js/auto';
 // Get the video and button elements
 const TIME_RANGE = 30;
 const video = document.getElementById('video');
@@ -176,65 +182,37 @@ var disagreeCount = 0;
 var lessCount = 0;
 var moreCount = 0;
 
-var optionsBarChart = {
-  chart: {
-    background: '#2B2D3E',
-    height: 400,
-    type: 'bar',
-    stacked: true,
+const ctxBarChart = document.getElementById('bar').getContext('2d');
+const barChart = new Chart(ctxBarChart, {
+  type: 'bar',
+  data: {
+    labels: ['A', 'D', 'M', 'L'],
+    datasets: [{
+      label: 'Button Clicks',
+      data: [0, 0, 0, 0],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+      ],
+      borderWidth: 1
+    }]
   },
-  plotOptions: {
-    bar: {
-      columnWidth: '30%',
-      horizontal: false,
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  series: [{
-    name: 'Button Clicks',
-    data: [0, 0, 0, 0]
-  }],
-  xaxis: {
-    categories: ['A', 'D', 'M', 'L']
-  },
-  yaxis: {
-    show: false,
-    tickAmount: 10,
-    labels: {
-      formatter: function (val) {
-        return Math.floor(val);
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
       }
     }
-  },
-  grid: {
-    show: false,
-  },
-  fill: {
-    opacity: 1,
-  },
-  legend: {
-    show: false
-  },
-  tooltip: {
-    y: {
-      formatter: function (val) {
-        return Math.round(val) + '%'
-      }
-    }
-  },
-  responsive: [
-    {
-      breakpoint: 768, // adjust this value to match your smaller screen size
-      options: {
-        chart: {
-          height: 200 // adjust this value to set the chart height on smaller screens
-        }
-      }
-    }
-  ]
-}
+  }
+});
 
 var chartBarChart = new ApexCharts(document.querySelector('#bar'), optionsBarChart);
 chartBarChart.render();
@@ -336,9 +314,8 @@ function updateChart() {
   var lessPercentage = (lessCount / totalInput) * 100;
   var morePercentage = (moreCount / totalInput) * 100;
   var seriesData = [agreePercentage, disagreePercentage, morePercentage, lessPercentage];
-  chartBarChart.updateSeries([{
-    data: seriesData
-  }]);
+  barChart.data.datasets[0].data = seriesData;
+  barChart.update();
 }
 
 var agreeClicksPerMinute = [];
@@ -389,58 +366,52 @@ function fetchAndRenderChart(videoID) {
       const moreData = chartData.map(item => item.more);         // More counts
       const lessData = chartData.map(item => item.less);         // Less counts
 
-      // Update the Apex Chart Configuration
-      const options = {
-        chart: {
-          background: '#2B2D3E',
-          type: 'area',
-          height: 400,
-          stacked: false,
-          toolbar: {
-            show: false
-          }
+      // Create the area chart
+      const ctxAreaChart = document.getElementById('areaChartNew').getContext('2d');
+      const areaChart = new Chart(ctxAreaChart, {
+        type: 'line',
+        data: {
+          labels: xAxisCategories,
+          datasets: [{
+            label: 'Agree',
+            data: agreeData,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+          }, {
+            label: 'Disagree',
+            data: disagreeData,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }, {
+            label: 'More',
+            data: moreData,
+            backgroundColor: 'rgba(255, 206, 86, 0.2)',
+            borderColor: 'rgba(255, 206, 86, 1)',
+            borderWidth: 1
+          }, {
+            label: 'Less',
+            data: lessData,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
         },
-        stroke: {
-          curve: 'smooth'
-        },
-        series: [
-          { name: 'Agree', data: agreeData },
-          { name: 'Disagree', data: disagreeData },
-          { name: 'More', data: moreData },
-          { name: 'Less', data: lessData }
-        ],
-        xaxis: {
-          categories: xAxisCategories,
-          title: {
-            text: 'Input Points'
-          }
-        },
-        yaxis: {
-          title: {
-            text: 'Interactions'
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
           },
-          labels: {
-            formatter: val => Math.round(val)
-          }
-        },
-        tooltip: {
-          shared: true,
-          intersect: false,
-          followCursor: true
-        },
-        colors: ['#00E396', '#FEB019', '#FF4560', '#775DD0'], // Colors for the lines
-        fill: {
-          type: 'gradient',
-          gradient: {
-            shadeIntensity: 1,
-            opacityFrom: 0.7,
-            opacityTo: 0.3,
-            stops: [0, 90, 100]
+          plugins: {
+            title: {
+              display: true,
+              text: 'Interactions Over Time'
+            }
           }
         }
-      };
-      const chartV2 = new ApexCharts(document.querySelector("#areaChartNew"), options);
-      chartV2.render();
+      });
     })
     .catch(error => {
       console.error("Error fetching data for chart:", error);
