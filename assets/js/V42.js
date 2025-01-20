@@ -179,12 +179,9 @@ var moreCount = 0;
 var optionsBarChart = {
   chart: {
     background: '#2B2D3E',
-    height: 480,
+    height: 400,
     type: 'bar',
     stacked: true,
-    style: {
-      borderRadius: 7.5,
-    },
   },
   plotOptions: {
     bar: {

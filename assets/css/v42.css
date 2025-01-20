@@ -27,7 +27,7 @@ body {
 
 #video {
   width: 100%;  
-  height: 340px;
+  height: 400px;
 }
 
 @media (max-width: 1080px) {
@@ -38,13 +38,9 @@ body {
 }
 
 
-
-
-
-
-
-
 #howto {
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
   padding-top: 15px;
   text-align: center;
   margin: 0 auto;
@@ -52,8 +48,10 @@ body {
   font-size: 25px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 768px) {
   #howto {
+    -webkit-user-select: none; /* Safari */
+    user-select: none;
     padding-top: 15px;
     text-align: center;
     margin: 0 auto;
@@ -89,6 +87,8 @@ body {
 }
 
 #sparktext {
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
   font-weight: 100;
   padding-top: 25px;
   text-align: center;
@@ -99,6 +99,8 @@ body {
 
 /* Hide small screen text by default */
 .small-screen-text {
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
   display: none;
 }
 
