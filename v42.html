@@ -142,7 +142,6 @@
             const url = data.data.value
             const match = url.match(/[?&]v=([^&#]*)/);
             const videoId = match ? match[1] : null;
-            // const videoId = "8T7Nyu3MKZc";
             const iframe = document.getElementById("video");
             if (iframe) {
               iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;

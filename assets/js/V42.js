@@ -4,11 +4,18 @@ const video = document.getElementById('video');
 const buttons = document.querySelectorAll('.button');
 const chart = document.getElementById('bar');
 const videoSrc = video.getAttribute("src");
-const videoID = videoSrc.includes('?') ? videoSrc.split('?')[0].split("/").pop() : videoSrc.split("/").pop();
+let videoID = ''
 const development = false
 const BASE_URL = development ? 'http://localhost:4020' : 'https://api.validiti.com'
 
-// Add toast container
+// Delay to set the videoID correctly
+setTimeout(function () {
+  const videoSrc = video.getAttribute("src");
+  console.log('videoSrc : ', videoSrc);
+  videoID = videoSrc.includes('?') ? videoSrc.split('?')[0].split("/").pop() : videoSrc.split("/").pop();
+  console.log('videoID : ', videoID);
+}, 2000);
+
 const toastContainer = document.createElement('div');
 toastContainer.style.position = 'fixed';
 toastContainer.style.bottom = '20px';
@@ -62,6 +69,7 @@ function onYouTubeIframeAPIReady() {
       'onError': onPlayerError
     }
   });
+  console.log('player : ', player)
 }
 
 function onPlayerReady(event) {
@@ -256,6 +264,7 @@ function clearChartData() {
 
 function fetchStoredResponses() {
   const timeRange = getCurrentTimeRange();
+  console.log('videoID : ', videoID)
 
   fetch(`${BASE_URL}/api/v1/get-responses?videoID=${videoID}&timeRange=${timeRange}`)
     .then(response => {
@@ -366,6 +375,7 @@ video.addEventListener('timeupdate', function () {
 // --------------------------------
 // Data from the API
 function fetchAndRenderChart(videoID) {
+  console.log('videoID : ', videoID)
   fetch(`${BASE_URL}/api/v1/all-responses?videoID=${videoID}`)
     .then(response => {
       if (!response.ok) {
