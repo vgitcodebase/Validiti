@@ -1,15 +1,11 @@
 @media screen and (max-width: 760px) and (orientation: portrait) {
   .body{
-    background: #343E59;
+    background: #ffffff;
     color: #777;
     font-family: Montserrat, Arial, sans-serif;
   }
 }
 
-
-.body-bg {
-  background: #F3F4FA !important;
-}
 
 h1, h2, h3, h4, h5, h6, strong {
   font-weight: 600;
@@ -31,7 +27,7 @@ body {
 
 #video {
   width: 100%;  
-  height: 100%;
+  height: 400px;
 }
 
 @media (max-width: 1080px) {
@@ -41,43 +37,12 @@ body {
   }
 }
 
-.boxvideo {
-  border-radius: 7.5px;
-  height: 480px;
-  background-color: #2B2D3E;
-  padding: 25px 20px;
-}
 
-/* Update height on smaller screens */
-@media (max-width: 768px) {
-  .boxvideo {
-    padding: 10px 10px;
-    height: 300px; /* new height for smaller screens */
-  }
-}
 
-.boxchart {
-  border-radius: 7.5px;
-  height: 480px;
-  background-color: #2B2D3E;
-  padding: 25px 20px;
-}
 
-/* Update height on smaller screens */
-@media (max-width: 768px) {
-  .boxchart {
-    height: 220px; /* new height for smaller screens */
-  }
-}
 
-.box {
-  border-radius: 7.5px;
-  background-color: #2B2D3E;
-}
 
-#bar {
-  margin-left: 0px;
-}
+
 
 #howto {
   padding-top: 15px;

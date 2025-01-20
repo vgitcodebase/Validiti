@@ -178,9 +178,13 @@ var moreCount = 0;
 
 var optionsBarChart = {
   chart: {
-    height: 440,
+    background: '#2B2D3E',
+    height: 480,
     type: 'bar',
     stacked: true,
+    style: {
+      borderRadius: 7.5,
+    },
   },
   plotOptions: {
     bar: {
@@ -225,7 +229,7 @@ var optionsBarChart = {
   },
   responsive: [
     {
-      breakpoint: 760, // adjust this value to match your smaller screen size
+      breakpoint: 768, // adjust this value to match your smaller screen size
       options: {
         chart: {
           height: 200 // adjust this value to set the chart height on smaller screens
@@ -389,6 +393,7 @@ function fetchAndRenderChart(videoID) {
       // Update the Apex Chart Configuration
       const options = {
         chart: {
+          background: '#2B2D3E',
           type: 'area',
           height: 400,
           stacked: false,
