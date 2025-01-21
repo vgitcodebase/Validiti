@@ -1,15 +1,15 @@
-@media screen and (max-width: 760px) and (orientation: portrait) {
-  .body{
-    background: #ffffff;
-    color: #777;
-    font-family: Montserrat, Arial, sans-serif;
-  }
+
+body {
+  background: #343E59;
+  color: #777;
+  font-family: Montserrat, Arial, sans-serif;
 }
 
+.body-bg {
+  background: #F3F4FA !important;
+}
 
 h1, h2, h3, h4, h5, h6, strong {
-  -webkit-user-select: none; /* Safari */
-  user-select: none;
   font-weight: 600;
 }
 
@@ -28,19 +28,9 @@ body {
 }
 
 #video {
-  border-radius: 7.5px;
   width: 100%;  
-  height: 400px;
+  height: 100%;
 }
-
-@media (max-width: 768px) {
-  #video {
-    width: 100%;  
-    height: 300px;
-  }
-}
-
-
 
 @media (max-width: 1080px) {
   .content-area {
@@ -49,54 +39,45 @@ body {
   }
 }
 
+.boxvideo {
+  border-radius: 7.5px;
+  height: 480px;
+  background-color: #2B2D3E;
+  padding: 25px 20px;
+}
+
+/* Update height on smaller screens */
+@media (max-width: 768px) {
+  .boxvideo {
+    padding: 10px 10px;
+    height: 300px; /* new height for smaller screens */
+  }
+}
+
+.boxchart {
+  border-radius: 7.5px;
+  height: 480px;
+  background-color: #2B2D3E;
+  padding: 25px 20px;
+}
+
+/* Update height on smaller screens */
+@media (max-width: 1080px) {
+  .boxchart {
+    height: 220px; /* new height for smaller screens */
+  }
+}
+
+.box {
+  border-radius: 7.5px;
+  background-color: #2B2D3E;
+}
+
 #bar {
-  background-color: #363a61;
-  max-width: 100%;
-  min-height: 400px;
-  margin: 20px auto;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-@media (max-width: 768px) {
-  #bar {
-    min-width: 100%;
-    min-height: 200px;
-    margin: 20px auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-}
-
-#areaChartNew {
-  background-color: #363a61;
-  min-width: 100%;
-  max-height: 400px;
-  margin: 20px auto;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-  #areaChartNew {
-    max-width: 100%;
-    max-height: 300px;
-    margin: 20px auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  margin-left: 0px;
 }
 
 #howto {
-  -webkit-user-select: none; /* Safari */
-  user-select: none;
   padding-top: 15px;
   text-align: center;
   margin: 0 auto;
@@ -104,7 +85,7 @@ body {
   font-size: 25px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   #howto {
     padding-top: 15px;
     text-align: center;
@@ -115,8 +96,6 @@ body {
 }
 
 #smalltext {
-  -webkit-user-select: none; /* Safari */
-  user-select: none;
   padding-top: 5px;
   position: relative;
   text-align: center;
@@ -143,8 +122,6 @@ body {
 }
 
 #sparktext {
-  -webkit-user-select: none; /* Safari */
-  user-select: none;
   font-weight: 100;
   padding-top: 25px;
   text-align: center;
@@ -155,8 +132,6 @@ body {
 
 /* Hide small screen text by default */
 .small-screen-text {
-  -webkit-user-select: none; /* Safari */
-  user-select: none;
   display: none;
 }
 

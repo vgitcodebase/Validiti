@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>V42</title>
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Favicons -->
     <link href="assets/img/logo.png" rel="icon">
     <link href="assets/img/logo.png" rel="apple-touch-icon">
@@ -53,9 +52,9 @@
           <div class="main">
             <div class="row">
               <div class="col-md-8">
-                <div class="boxvideo mt-4">
+                <div class="boxvideo shadow mt-4">
                   <!-- <iframe class="video" id="video" style="border-radius: 7.5px" src="https://www.youtube.com/embed/BpEqR_hUWEQ" title="Create a MongoDB Database on DigitalOcean" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-                  <iframe id="video" 
+                  <iframe id="video" width="560" height="315"
                   src="https://www.youtube.com/embed"
                   frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen>
@@ -63,8 +62,8 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="mt-4">
-                  <canvas id="bar"></canvas>
+                <div class="boxchart mt-4">
+                  <div id="bar"></div>
                 </div>
               </div>
             </div>
@@ -117,7 +116,7 @@
             <div class="row my-4">
               <div class="col-md-12">
                 <div class="box shadow mt-4">
-                  <canvas id="areaChartNew"></canvas>
+                  <div id="areaChartNew"></div>
                 </div>
               </div>
             </div>
@@ -125,7 +124,6 @@
         </div>
       </div>
     </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
     <script src="assetsdark/dist/apexcharts.js"></script>
     <script src="assets/js/V42.js"></script>
@@ -144,7 +142,6 @@
             const url = data.data.value
             const match = url.match(/[?&]v=([^&#]*)/);
             const videoId = match ? match[1] : null;
-            // const videoId = "8T7Nyu3MKZc";
             const iframe = document.getElementById("video");
             if (iframe) {
               iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;

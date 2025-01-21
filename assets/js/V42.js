@@ -1,14 +1,21 @@
 // Get the video and button elements
-const TIME_RANGE = 30;
+const TIME_RANGE = 60;
 const video = document.getElementById('video');
 const buttons = document.querySelectorAll('.button');
 const chart = document.getElementById('bar');
 const videoSrc = video.getAttribute("src");
-const videoID = videoSrc.includes('?') ? videoSrc.split('?')[0].split("/").pop() : videoSrc.split("/").pop();
+let videoID = ''
 const development = false
 const BASE_URL = development ? 'http://localhost:4020' : 'https://api.validiti.com'
 
-// Add toast container
+// Delay to set the videoID correctly
+setTimeout(function () {
+  const videoSrc = video.getAttribute("src");
+  console.log('videoSrc : ', videoSrc);
+  videoID = videoSrc.includes('?') ? videoSrc.split('?')[0].split("/").pop() : videoSrc.split("/").pop();
+  console.log('videoID : ', videoID);
+}, 2000);
+
 const toastContainer = document.createElement('div');
 toastContainer.style.position = 'fixed';
 toastContainer.style.bottom = '20px';
@@ -62,6 +69,7 @@ function onYouTubeIframeAPIReady() {
       'onError': onPlayerError
     }
   });
+  console.log('player : ', player)
 }
 
 function onPlayerReady(event) {
@@ -145,69 +153,98 @@ function sendApiData(videoID, option) {
 // MongoDB Data Storage Code is above 
 // -----------------------------------------------------------
 
-// Initialize counts
+window.Apex = {
+  chart: {
+    foreColor: '#ccc',
+    toolbar: {
+      show: false
+    },
+  },
+  stroke: {
+    width: 3
+  },
+  dataLabels: {
+    enabled: false
+  },
+  tooltip: {
+    theme: 'dark'
+  },
+  grid: {
+    borderColor: "#535A6C",
+    xaxis: {
+      lines: {
+        show: true
+      }
+    }
+  }
+};
+
 var agreeCount = 0;
 var disagreeCount = 0;
 var lessCount = 0;
 var moreCount = 0;
 
-// Get the context of the canvas element
-var ctx = document.getElementById('bar').getContext('2d');
-
-// Define the chart data
-var chartData = {
-  labels: ['AGREE', 'DISAGREE', 'MORE', 'LESS'],
-  datasets: [{
-    label: false,
-    data: [0, 0, 0, 0],
-    backgroundColor: [
-      'rgb(255, 99, 133)',
-      'rgb(54, 163, 235)',
-      'rgb(255, 207, 86)',
-      'rgb(75, 192, 192)'
-    ],
-    borderColor: [
-      'rgba(255, 99, 132, 1)',
-      'rgba(54, 162, 235, 1)',
-      'rgba(255, 206, 86, 1)',
-      'rgba(75, 192, 192, 1)'
-    ],
-    borderWidth: 1
-  }]
-};
-
-// Create the chart
-var chartBarChart = new Chart(ctx, {
-  type: 'bar',
-  data: chartData,
-  options: {
-    plugins: {
-      legend: {
-         display: false
-      }
-   },
-    title: {
-      display: false
+var optionsBarChart = {
+  chart: {
+    height: 440,
+    type: 'bar',
+    stacked: true,
+  },
+  plotOptions: {
+    bar: {
+      columnWidth: '30%',
+      horizontal: false,
     },
-    scales: {
-      x: {
-        grid: {
-          display: false
-        },
-      },
-      
-      y: {
-        display: false,
-        ticks: {
-          precision: 0
-        },
-        grid: {
-          display: false
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  series: [{
+    name: 'Button Clicks',
+    data: [0, 0, 0, 0]
+  }],
+  xaxis: {
+    categories: ['A', 'D', 'M', 'L']
+  },
+  yaxis: {
+    show: false,
+    tickAmount: 10,
+    labels: {
+      formatter: function (val) {
+        return Math.floor(val);
+      }
+    }
+  },
+  grid: {
+    show: false,
+  },
+  fill: {
+    opacity: 1,
+  },
+  legend: {
+    show: false
+  },
+  tooltip: {
+    y: {
+      formatter: function (val) {
+        return Math.round(val) + '%'
+      }
+    }
+  },
+  responsive: [
+    {
+      breakpoint: 1080, // adjust this value to match your smaller screen size
+      options: {
+        chart: {
+          height: 200 // adjust this value to set the chart height on smaller screens
         }
       }
     }
-  }
-});
+  ]
+}
+
+var chartBarChart = new ApexCharts(document.querySelector('#bar'), optionsBarChart);
+chartBarChart.render();
 
 function getCurrentTimeRange() {
   const currentTime = player.getCurrentTime();
@@ -227,6 +264,7 @@ function clearChartData() {
 
 function fetchStoredResponses() {
   const timeRange = getCurrentTimeRange();
+  console.log('videoID : ', videoID)
 
   fetch(`${BASE_URL}/api/v1/get-responses?videoID=${videoID}&timeRange=${timeRange}`)
     .then(response => {
@@ -291,7 +329,6 @@ function handleButtonClick(option) {
   updateChart();
 }
 
-
 // Attach event listeners to buttons
 document.getElementById('agree').addEventListener('click', () => handleButtonClick("agree"));
 document.getElementById('disagree').addEventListener('click', () => handleButtonClick("disagree"));
@@ -338,6 +375,7 @@ video.addEventListener('timeupdate', function () {
 // --------------------------------
 // Data from the API
 function fetchAndRenderChart(videoID) {
+  console.log('videoID : ', videoID)
   fetch(`${BASE_URL}/api/v1/all-responses?videoID=${videoID}`)
     .then(response => {
       if (!response.ok) {
@@ -352,80 +390,63 @@ function fetchAndRenderChart(videoID) {
       const chartData = data.data;
 
       // Extract data for the chart
-      const xAxisCategories = chartData.map((item, index) => index + 1); // Time ranges
+      const xAxisCategories = chartData.map(item => item.range); // Time ranges
       const agreeData = chartData.map(item => item.agree);       // Agree counts
       const disagreeData = chartData.map(item => item.disagree); // Disagree counts
       const moreData = chartData.map(item => item.more);         // More counts
       const lessData = chartData.map(item => item.less);         // Less counts
 
-      // Create the Chart.js configuration
+      // Update the Apex Chart Configuration
       const options = {
-        type: 'line',
-        data: {
-          labels: xAxisCategories,
-          datasets: [
-            { label: 'Agree', data: agreeData, borderColor: '#00E396', fill: false },
-            { label: 'Disagree', data: disagreeData, borderColor: '#FEB019', fill: false },
-            { label: 'More', data: moreData, borderColor: '#FF4560', fill: false },
-            { label: 'Less', data: lessData, borderColor: '#775DD0', fill: false }
-          ]
+        chart: {
+          type: 'area',
+          height: 400,
+          stacked: false,
+          toolbar: {
+            show: false
+          }
         },
-        options: {
-          responsive: true,
-          scales: {
-            x: {
-              type: 'linear',
-              position: 'bottom',
-              title: {
-                display: true,
-                text: 'Input Points'
-              }
-            },
-            y: {
-              type: 'linear',
-              title: {
-                display: true,
-                text: 'Interactions'
-              },
-              ticks: {
-                callback: function(value, index, values) {
-                  return Math.round(value);
-                }
-              }
-            }
+        stroke: {
+          curve: 'smooth'
+        },
+        series: [
+          { name: 'Agree', data: agreeData },
+          { name: 'Disagree', data: disagreeData },
+          { name: 'More', data: moreData },
+          { name: 'Less', data: lessData }
+        ],
+        xaxis: {
+          categories: xAxisCategories, // X-axis labels
+          title: {
+            text: 'Time Ranges (seconds)'
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Interactions'
           },
-          tooltips: {
-            mode: 'index',
-            intersect: false,
-            followCursor: true,
-            intersectMode: 'index',
-            callbacks: {
-              label: function(tooltipItem, data) {
-                const label = data.labels[tooltipItem.index];
-                const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                return `${label}: ${value}`;
-              }
-            }
-          },
-          legend: {
-            display: true,
-            position: 'top',
-            labels: {
-              fontColor: '#000'
-            }
-          },
-          layout: {
-            padding: {
-              left: 20,
-              right: 20
-            }
+          labels: {
+            formatter: val => Math.round(val)
+          }
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          followCursor: true
+        },
+        colors: ['#00E396', '#FEB019', '#FF4560', '#775DD0'], // Colors for the lines
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shadeIntensity: 1,
+            opacityFrom: 0.7,
+            opacityTo: 0.3,
+            stops: [0, 90, 100]
           }
         }
       };
-
-      // Render the Chart.js chart
-      const ctx = document.querySelector("#areaChartNew").getContext('2d');
-      const chart = new Chart(ctx, options);
+      const chartV2 = new ApexCharts(document.querySelector("#areaChartNew"), options);
+      chartV2.render();
     })
     .catch(error => {
       console.error("Error fetching data for chart:", error);
@@ -434,10 +455,3 @@ function fetchAndRenderChart(videoID) {
 
 // Call the function with the videoID
 fetchAndRenderChart(videoID);
-function updateChart() {
-  // Update the chart data
-  chartData.datasets[0].data = [agreeCount, disagreeCount, moreCount, lessCount];
-
-  // Update the chart
-  chartBarChart.update();
-}
