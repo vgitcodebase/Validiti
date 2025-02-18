@@ -4,7 +4,6 @@
 <title>Trinity</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <!-- Favicons -->
 <link href="assets/img/logo.png" rel="icon">
 <link href="assets/img/logo.png" rel="apple-touch-icon">
@@ -17,63 +16,34 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="" href="/assets/css/trinity.css">
+</head>
+
 <style>
-body,h1,h2,h3,h4,h5,h6 {
-  font-family: "Lato", sans-serif;
-}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
   height: 100%;
-  color: #777;
   line-height: 1.8;
+  background-color:rgb(216, 216, 216);
 }
-
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* First image (Logo. Full height) */
 .bgimg-1 {
-  background-image: url('/assets/img/earth2.jpg');
-  min-height: 70%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/assets/img/main.jpg");
+  min-height: 100%;
 }
-
-/* Second image (Portfolio) */
-.bgimg-2 {
-  background-image: url("/assets/img/earth2.jpg");
-  min-height: 400px;
+.w3-bar .w3-button {
+  padding: 16px;
+  
 }
-
-/* Third image (Contact) */
-.bgimg-3 {
-  background-image: url("/assets/img/vlogo.ico");
-  min-height: 400px;
+#navDemo {
+  background-color:rgb(216, 216, 216);
 }
-
-.bgimg-4 {
-  opacity: 0.7;
-  max-height: 60vh;
-  width: 45vh;
-}
-
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
-  }
+#navDemo {
+  background-color:rgb(216, 216, 216);
 }
 </style>
-</head>
-<body>
 
+<body>
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar">
@@ -87,7 +57,6 @@ body, html {
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
     </a>
   </div>
-
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="trinity.html" class="w3-bar-item w3-button" onclick="toggleFunction()">TRINITY</a>
@@ -96,93 +65,175 @@ body, html {
   </div>
 </div>
 
-
-<div id="databelow" style="text-align: center; margin-top: 10px" class="title"><br>
-  <p style="color:  #01125f; font-size: 40px; margin-top: 40px; margin-bottom: 10px">PREPARE FOR INDEXABLE, LOSSLESS DATA COMPRESSION</p>
-  <p style="color: black; font-size: 20px; margin-left: 100px; margin-right: 100px">The data used in these illustrations
-    was taken from a well service job in Texas. These jobs store and reference data in real-time. Using our hardware 
-    the data feeds were compressed as they were stored and the stored data was referenced while in compressed 
-    form. Below you will see the amount of RAW data taken in vs the storage requirement reduction and the avg. increase between
-    storage requirements and data reference speeds.</p>
-</div> 
-    <div id="wrapper">
-      <div class="content-area">
-        <div class="container-fluid">
-          <div class="main">
-            <div class="row sparkboxes mt-4">
-              <div class="col-md-4">
-                <div class="box box1">
-                  <div class="details">
-                    <h3>RAW</h3>
-                    <h4>DATA</h4>
-                  </div>
-                  <div id="spark1"></div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="box box2">
-                  <div class="details">
-                    <h3>TRINITY</h3>
-                    <h4>DATA</h4>
-                  </div>
-                  <div id="spark2"></div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="box box3">
-                  <div class="details">
-                    <h3>SAVED</h3>
-                    <h4>DATA</h4>
-                  </div>
-                  <div id="spark3"></div>
-                </div>
-              </div>
-            </div>
-            <div id="databelow" style="text-align: center; margin-top: 0px" class="title"><br>
-              <p style="color:  #01125f; font-size: 30px; margin-bottom: 0px">ONCE THE DATA IS COMPRESSED THE INDEXABLE FUNCTION WILL BE USED</p>
-              <p style="color: black; font-size: 20px; margin-left: 100px; margin-right: 100px">Find something to write here 
-              abou the charts below and how they illustrate the power of the compression.</p>
-            </div>
-            <div class="row mt-4">
-              <div class="col-md-12">
-                <div class="box shadow mt-4">
-                  <div id="line-adwords" class=""></div>
-                </div>
-              </div>
-            </div>
-            <div id="databelow" style="text-align: center; margin-top: 10px" class="title"><br>
-    <p style="color:  #01125f; font-size: 30px; margin-bottom: 10px">PREPARE FOR INDEXABLE LOSSLESS DATA COMPRESSION</p>
-    <p style="color: black; font-size: 20px; margin-left: 100px; margin-right: 100px">Something to write here.</p>
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div style="position:absolute;top:-2.5%;left:77%;right:0%;bottom:0%; width: 40%">
+    <img src="/assets/img/untitled.png" alt="Trinity" style="width:80%">
+  </div>
+  <div class="w3-display-left w3-text-white" style="padding:48px; margin-top: 10%;">
+    <span class="w3-jumbo w3-hide-small"><span style="font-size: 150%">Trinity</span>  Data Management Systems</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
+    <span class="w3-large">Stop wasting valuable storage space and get more from your data wherever, whenever.</span><br><br>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
   </div> 
-            <div class="row mt-4">
-              <div style="margin-bottom: 50px" class=" col-md-5">
-                <div class="box shadow mt-4">
-                  <div id="barchart"></div>
-                </div>
-              </div>
-              <div class="col-md-7">
-                <div class="box shadow mt-4">
-                  <div id="areachart"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h2 class="w3-center">HOW CAN YOUR COMPANY BENEFIT FROM TRINITY </h2><br>
+  <h3 class="w3-center w3-large">Key features of our data management system</h3>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter w3-padding-large">
+      <i class="fa fa-file-text w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Responsive</p>
+      <h4>Data compression models limit file size, but remove your ability to access and manipulate the data within the file.
+          Trinity limits the file size while maintaining the complete access to your files and the data within them.</h4>
     </div>
+    <div class="w3-quarter w3-padding-large">
+      <i class="fa fa-database w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Efficient</p>
+      <h4>Data managed by Trinity is processed through machine learning to offer suggestions for management of data allocation. 
+          This enables more efficient use of data storage and processing, through reduced latency and load.</h4>
+    </div>
+    <div class="w3-quarter w3-padding-large">
+      <i class="fa fa-lock w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Secure</p>
+      <h4>Trinity works with the user’s own encryption or data protection models. We also offer our own quantum resistant encryption and
+         data protection models. </h4>
+    </div>
+    <div class="w3-quarter w3-padding-large">
+      <i class="fa fa-users w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">User friendly</p>
+      <h4>Trinity data management systems run within your systems data handling environment. They are user friendly and require no daily adjustments for the end user.</h4>
+    </div>
+  </div>
+</div>
+
+
+<!-- Work Section -->
+<div class="w3-container" style="padding: 12px 16px 64px 0px " id="work">
+  <h3 class="w3-center">OUR WORK</h3>
+  <p class="w3-center w3-large">What we've done for people</p>
+
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_mic.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A microphone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_phone.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A phone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_drone.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A drone">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_sound.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Soundbox">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_tablet.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tablet">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_camera.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A camera">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_typewriter.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A typewriter">
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="/w3images/tech_tableturner.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tableturner">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+
+
+<!-- Pricing Section -->
+<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
+  <h3>PRICING</h3>
+  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-light-blue w3-padding-16">
+          <h2 class="w3-wide">Static</h2>
+          <span class="w3-opacity">Rarely accessed info like holocaust lies.</span>
+        </li>
+        <li class="w3-padding-16"><b>Unlimited</b> Storage</li>
+        <li class="w3-padding-16"><b>Unlimited</b> Queries</li>
+        <li class="w3-padding-16"><b>Up To</b> 15% reduction of file size</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">Charged</h2>
+          <span class="w3-opacity">per gigabyte saved</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <a href="mailto:contact@validiti.com" class="w3-button w3-black w3-padding-large">Contact us</a>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+      <li class="w3-indigo w3-padding-16">
+          <h2 class="w3-wide">Network</h2>
+          <span class="w3-opacity">Machine learning enhanced dual storage system</span>
+        </li>
+        <li class="w3-padding-16"><b>Unlimited</b> Storage</li>
+        <li class="w3-padding-16"><b>Unlimited</b> Queries</li>
+        <li class="w3-padding-16"><b>Up To</b> 30% reduction of file size</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">Charged</h2>
+          <span class="w3-opacity">per gigabyte saved</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <a href="mailto:contact@validiti.com" class="w3-button w3-black w3-padding-large">Contact us</a>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-blue-grey w3-padding-16">
+          <h2 class="w3-wide">Daily</h2>
+          <span class="w3-opacity">Available at the lowest latency</span>
+        </li>
+        <li class="w3-padding-16"><b>Unlimited</b> Storage</li>
+        <li class="w3-padding-16"><b>Unlimited</b> Queries</li>
+        <li class="w3-padding-16"><b>Up To</b> 15% reduction of file size</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">Charged</h2>
+          <span class="w3-opacity">per gigabyte saved</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <a href="mailto:contact@validiti.com" class="w3-button w3-black w3-padding-large">Contact us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 <script>
-  
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-grey";
     } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-grey", "");
     }
 }
-
 // Used to toggle the menu on small screens when clicking on the menu button
 function toggleFunction() {
     var x = document.getElementById("navDemo");
@@ -194,7 +245,7 @@ function toggleFunction() {
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
-    <script src="assetsdark/dist/apexcharts.js"></script>
-    <script src="assets/js/trinity.js"></script>
+<script src="assetsdark/dist/apexcharts.js"></script>
+<script src="assets/js/trinity.js"></script>
 </body>
 </html>
