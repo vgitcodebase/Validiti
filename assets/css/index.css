@@ -118,9 +118,6 @@ h6 {
 }
 
 @media (max-width: 768px) {
-  #bgimg-1 {
-    height: 100vh;
-  }
   #hero h3 {
     font-size: 22px;
   }
