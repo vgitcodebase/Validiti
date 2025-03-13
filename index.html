@@ -1,121 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Trinity</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Favicons -->
-<link href="assets/img/logo.png" rel="icon">
-<link href="assets/img/logo.png" rel="apple-touch-icon">
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+  <head>
+    <title>Trinity</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicons -->
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
 
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  line-height: 1.8;
-  background-color:rgb(216, 216, 216);
-}
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("/assets/img/main.jpg");
-  min-height: 100%;
-}
-.w3-bar .w3-button {
-  padding: 16px;
-  
-}
-
-</style>
-
-<body>
-
-
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div style="position:absolute;top:0%;left:77%;right:0%;bottom:0%; width: 40%">
-    <img src="/assets/img/Untitled.png" alt="Trinity" style="width:80%">
-  </div>
-  <div class="w3-display-left w3-text-white" style="padding:48px; margin-top: 5%;">
-    <span style="font-size: 750%">Trinity</span><br>
-    <span class="w3-jumbo w3-hide-small">Data Management Systems</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
-    <span class="w3-large">Stop wasting valuable storage space and allow your data to work securely for you.</span><br><br>
-    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
-  </div> 
-</header>
-
-<!-- About Section -->
-<div class="container-fluid w3-center" style="padding:32px 16px" id="about">
-  <h1 class="w3-center">HOW CAN YOUR COMPANY BENEFIT FROM TRINITY? </h1><br>
-  <h3>Trinity is a simple system to adopt for your data management needs.5</h3><br>
-  <span style="max-width: 80vw">
-    <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-    <i class="fa fa-arrows-h w3-margin-bottom w3-jumbo w3-center" aria-hidden="true" style="margin-left: 25px; margin-right: 5px"></i>
-    <img src="/assets/img/vlogo.ico" alt="" style="width: 100px; margin-top: -50px">
-    <i class="fa fa-arrows-h w3-margin-bottom w3-jumbo w3-center" aria-hidden="true" style="margin-left: 5px; margin-right: 25px"></i>
-    <i class="fa fa-hdd-o w3-margin-bottom w3-jumbo w3-center"></i>
-  </span><br><br>
-  <h4>We exist as a secondary read and write system processing the stored data more efficiently without interfering with your current workflow. </h4>
-  <span>
-    <i class="fa fa-ellipsis-h w3-margin-bottom w3-jumbo w3-center" aria-hidden="true"></i>
-  </span>
-  <h3>Your daily operations and file access will not change.</h3>
-  <h3>Trinity operates at driver level resulting in seemless integration with your existing systems.</h3>
-  <h3>Trinity does not use a normalized code bases.</h3>
-  <h3>Malware designed to attack files in normalized binary formats are not effective on Trinity files.</h3>  
-</div>
-
-<div style="margin-top: .5%">
-  <p class="w3-center"><a href="mailto:contact@validiti.com" class="w3-center w3-button w3-grey w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Contact us for a private demonstration</a></p><br>
-</div><br>
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
-
-
-
-
-
-
-<script>
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-grey";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-grey", "");
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      line-height: 1.8;
+      background-color:rgb(216, 216, 216);
     }
-}
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
+    .bgimg-1 {
+      background-position: center;
+      background-size: cover;
+      background-image: url("/assets/img/main.jpg");
+      min-height: 100%;
     }
-}
-</script>
-</body>
+    .w3-bar .w3-button {
+      padding: 16px;
+      
+    }
+  </style>
+
+  <body>
+    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+      <div style="position:absolute;top:0%;left:77%;right:0%;bottom:0%; width: 40%">
+        <img src="/assets/img/Untitled.png" alt="Trinity" style="width:80%">
+      </div>
+      <div class="w3-display-left w3-text-white" style="padding:48px; margin-top: 5%;">
+        <span style="font-size: 750%">Trinity</span><br>
+        <span class="w3-jumbo w3-hide-small">Data Management Systems</span><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
+        <span class="w3-large">Stop wasting valuable storage space and allow your data to work securely for you.</span><br><br>
+        <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+      </div> 
+    </header>
+
+    <div class="container-fluid w3-center" style="padding:32px 16px" id="about">
+      <h1 class="w3-center">HOW CAN YOUR COMPANY BENEFIT FROM TRINITY? </h1><br>
+      <h3>Trinity is a simple system to adopt for your data management needs.6</h3><br>
+      <span style="max-width: 80vw">
+        <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center col-sm-3"></i>
+        <i class="fa fa-arrows-h w3-margin-bottom w3-jumbo w3-center col-sm-3" aria-hidden="true" style="margin-left: 25px; margin-right: 5px">
+          <img src="/assets/img/vlogo.ico" alt="" style="width: 100px; margin-top: -50px">
+        </i>
+        <i class="fa fa-hdd-o w3-margin-bottom w3-jumbo w3-center col-sm-3"></i>
+      </span><br><br>
+      <h4>We exist as a secondary read and write system processing the stored data more efficiently without interfering with your current workflow. </h4>
+      <span>
+        <i class="fa fa-ellipsis-h w3-margin-bottom w3-jumbo w3-center" aria-hidden="true"></i>
+      </span>
+      <h3>Your daily operations and file access will not change.</h3>
+      <h3>Trinity operates at driver level resulting in seemless integration with your existing systems.</h3>
+      <h3>Trinity does not use a normalized code bases.</h3>
+      <h3>Malware designed to attack files in normalized binary formats are not effective on Trinity files.</h3>  
+    </div>
+
+    <div style="margin-top: .5%">
+      <p class="w3-center"><a href="mailto:contact@validiti.com" class="w3-center w3-button w3-grey w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Contact us for a private demonstration</a></p><br>
+    </div><br>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+      <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image"></span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption" class="w3-opacity w3-large"></p>
+      </div>
+    </div>
+    
+  </body>
 </html>
