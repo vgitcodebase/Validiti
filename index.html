@@ -27,6 +27,12 @@
       line-height: 1.8;
       background-color:rgb(216, 216, 216);
     }
+    @media only screen and (max-width: 600px) {
+      body, html {
+        margin: 0;
+        padding: 0;
+      }
+    }
     .bgimg-1 {
       background-position: center;
       background-size: cover;
@@ -41,7 +47,7 @@
 
   <body>
     <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-        <img src="/assets/img/vlogo.ico" alt="Trinity" style="position:absolute; top: 0; left: 0; width: 20%">
+        <img src="/assets/img/vlogo.ico" alt="Trinity" style="position:absolute; top: 25px; left: 0; width: 20%">
       <div class="w3-display-left w3-text-white" style="padding:48px; margin-top: 5%;">
         <span style="font-size: 750%">Trinity</span><br>
         <span class="w3-jumbo w3-hide-small">Data Management Systems</span><br>
