@@ -48,4 +48,10 @@ body, html {
   #elipsis {
     visibility: visible;
   }
+  #logo {
+    width: 5px;
+    margin-top: 25px;
+    position: absolute;
+    right :0;
+  }
 }
