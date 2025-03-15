@@ -49,6 +49,6 @@ body, html {
     width: 50px;
     margin-top: 5px;
     position: absolute;
-    right :0;
+    left :0;
   }
 }
