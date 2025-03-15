@@ -6,20 +6,20 @@ body, html {
   line-height: 1.8;
   background-color:rgb(216, 216, 216);
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   body, html {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 600px) {
   #elipsis {
     display: none;
   }
   
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 600px) {
   #logo {
     width: 200px;
     margin-top: 25px;
@@ -28,7 +28,7 @@ body, html {
   }
   
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 600px) {
   #logo2 {
     display: none;
   }
@@ -45,13 +45,13 @@ body, html {
   
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   #elipsis {
     visibility: visible;
   }
   
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   #logo2 {
     width: 150px;
     margin-top: 15px;
@@ -59,7 +59,7 @@ body, html {
     right :0;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   #logo {
     display: none;
   }
