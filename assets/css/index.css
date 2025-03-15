@@ -58,7 +58,6 @@ body, html {
     position: absolute;
     left :0;
   }
-  
 }
 @media screen and (max-width: 800px) {
   #logo {
