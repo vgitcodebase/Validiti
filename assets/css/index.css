@@ -21,7 +21,6 @@ body, html {
 }
 @media only screen and (min-width: 800px) {
   #logo {
-    visibility: visible;
     width: 200px;
     margin-top: 25px;
     position: absolute;
@@ -50,9 +49,8 @@ body, html {
 }
 @media screen and (max-width: 800px) {
   #logo2 {
-    visibility: visible;
-    width: 100px;
-    margin-top: 15px;
+    width: 50px;
+    margin-top: 5px;
     position: absolute;
     left :0;
   }
