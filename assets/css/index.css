@@ -56,7 +56,7 @@ body, html {
     width: 150px;
     margin-top: 15px;
     position: absolute;
-    left :0;
+    right :0;
   }
 }
 @media screen and (max-width: 800px) {
