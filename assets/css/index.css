@@ -26,6 +26,9 @@ body, html {
     position: absolute;
     right :0;
   }
+  #logo2 {
+    display: none;
+  }
 }
 .bgimg-1 {
   background-position: center;
@@ -45,10 +48,13 @@ body, html {
   
 }
 @media screen and (max-width: 800px) {
-  #logo {
+  #logo2 {
     width: 50px;
     margin-top: 5px;
     position: absolute;
     left :0;
+  }
+  #logo {
+    display: none;
   }
 }
