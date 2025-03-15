@@ -15,7 +15,7 @@ body, html {
 }
 @media only screen and (min-width: 768px) {
   #elipsis {
-    visibility: visible;
+    display: display;
   }
 }
 
@@ -38,7 +38,7 @@ body, html {
   
 }
 #elipsis {
-  visibility: hidden;
+  display: none;
 }
 #logo {
   width: 200px;
