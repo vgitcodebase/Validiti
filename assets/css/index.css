@@ -53,8 +53,8 @@ body, html {
 }
 @media screen and (max-width: 800px) {
   #logo2 {
-    width: 50px;
-    margin-top: 5px;
+    width: 100px;
+    margin-top: 15px;
     position: absolute;
     left :0;
   }
