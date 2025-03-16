@@ -61,11 +61,11 @@ background-size: auto;
     position: relative;
     bottom: 0px;
     width: 100%;
-    color: rgb(184, 50, 50);
+    color: rgb(255, 255, 255);
     text-align: left;
   }
   #title1 {
-    margin-top: -300px;
+    margin-top: -200px;
     margin-bottom: 8px;
     font-size: 80px;
   }
