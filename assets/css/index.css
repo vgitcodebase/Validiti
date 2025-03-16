@@ -20,6 +20,17 @@ body, html {
     width: 20vw;
     margin-top: 25px;
   }
+  #title1 {
+    font-size: 50px;
+  }
+  
+  #title2 {
+    font-size: 25px;
+  }
+  
+  #title3 {
+    font-size: 20px;
+  }
   
 }
 
@@ -31,4 +42,16 @@ body, html {
   width: 100%;
   color: white;
   text-align: left;
+}
+
+#title1 {
+  font-size: 150px;
+}
+
+#title2 {
+  font-size: 50px;
+}
+
+#title3 {
+  font-size: 25px;
 }
