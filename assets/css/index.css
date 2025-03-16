@@ -50,6 +50,7 @@ background-size: auto;
 
 @media screen and (max-width: 768px) {
   #logo {
+    float: right; 
     max-width: 100px;
     margin-top: 5px;
   }
@@ -73,6 +74,15 @@ background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
+  }
+  #header {
+  
+    margin-top: 20vh;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    text-align: left;
   }
   
 }
