@@ -15,8 +15,8 @@ body, html {
 
 @media screen and (max-width: 768px) {
   #logo {
-    width: 50%;
-    right: 25%;
+    width: 10%;
+    right: 25px;
   }
   
 }
