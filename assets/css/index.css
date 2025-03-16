@@ -17,7 +17,7 @@ body, html {
 
 @media screen and (max-width: 768px) {
   #logo {
-    width: 100px;
+    min-width: 100px;
     margin-top: 5px;
   }
   #title1 {
