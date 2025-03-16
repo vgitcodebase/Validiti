@@ -41,10 +41,17 @@ background-size: auto;
   margin-bottom: 32px;
   font-size: 25px;
 }
-
+#logo {
+  max-width: 500px;
+  margin-top: 5px;
+}
 
 
 @media screen and (max-width: 768px) {
+  #logo {
+    max-width: 50px;
+    margin-top: 5px;
+  }
   #title1 {
     margin-bottom: 16px;
     font-size: 80px;
