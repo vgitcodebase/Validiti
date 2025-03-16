@@ -19,12 +19,12 @@ body, html {
 }
 
 
-  #home {
-  background: url(/assets/img/main.jpg);
-  background-attachment: fixed;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: auto;
+#home {
+background: url(/assets/img/main.jpg);
+background-attachment: fixed;
+background-position: center top;
+background-repeat: no-repeat;
+background-size: auto;
 }
 
 #title1 {
@@ -45,10 +45,6 @@ body, html {
 
 
 @media screen and (max-width: 768px) {
-  #logo {
-    max-width: 50px;
-    margin-top: 5px;
-  }
   #title1 {
     margin-bottom: 16px;
     font-size: 80px;
