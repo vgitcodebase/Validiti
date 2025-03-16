@@ -65,6 +65,7 @@ background-size: auto;
     text-align: left;
   }
   #title1 {
+    margin-top: -300px;
     margin-bottom: 8px;
     font-size: 80px;
   }
