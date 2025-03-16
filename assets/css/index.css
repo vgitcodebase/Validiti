@@ -13,55 +13,10 @@ body, html {
     padding: 0;
   }
 }
-@media screen and (min-width: 600px) {
-  #elipsis {
-    display: none;
-  }
-  
-}
-@media screen and (min-width: 600px) {
-  #logo {
-    width: 200px;
-    margin-top: 25px;
-    position: absolute;
-    right :0;
-  }
-  
-}
-@media screen and (min-width: 600px) {
-  #logo2 {
-    display: none;
-  }
-  
-}
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("/assets/img/main.jpg");
-  height: 100vh;
-}
-.w3-bar .w3-button {
-  padding: 16px;
-  
-}
 
 @media screen and (max-width: 600px) {
-  #elipsis {
-    visibility: visible;
-  }
-  
-}
-@media screen and (max-width: 600px) {
-  #logo2 {
-    width: 150px;
-    margin-top: 15px;
-    position: absolute;
-    right :0;
-  }
-}
-@media screen and (max-width: 600px) {
   #logo {
-    display: none;
+    width: auto;
   }
   
 }
