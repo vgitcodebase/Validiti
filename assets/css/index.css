@@ -16,7 +16,7 @@ body, html {
 
 @media screen and (max-width: 600px) {
   #logo {
-    width: auto;
+    width: 50%;
   }
   
 }
