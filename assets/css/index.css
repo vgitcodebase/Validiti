@@ -28,14 +28,17 @@ body, html {
 }
 
 #title1 {
+  margin-bottom: 32px;
   font-size: 150px;
 }
 
 #title2 {
+  margin-bottom: 32px;
   font-size: 50px;
 }
 
 #title3 {
+  margin-bottom: 32px;
   font-size: 25px;
 }
 }
@@ -43,18 +46,21 @@ body, html {
 
 @media screen and (max-width: 768px) {
   #logo {
-    min-width: 100px;
+    min-width: 50px;
     margin-top: 5px;
   }
   #title1 {
+    margin-bottom: 16px;
     font-size: 50px;
   }
   
   #title2 {
+    margin-bottom: 16px;
     font-size: 20px;
   }
   
   #title3 {
+    margin-bottom: 16px;
     font-size: 10px;
   }
   #home {
