@@ -1,5 +1,6 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -10,13 +11,6 @@ body, html {
   background: url(/assets/img/main.jpg);
   background-repeat: no-repeat;
   background-size: auto;
-}
-@media screen and (max-width: 768px) {
-  body, html {
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-  }
 }
 
 @media screen and (max-width: 768px) {
