@@ -42,6 +42,7 @@ background-size: auto;
   font-size: 25px;
 }
 #logo {
+  float: right;
   max-width: 500px;
   margin-top: 5px;
 }
