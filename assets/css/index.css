@@ -13,12 +13,7 @@ body, html {
   background-size: auto;
 }
 
-@media screen and (max-width: 768px) {
-  #logo {
-    float: right;
-  }
-  
-}
+
 #header {
   margin-top: 40vh;
   position: relative;
