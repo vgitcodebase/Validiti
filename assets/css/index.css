@@ -15,10 +15,7 @@ body, html {
 
 @media screen and (max-width: 768px) {
   #logo {
-    position: relative; 
-    top: 25px; 
-    width: 10%;
-    right: 25px;
+    float: right;
   }
   
 }
