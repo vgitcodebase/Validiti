@@ -7,13 +7,39 @@ body, html {
   line-height: 1.8;
   background-color:rgb(216, 216, 216);
 }
-#home {
+
+#header {
+  
+  margin-top: 40vh;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  color: white;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  #home {
   background: url(/assets/img/main.jpg);
   background-attachment: fixed;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: auto;
 }
+
+#title1 {
+  font-size: 150px;
+}
+
+#title2 {
+  font-size: 50px;
+}
+
+#title3 {
+  font-size: 25px;
+}
+}
+
 
 @media screen and (max-width: 768px) {
   #logo {
@@ -39,26 +65,4 @@ body, html {
     background-size: auto;
   }
   
-}
-
-#header {
-  
-  margin-top: 40vh;
-  position: relative;
-  bottom: 0px;
-  width: 100%;
-  color: white;
-  text-align: left;
-}
-
-#title1 {
-  font-size: 150px;
-}
-
-#title2 {
-  font-size: 50px;
-}
-
-#title3 {
-  font-size: 25px;
 }
