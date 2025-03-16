@@ -22,7 +22,9 @@ body, html {
   }
   
 }
+
 #header {
+  
   margin-top: 40vh;
   position: relative;
   bottom: 0px;
