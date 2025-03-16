@@ -56,6 +56,14 @@ background-size: auto;
     max-width: 100px;
     margin-top: 5px;
   }
+  #header {
+    margin-top: 10vh;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    text-align: left;
+  }
   #title1 {
     margin-bottom: 8px;
     font-size: 80px;
@@ -77,13 +85,6 @@ background-size: auto;
     background-repeat: no-repeat;
     background-size: auto;
   }
-  #header {
-    margin-top: 10vh;
-    position: relative;
-    bottom: 0px;
-    width: 100%;
-    color: white;
-    text-align: left;
-  }
+  
   
 }
