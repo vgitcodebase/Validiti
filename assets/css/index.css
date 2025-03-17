@@ -17,9 +17,7 @@ color: white;
 text-align: left;
 }
 #home {
-background: url(/assets/img/main.jpg);
-background-position: center top;
-background-repeat: no-repeat;
+background: url(/assets/img/main.png);
 background-size: cover;
 }
 #title1 {
