@@ -20,7 +20,7 @@ text-align: left;
 background: url(/assets/img/main.jpg);
 background-position: center top;
 background-repeat: no-repeat;
-background-size: auto;
+background-size: cover;
 }
 #title1 {
   margin-bottom: 0vh;
