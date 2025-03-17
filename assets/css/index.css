@@ -18,7 +18,6 @@ text-align: left;
 }
 #home {
 background: url(/assets/img/main.jpg);
-background-attachment: fixed;
 background-position: center top;
 background-repeat: no-repeat;
 background-size: auto;
