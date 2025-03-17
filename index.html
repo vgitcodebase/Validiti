@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
+
 </style>
 </head>
 <body>
@@ -22,7 +22,6 @@ body {font-family: "Lato", sans-serif}
     <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
     <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
 
@@ -44,7 +43,7 @@ body {font-family: "Lato", sans-serif}
       <img src="assets/img/vlogo.ico" alt="" style="width: 15vw; margin-top: -3vh;">
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h1 style="font-size: 6vw;">Trinity</h1>
+      <h1 style="font-size: 12vw;">Trinity</h1>
       <p style="font-size: 2vw;">Data Management Solutions</p>  
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-large">
@@ -63,6 +62,7 @@ body {font-family: "Lato", sans-serif}
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
       <img src="/assets/img/vlogo.ico" alt="" style="width: 110px; margin-top: -50px">
       <i class="fa fa-database w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-justify w3-center">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
     </div>
     <div class="w3-third">
       <p class="w3-hide-small" style="font-size: 1.5vw; margin-bottom: 5vh">Lightweight</p>
@@ -70,6 +70,7 @@ body {font-family: "Lato", sans-serif}
       <i class="fa fa-hdd-o w3-jumbo w3-margin-bottom w3-center"></i>
       <img src="/assets/img/vlogo.ico" alt="" style="width: 110px; margin-top: -50px">
       <i class="fa fa-file-text-o w3-jumbo w3-margin-bottom  w3-center"></i>
+      <p class="w3-justify w3-center">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
     </div>
     <div class="w3-third">
       <p class="w3-hide-small" style="font-size: 1.5vw; margin-bottom: 5vh">Secure</p>
@@ -77,13 +78,12 @@ body {font-family: "Lato", sans-serif}
       <i class="fa fa-lock w3-jumbo w3-margin-bottom w3-center"></i>
       <img src="/assets/img/vlogo.ico" alt="" style="width: 110px; margin-top: -50px">
       <i class="fa fa-user-secret w3-jumbo w3-margin-bottom  w3-center"></i>
+      <p class="w3-justify w3-center">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
     </div>
   </div>
   <h2 class="w3-wide">THE BAND</h2>
   <p class="w3-opacity"><i>We love music</i></p>
-  <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
 </div>
 
 
@@ -96,46 +96,18 @@ body {font-family: "Lato", sans-serif}
   </div>
 </div>
 
-<!-- Image of location/map -->
-<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
-
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
   <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Validiti</a></p>
 </footer>
 
 <script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
   var x = document.getElementById("navDemo");
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
   } else { 
     x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
   }
 }
 </script>
