@@ -37,7 +37,7 @@ background-size: auto;
 }
 #logo {
   float: right;
-  max-width: 25vh;
+  max-height: 25vh;
   margin-top: 5px;
 }
 
