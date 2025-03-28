@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Trinity</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="assets/img/logo.png" rel="icon">
+<link href="assets/img/logo.png" rel="apple-touch-icon">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "baskerville";
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
+.bgimg2 {
+  min-height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.bgimg2 {background-image: url("assets/img/mainlogo.png");}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#fade {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+#light {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 600px;
+  max-height: 360px;
+  margin-left: -400px;
+  margin-top: -180px;
+  z-index: 1002;
+  overflow: visible;
+}
+
+#boxclose {
+  float: right;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 3px;
+  background: #222222;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 1002;
+  opacity: 0.9;
+}
+
+.boxclose:before {
+  content: "×";
+}
+
+#fade:hover ~ #boxclose {
+  display:none;
+}
+
+.test:hover ~ .test2 {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#featuresfull" class="w3-bar-item w3-button w3-padding-large w3-hide-small">FEATURES</a>
+    <a href="#whatfull" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
+    <a href="#aboutfull" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#featuresmobile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">FEATURES</a>
+  <a href="#whatmobile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
+  <a href="#aboutmobile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="min-width:100vw;margin-top:26px; max-height: 35vh">
+  <div class="w3-display-container w3-center">
+    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100%; max-height: 35vh">
+    <img class="w3-hide-large" src="assets/img/R.jpg" style="width:100%;">
+    <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
+      <img src="assets/img/logo.png" alt="" style="width: 10vw;opacity: 0.4;">
+    </div>
+    <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-large">
+      <img src="assets/img/logo.png" alt="" style="width: 90vw; margin-top: vh; opacity: 0.5;">
+    </div>
+    <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
+      <h1 class="w3-wide" style="font-size: 600%; font-family: 'baskerville'; margin-top: 10vh;">Trinity</h1>
+      <p style="font-size: 190%;">Data Management Solutions</p>  
+    </div>
+    <div class="w3-display-middle w3-container w3-text-white w3-hide-large">
+      <h1 style="font-size: 20vw;">Trinity</h1>
+      <p style="font-size: 6vw;">Data Management Solutions</p>   
+    </div>
+  </div>
+</div>
+
+<div id="light">
+  <video id="VisaChipCardVideo" width="800" controls>
+      <source src="assets/img/initial_processing.mp4" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="fade" onClick="lightbox_close();"></div>
+
+<!-- Project Section -->
+  <div class="w3-container w3-padding-32 w3-center" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Features</h3>
+  </div>
+
+  <div class="w3-row-padding w3-center" style="margin-bottom: 80px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Initial File Processing</div>
+        
+        <div>
+          <a href="#" onclick="lightbox_open();"><img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px"></a>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Compression Optimization</div>
+        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Encryption</div>
+        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Machine Learning</div>
+        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center" style="margin-bottom: 80px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Data Recovery</div>
+        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Index Optimization</div>
+        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Latency Reduction</div>
+        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Footprint</div>
+        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      </div>
+    </div>
+  </div>
+
+<!-- Philosophy and Next section -->
+<div class="w3-container w3-content w3-center" style="min-width:100vw">
+  
+  <p id="contact">_____</p>
+  <h2 class="w3-wide w3-center" style="margin-top: 5vh">CONTACT</h2>
+  <h4 class="w3-opacity w3-center"><i>The line starts here!</i></h4>
+  <h5 class="w3-center"><a href="mailto:contact@validiti.com" class="w3-center w3-button w3-grey w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Setup a private demonstration now!</a></h5><br>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-12 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <p class="w3-medium">Powered by <a href="index.html" target="_blank">Validiti</a></p>
+</footer>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+window.document.onkeydown = function(e) {
+  if (!e) {
+    e = event;
+  }
+  if (e.keyCode == 27) {
+    lightbox_close();
+  }
+}
+
+function lightbox_open() {
+  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+  window.scrollTo(0, 0);
+  document.getElementById('light').style.display = 'block';
+  document.getElementById('fade').style.display = 'block';
+  lightBoxVideo.play();
+}
+
+function lightbox_close() {
+  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+  document.getElementById('light').style.display = 'none';
+  document.getElementById('fade').style.display = 'none';
+  lightBoxVideo.pause();
+}
+</script>
+
+</body>
+</html>
