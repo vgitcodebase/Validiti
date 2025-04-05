@@ -48,7 +48,34 @@ body, h1, h2, h3, h4, h5, h6 {
   filter: alpha(opacity=80);
 }
 
+#efade {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
 #light {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 600px;
+  max-height: 360px;
+  margin-left: -400px;
+  margin-top: -180px;
+  z-index: 1002;
+  overflow: visible;
+}
+
+#encryption {
   display: none;
   position: absolute;
   top: 50%;
@@ -141,68 +168,61 @@ body, h1, h2, h3, h4, h5, h6 {
     </video>
 </div>
 <div id="fade" onClick="lightbox_close();"></div>
+<div id="encryption">
+  <video id="encrypt" width="800" controls>
+      <source src="assets/img/initial_processing.mp4" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="efade" onClick="elightbox_close();"></div>
 
 <!-- Project Section -->
-  <div class="w3-container w3-padding-32 w3-center" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Features</h3>
-  </div>
+<div class="w3-container w3-padding-32 w3-center" id="projects">
+  <h1 class="w3-padding-16">VIDEO DEMONSTRATION LIBRARY</h1>
+  <h2 class="w3-padding-16">Check out the features of Trinity below</h2>
+</div>
 
-  <div class="w3-row-padding w3-center" style="margin-bottom: 80px">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Initial File Processing</div>
-        
-        <div>
-          <a href="#" onclick="lightbox_open();"><img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px"></a>
-        </div>
+<div class="w3-row-padding w3-center" style="margin-bottom: 80px">
+  <div class="w3-col l6 m6 w3-margin-bottom">
+    <div class="w3-display-container">
+      <div>
+        <a href="#" onclick="lightbox_open();"><img src="assets/img/play.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
       </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Compression Optimization</div>
-        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Encryption</div>
-        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Machine Learning</div>
-        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">COMPRESSION
       </div>
     </div>
   </div>
+  <div class="w3-col l6 m6 w3-margin-bottom">
+    <div class="w3-display-container">
+      <div>
+        <a href="#" onclick="elightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+      </div>
+      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">ENCRYPTION
+      </div>
+    </div>
+  </div>
+</div>
 
-  <div class="w3-row-padding w3-center" style="margin-bottom: 80px">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Data Recovery</div>
-        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+<div class="w3-row-padding w3-center" style="margin-bottom: 80px">
+  <div class="w3-col l6 m6 w3-margin-bottom">
+    <div class="w3-display-container">
+      <div>
+        <a href="#" onclick="lightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
       </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Index Optimization</div>
-        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Latency Reduction</div>
-        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Footprint</div>
-        <img src="assets/img/hdlogo.png" alt="House" style="width:40%; margin-top: 40px">
+      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">INDEXABILITY
       </div>
     </div>
   </div>
+  <div class="w3-col l6 m6 w3-margin-bottom">
+    <div class="w3-display-container">
+      <div>
+        <a href="#" onclick="lightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+      </div>
+      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">ENCRYPTION
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Philosophy and Next section -->
 <div class="w3-container w3-content w3-center" style="min-width:100vw">
@@ -234,6 +254,30 @@ window.document.onkeydown = function(e) {
   if (e.keyCode == 27) {
     lightbox_close();
   }
+}
+
+window.document.onkeydown = function(e) {
+  if (!e) {
+    e = event;
+  }
+  if (e.keyCode == 27) {
+    elightbox_close();
+  }
+}
+
+function elightbox_open() {
+  var lightBoxVideo = document.getElementById("encrypt");
+  window.scrollTo(0, 0);
+  document.getElementById('encryption').style.display = 'block';
+  document.getElementById('efade').style.display = 'block';
+  lightBoxVideo.play();
+}
+
+function elightbox_close() {
+  var lightBoxVideo = document.getElementById("encrypt");
+  document.getElementById('encryption').style.display = 'none';
+  document.getElementById('efade').style.display = 'none';
+  lightBoxVideo.pause();
 }
 
 function lightbox_open() {
