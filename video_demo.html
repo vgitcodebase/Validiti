@@ -34,7 +34,9 @@ body, h1, h2, h3, h4, h5, h6 {
     -ms-user-select: none;
     user-select: none;
 }
-#fade {
+
+
+#compressfade, #encryptfade, #lightweightfade, #indexfade {
   display: none;
   position: fixed;
   top: 0%;
@@ -48,40 +50,20 @@ body, h1, h2, h3, h4, h5, h6 {
   filter: alpha(opacity=80);
 }
 
-#efade, #lightweightfade, #indexfade {
+#compresslight, #encryptlight, #lightweightlight, #indexlight {
   display: none;
   position: fixed;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 1001;
-  -moz-opacity: 0.8;
-  opacity: .80;
-  filter: alpha(opacity=80);
-}
-
-#light, #encryption, #lightweightlight, #indexlight {
-  display: none;
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1002;
-  overflow: visible;
-}
-
-#lightweightlight, #indexlight {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
   background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
+
+
 
 
 
@@ -122,34 +104,29 @@ body, h1, h2, h3, h4, h5, h6 {
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#featuresfull" class="w3-bar-item w3-button w3-padding-large w3-hide-small">FEATURES</a>
-    <a href="#whatfull" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT</a>
-    <a href="#aboutfull" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
   </div>
 </div>
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#featuresmobile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">FEATURES</a>
-  <a href="#whatmobile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ABOUT</a>
-  <a href="#aboutmobile" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
 </div>
 
-<!-- Page content -->
-<div class="w3-content" style="min-width:100vw;margin-top:26px; max-height: 85vh">
+<!-- top image -->
+<div class="w3-content" style="min-width:100vw;margin-top:46px">
   <div class="w3-display-container w3-center">
-    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100%; max-height: 80vh">
+    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100%; max-height: 75vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <img class="w3-hide-large" src="assets/img/R.jpg" style="width:100%;">
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
-      <img src="assets/img/logo.png" alt="" style="width: 10vw;opacity: 0.4;">
+      <img src="assets/img/logo.png" alt="" style="width: 30vw;opacity: 0.4;">
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-large">
       <img src="assets/img/logo.png" alt="" style="width: 90vw; margin-top: vh; opacity: 0.5;">
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
-      <h1 class="w3-wide" style="font-size: 600%; font-family: 'baskerville'; margin-top: 10vh;">Trinity</h1>
-      <p style="font-size: 190%;">Data Management Solutions</p>  
+      <h1 class="w3-wide" style="font-size: 10vw; font-family: 'baskerville'; margin-top: 10vh;">Trinity</h1>
+      <p style="font-size: 2vw;">Data Management Solutions</p>  
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-hide-large">
       <h1 style="font-size: 20vw;">Trinity</h1>
@@ -158,48 +135,23 @@ body, h1, h2, h3, h4, h5, h6 {
   </div>
 </div>
 
-<div id="light">
-  <video id="VisaChipCardVideo"  controls>
-      <source src="assets/img/initial_processing.mp4" type="video/mp4">
-      <!--Browser does not support <video> tag -->
-    </video>
-</div>
-<div id="fade" onClick="lightbox_close();"></div>
-<div id="encryption">
-  <video id="encrypt" controls>
-      <source src="assets/img/initial_processing.mp4" type="video/mp4">
-      <!--Browser does not support <video> tag -->
-    </video>
-</div>
-<div id="efade" onClick="elightbox_close();"></div>
 
-<div tabIndex="1" id="lightweightlight">
-  <video id="lightweightvideo" controls>
-      <source src="assets/img/initial_processing.mp4" type="video/mp4">
-      <!--Browser does not support <video> tag -->
-    </video>
-</div>
-<div id="lightweightfade" onClick="llightbox_close();"></div>
 
-<div tabIndex="1" id="indexlight">
-  <video id="indexvideo" controls>
-      <source src="assets/img/initial_processing.mp4" type="video/mp4">
-      <!--Browser does not support <video> tag -->
-    </video>
-</div>
-<div id="indexfade" onClick="ilightbox_close();"></div>
 
 <!-- Project Section -->
 <div class="w3-container w3-padding-32 w3-center" id="projects">
   <h1 class="w3-padding-16">VIDEO DEMONSTRATION LIBRARY</h1>
   <h2 class="w3-padding-16">Check out the features of Trinity below</h2>
 </div>
-
+<a id="ilight"></a>
+<a id="clight"></a>
+<a id="elight"></a>
+<a id="llight"></a>
 <div class="w3-row-padding w3-center" style="margin-bottom: 80px">
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="javascript:;" onclick="lightbox_open();"><img src="assets/img/play.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="#clight" onclick="clightbox_open();"><img src="assets/img/play.png" style="width:40%; margin-bottom: 50px"></a>
       </div>
       <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">COMPRESSION
       </div>
@@ -208,7 +160,7 @@ body, h1, h2, h3, h4, h5, h6 {
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="javascript:;" onclick="elightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="#elight" onclick="elightbox_open();"><img src="assets/img/soon.png" style="width:40%; margin-bottom: 50px"></a>
       </div>
       <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">ENCRYPTION
       </div>
@@ -221,9 +173,9 @@ body, h1, h2, h3, h4, h5, h6 {
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="#indexlight" onclick="ilightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="#ilight" onclick="ilightbox_open();"><img src="assets/img/soon.png" style="width:40%; margin-bottom: 50px"></a>
       </div>
-      <div id="indexlight" class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">INDEXABILITY
+      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">INDEXABILITY
       </div>
     </div>
   </div>
@@ -231,9 +183,9 @@ body, h1, h2, h3, h4, h5, h6 {
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="#llight" onclick="llightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="#llight" onclick="llightbox_open();"><img src="assets/img/soon.png" style="width:40%; margin-bottom: 50px"></a>
       </div>
-      <div id="llight" class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">LIGHTWEIGHT
+      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">LIGHTWEIGHT
       </div>
     </div>
   </div>
@@ -254,6 +206,42 @@ body, h1, h2, h3, h4, h5, h6 {
   <p class="w3-medium">Powered by <a href="index.html" target="_blank">Validiti</a></p>
 </footer>
 
+<div id="compresslight">
+  <video id="compressvideo"  controls>
+      <source src="assets/img/initial_processing.mp4" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="compressfade" onClick="clightbox_close();"></div>
+
+
+<div id="encryptlight">
+  <video id="encryptvideo" controls>
+      <source src="" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="encryptfade" onClick="elightbox_close();"></div>
+
+
+<div id="lightweightlight">
+  <video id="lightweightvideo" controls>
+      <source src="" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="lightweightfade" onClick="llightbox_close();"></div>
+
+<div id="indexlight">
+  <video id="indexvideo" controls>
+      <source src="" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="indexfade" onClick="ilightbox_close();"></div>
+
+
+
 <script>
 function myFunction() {
   var x = document.getElementById("navDemo");
@@ -268,7 +256,7 @@ window.document.onkeydown = function(e) {
     e = event;
   }
   if (e.keyCode == 27) {
-    lightbox_close();
+    clightbox_close();
   }
 }
 
@@ -300,32 +288,32 @@ window.document.onkeydown = function(e) {
 }
 
 function elightbox_open() {
-  var lightBoxVideo = document.getElementById("encrypt");
+  var lightBoxVideo = document.getElementById("encryptvideo");
   window.scrollTo(0, 0);
-  document.getElementById('encryption').style.display = 'block';
-  document.getElementById('efade').style.display = 'block';
+  document.getElementById('encryptlight').style.display = 'block';
+  document.getElementById('encryptfade').style.display = 'block';
   lightBoxVideo.play();
 }
 
 function elightbox_close() {
-  var lightBoxVideo = document.getElementById("encrypt");
-  document.getElementById('encryption').style.display = 'none';
-  document.getElementById('efade').style.display = 'none';
+  var lightBoxVideo = document.getElementById("encryptvideo");
+  document.getElementById('encryptlight').style.display = 'none';
+  document.getElementById('encryptfade').style.display = 'none';
   lightBoxVideo.pause();
 }
 
-function lightbox_open() {
-  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+function clightbox_open() {
+  var lightBoxVideo = document.getElementById("compressvideo");
   window.scrollTo(0, 0);
-  document.getElementById('light').style.display = 'block';
-  document.getElementById('fade').style.display = 'block';
+  document.getElementById('compresslight').style.display = 'block';
+  document.getElementById('compressfade').style.display = 'block';
   lightBoxVideo.play();
 }
 
-function lightbox_close() {
-  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-  document.getElementById('light').style.display = 'none';
-  document.getElementById('fade').style.display = 'none';
+function clightbox_close() {
+  var lightBoxVideo = document.getElementById("compressvideo");
+  document.getElementById('compresslight').style.display = 'none';
+  document.getElementById('compressfade').style.display = 'none';
   lightBoxVideo.pause();
 }
 
