@@ -48,7 +48,7 @@ body, h1, h2, h3, h4, h5, h6 {
   filter: alpha(opacity=80);
 }
 
-#efade {
+#efade, #lightweightfade, #indexfade {
   display: none;
   position: fixed;
   top: 0%;
@@ -62,31 +62,28 @@ body, h1, h2, h3, h4, h5, h6 {
   filter: alpha(opacity=80);
 }
 
-#light {
+#light, #encryption, #lightweightlight, #indexlight {
   display: none;
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 600px;
-  max-height: 360px;
-  margin-left: -400px;
-  margin-top: -180px;
+  transform: translate(-50%, -50%);
   z-index: 1002;
   overflow: visible;
 }
 
-#encryption {
+#lightweightlight, #indexlight {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  max-width: 600px;
-  max-height: 360px;
-  margin-left: -400px;
-  margin-top: -180px;
-  z-index: 1002;
-  overflow: visible;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
+
+
 
 #boxclose {
   float: right;
@@ -140,9 +137,9 @@ body, h1, h2, h3, h4, h5, h6 {
 </div>
 
 <!-- Page content -->
-<div class="w3-content" style="min-width:100vw;margin-top:26px; max-height: 35vh">
+<div class="w3-content" style="min-width:100vw;margin-top:26px; max-height: 85vh">
   <div class="w3-display-container w3-center">
-    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100%; max-height: 35vh">
+    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100%; max-height: 80vh">
     <img class="w3-hide-large" src="assets/img/R.jpg" style="width:100%;">
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
       <img src="assets/img/logo.png" alt="" style="width: 10vw;opacity: 0.4;">
@@ -162,19 +159,35 @@ body, h1, h2, h3, h4, h5, h6 {
 </div>
 
 <div id="light">
-  <video id="VisaChipCardVideo" width="800" controls>
+  <video id="VisaChipCardVideo"  controls>
       <source src="assets/img/initial_processing.mp4" type="video/mp4">
       <!--Browser does not support <video> tag -->
     </video>
 </div>
 <div id="fade" onClick="lightbox_close();"></div>
 <div id="encryption">
-  <video id="encrypt" width="800" controls>
+  <video id="encrypt" controls>
       <source src="assets/img/initial_processing.mp4" type="video/mp4">
       <!--Browser does not support <video> tag -->
     </video>
 </div>
 <div id="efade" onClick="elightbox_close();"></div>
+
+<div tabIndex="1" id="lightweightlight">
+  <video id="lightweightvideo" controls>
+      <source src="assets/img/initial_processing.mp4" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="lightweightfade" onClick="llightbox_close();"></div>
+
+<div tabIndex="1" id="indexlight">
+  <video id="indexvideo" controls>
+      <source src="assets/img/initial_processing.mp4" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+<div id="indexfade" onClick="ilightbox_close();"></div>
 
 <!-- Project Section -->
 <div class="w3-container w3-padding-32 w3-center" id="projects">
@@ -186,7 +199,7 @@ body, h1, h2, h3, h4, h5, h6 {
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="#" onclick="lightbox_open();"><img src="assets/img/play.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="javascript:;" onclick="lightbox_open();"><img src="assets/img/play.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
       </div>
       <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">COMPRESSION
       </div>
@@ -195,7 +208,7 @@ body, h1, h2, h3, h4, h5, h6 {
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="#" onclick="elightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="javascript:;" onclick="elightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
       </div>
       <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">ENCRYPTION
       </div>
@@ -204,24 +217,27 @@ body, h1, h2, h3, h4, h5, h6 {
 </div>
 
 <div class="w3-row-padding w3-center" style="margin-bottom: 80px">
+
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="#" onclick="lightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="#indexlight" onclick="ilightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
       </div>
-      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">INDEXABILITY
+      <div id="indexlight" class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">INDEXABILITY
       </div>
     </div>
   </div>
+
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
       <div>
-        <a href="#" onclick="lightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
+        <a href="#llight" onclick="llightbox_open();"><img src="assets/img/soon.png" alt="House" style="width:40%; margin-bottom: 50px"></a>
       </div>
-      <div class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">ENCRYPTION
+      <div id="llight" class="w3-display-bottommiddle w3-padding w3-text-white w3-xlarge" style="background-color:rgb(109, 108, 108); border-radius: 10px">LIGHTWEIGHT
       </div>
     </div>
   </div>
+
 </div>
 
 <!-- Philosophy and Next section -->
@@ -265,6 +281,24 @@ window.document.onkeydown = function(e) {
   }
 }
 
+window.document.onkeydown = function(e) {
+  if (!e) {
+    e = event;
+  }
+  if (e.keyCode == 27) {
+    llightbox_close();
+  }
+}
+
+window.document.onkeydown = function(e) {
+  if (!e) {
+    e = event;
+  }
+  if (e.keyCode == 27) {
+    ilightbox_close();
+  }
+}
+
 function elightbox_open() {
   var lightBoxVideo = document.getElementById("encrypt");
   window.scrollTo(0, 0);
@@ -292,6 +326,36 @@ function lightbox_close() {
   var lightBoxVideo = document.getElementById("VisaChipCardVideo");
   document.getElementById('light').style.display = 'none';
   document.getElementById('fade').style.display = 'none';
+  lightBoxVideo.pause();
+}
+
+function llightbox_open() {
+  var lightBoxVideo = document.getElementById("lightweightvideo");
+  window.scrollTo(0, 0);
+  document.getElementById('lightweightlight').style.display = 'block';
+  document.getElementById('lightweightfade').style.display = 'block';
+  lightBoxVideo.play();
+}
+
+function llightbox_close() {
+  var lightBoxVideo = document.getElementById("lightweightvideo");
+  document.getElementById('lightweightlight').style.display = 'none';
+  document.getElementById('lightweightfade').style.display = 'none';
+  lightBoxVideo.pause();
+}
+
+function ilightbox_open() {
+  var lightBoxVideo = document.getElementById("indexvideo");
+  window.scrollTo(0, 0);
+  document.getElementById('indexlight').style.display = 'block';
+  document.getElementById('indexfade').style.display = 'block';
+  lightBoxVideo.play();
+}
+
+function ilightbox_close() {
+  var lightBoxVideo = document.getElementById("indexvideo");
+  document.getElementById('indexlight').style.display = 'none';
+  document.getElementById('indexfade').style.display = 'none';
   lightBoxVideo.pause();
 }
 </script>
