@@ -53,8 +53,6 @@ body, h1, h2, h3, h4, h5, h6 {
 #compresslight, #encryptlight, #lightweightlight, #indexlight {
   display: none;
   position: fixed;
-  max-width: 64vw;
-  max-height: 48vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -208,7 +206,7 @@ body, h1, h2, h3, h4, h5, h6 {
 </footer>
 
 <div id="compresslight">
-  <video id="compressvideo"  controls>
+  <video id="compressvideo" style="width: 80vw; height: auto" controls>
       <source src="assets/img/initial_processing.mp4" type="video/mp4">
       <!--Browser does not support <video> tag -->
     </video>
