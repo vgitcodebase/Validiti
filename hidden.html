@@ -9,226 +9,132 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <style>
-html {
-  scrollbar-gutter: stable;
-}
-body, h1, h2, h3, h4, h5, h6 {
-  overflow-x: hidden;
-  font-family: "baskerville";
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  }
-.bgimg2 {
-  opacity: 0.85;
-  min-height: 100%;
-  background-attachment: relative;
-  background-position: center;
-  background-size: cover;
-}
-.bgimg2 {background-image: url("assets/img/mainlogo.png");}
-.unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-
-.hero-container {
+.w3-modal-content {
   margin: auto;
-  display: flex;
-}
-
-.main-container {
-  width: 270px;
-  height: 540px;
-  position: relative;
-  margin: 0 20px;
-}
-
-.poster-container {
-  width: 230px;
+  max-width: 600px;
+  width: 90%;
   position: absolute;
-  top: 0;
-  left: 20px;
-  z-index: 9999;
-}
-
-.poster {
-  width: 100%;
-  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-}
-
-.ticket-container {
-  background: #fff;
-  width: 270px;
-  height: 520px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  position: absolute;
-  top: 20px;
-  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-  opacity: 0;
-}
-
-.main-container:hover .ticket-container {
-  opacity: 1;
-  animation: bounceIn 0.6s linear;
-}
-
-@keyframes bounceIn {
-  0%,
-  20%,
-  40%,
-  60%,
-  80%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  0% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-  20% {
-    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-    transform: scale3d(1.03, 1.03, 1.03);
-  }
-  40% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.01, 1.01, 1.01);
-    transform: scale3d(1.01, 1.01, 1.01);
-  }
-  80% {
-    -webkit-transform: scale3d(0.97, 0.97, 0.97);
-    transform: scale3d(0.97, 0.97, 0.97);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
-}
-
-/* @keyframes bounce {
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-} */
-
-.ticket__content {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.ticket__movie-title {
-  text-transform: uppercase;
-  margin-bottom: 5px;
+.w3-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
 }
 
-.ticket__movie-slogan {
-  color: #999;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
+.w3-animate-opacity {
+  animation: opac 0.8s
 }
 
-.ticket__current-price {
-  color: #69c982;
-  font-size: 1.4rem;
-  font-weight: bold;
+.w3-modal-content .w3-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
 }
 
-.ticket__old-price {
-  color: #999;
-  text-decoration: line-through;
-  margin-bottom: 10px;
+.w3-modal-content .w3-btn:hover .w3-btn-text {
+  display: none; /* Hide the original text */
 }
 
-.ticket__buy-btn {
-  cursor: pointer;
-  width: 100%;
-  background: #2f2f2f;
-  color: white;
-  padding: 15px 0;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: 0;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+.w3-modal-content .w3-btn:hover .w3-btn-hover-text {
+  display: block; /* Show the new text */
 }
 
+.w3-modal-content .w3-btn:hover .w3-btn-img {
+  opacity: 0.5; /* Fade out the image */
+}
+.w3-third:hover .w3-card {
+    background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
+  }
 
+  .w3-third:hover .w3-card img {
+    opacity: 0.5; /* Fade out the image */
+  }
 
+  .w3-third:hover .w3-card div > span {
+    visibility: hidden;
+  }
 
+  .w3-third:nth-child(1):hover .w3-card div:after {
+    content: "New text 1"; /* Change the text content for the first element */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Change the text color to white */
+    font-size: 24px; /* You can also change the font size if you want */
+    z-index: 1; /* Ensure the text is on top of the image */
+  }
 
+  .w3-third:nth-child(2):hover .w3-card div:after {
+    content: "New text 2"; /* Change the text content for the second element */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Change the text color to white */
+    font-size: 24px; /* You can also change the font size if you want */
+    z-index: 1; /* Ensure the text is on top of the image */
+  }
+
+  .w3-third:nth-child(3):hover .w3-card div:after {
+    content: "New text 3"; /* Change the text content for the third element */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Change the text color to white */
+    font-size: 24px; /* You can also change the font size if you want */
+    z-index: 1; /* Ensure the text is on top of the image */
+  }
+.w3-third:nth-child
+@keyframes opac {
+  from {opacity:0} 
+  to {opacity:1}
+}
 
 
 </style>
-</head>
 <body>
 
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#features" class="w3-bar-item w3-button w3-padding-large w3-hide-small">FEATURES</a>
-    <a href="#implementation" class="w3-bar-item w3-button w3-padding-large w3-hide-small">IMPLEMENTATION</a>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
   </div>
 </div>
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#features" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">FEATURES</a>
-  <a href="#implementation" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">IMPLEMENTATION</a>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
 </div>
 
 <!-- top image -->
 <div class="w3-content" style="min-width:100vw;margin-top:46px">
   <div class="w3-display-container w3-center">
-    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100%; max-height: 85vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-    <img class="w3-hide-large" src="assets/img/R.jpg" style="width:100%;">
+    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100vw; max-height: 75vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <img class="w3-hide-large" src="assets/img/R.jpg" style="width:100vw;">
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
-      <img src="assets/img/logo.png" alt="" style="width: 40vw;opacity: 0.4;">
+      <img src="assets/img/logo.png" alt="" style="width: 30vw;opacity: 0.4;">
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-large">
       <img src="assets/img/logo.png" alt="" style="width: 90vw; margin-top: vh; opacity: 0.5;">
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
-      <h1 class="w3-wide" style="font-size: 12vw; font-family: 'baskerville'; margin-top: 10vh;">Trinity</h1>
+      <h1 class="w3-wide" style="font-size: 10vw; font-family: 'baskerville'; margin-top: 10vh;">Trinity</h1>
       <p style="font-size: 2vw;">Data Management Solutions</p>  
     </div>
     <div class="w3-display-middle w3-container w3-text-white w3-hide-large">
@@ -237,322 +143,102 @@ body, h1, h2, h3, h4, h5, h6 {
     </div>
   </div>
 </div>
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <div class="w3-center">
+  <h4>EMBARRASSING MYSELF INTO WEALTH</h4>
+  <h1 class="w3-xxxlarge w3-animate-bottom">Whats happening mofos</h1>
+    <div class="w3-padding-32">
+      <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" href="https://x.com/RealValiditi" style="font-weight:900;">See the cringe</button>
+    </div>
+  </div>
+</header>
 
-
-
-
-
-  <div class="hero-container">
-    <div class="main-container">
-      <div class="poster-container">
-        <a href="#"><img src="https://i.ibb.co/ThPNnzM/blade-runner.jpg" class="poster" /></a>
+<!-- Modal -->
+<div id="id01" class="w3-modal" style="display:none;">
+    <div class="w3-modal-content w3-card-4 w3-animate-opacity" style="max-width:600px;margin: auto;">
+      <header class="w3-container w3-theme-l1"> 
+        <h4>Oh snap! We just showed you a modal..</h4>
+        <h5>Because we can <i class="fa fa-smile-o"></i></h5>
+      </header>
+      <div class="w3-padding">
+        <p>Cool huh? Ok, enough teasing around..</p>
+        <p>Go to our <a class="w3-btn" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
       </div>
-      <div class="ticket-container">
-        <div class="ticket__content">
-          <h4 class="ticket__movie-title">Blade Runner 2049</h4>
-          <p class="ticket__movie-slogan">
-            More human than human is our motto.
-          </p>
-          <p class="ticket__current-price">$28.00</p>
-          <p class="ticket__old-price">$44.99</p>
-          <button class="ticket__buy-btn">Buy now</button>
-        </div>
-      </div>
+      <footer class="w3-container w3-theme-l1">
+        <p>Modal footer</p>
+      </footer>
     </div>
+</div>
 
-    <div class="main-container">
-      <div class="poster-container">
-        <a href="#"><img src="https://i.ibb.co/Zd51z5c/justice-league.jpg" class="poster" /></a>
-      </div>
-      <div class="ticket-container">
-        <div class="ticket__content">
-          <h4 class="ticket__movie-title">Justice League</h4>
-          <p class="ticket__movie-slogan">You can't save the world alone.</p>
-          <p class="ticket__current-price">$20.75</p>
-          <p class="ticket__old-price">$40.99</p>
-          <button class="ticket__buy-btn">Buy now</button>
-        </div>
+<div class="w3-container w3-row-padding w3-center w3-margin-top">
+  <div class="w3-third" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">
+    <div class="w3-card w3-container" style="max-height:460px; position: relative;">
+  <img src="assets/img/logo.png" alt="" style="object-fit: cover; height: 460px; position: relative;">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px;">
+    <span>Text 1</span>
+  </div>
+</div>
+  </div>
+
+  <div class="w3-third" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">
+    <div class="w3-card w3-container" style="max-height:460px; position: relative;">
+      <img src="assets/img/logo.png" alt="" style="object-fit: cover; height: 460px; position: relative;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px;">
+        <span>Text 1</span>
       </div>
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Top Categories Full Screen -->
-<div id="whatfull" class="w3-hide-small w3-hide-medium w3-container w3-content w3-center w3-padding-32" style="min-width:100vw; margin-bottom: 5vh">
-  <h2 class="w3-wide w3-center" style="margin-bottom: 3vh; font-size: 2vw">WHAT IS TRINITY?</h2>
-  <h3 class="w3-justify w3-center" style="font-size: 1.5vw; margin-left: 10vw; margin-right: 10vw; margin-bottom: 5vh">Trinity exists as a secondary read and write system that processes data more efficiently, without interfering with your current workflow. It is a singular operation that produces incredible benefits.</h3>
-  <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-  <img src="/assets/img/logo.png" alt="" style="width: 10%; margin-top: -50px; margin-left: 20px; margin-right: 20px">
-  <i class="fa fa-database w3-margin-bottom w3-jumbo"></i>
-</div>
-<div id="features" class="w3-container w3-content w3-center" style="min-width:100vw; margin-bottom: 5vh"></div>
-
-<!-- Top Categories mobile Screen -->
-<div id="whatfull" class="w3-hide-large w3-container w3-content w3-center w3-padding-32" style="min-width:100vw; margin-bottom: 5vh">
-  <h2 class="w3-wide w3-center" style="margin-bottom: 3vh; font-size: 250%">WHAT IS TRINITY?</h2>
-  <h3 class="w3-justify w3-center" style="font-size: 200%; margin-left: 10vw; margin-right: 10vw; margin-bottom: 5vh">Trinity exists as a secondary read and write system that processes data more efficiently, without interfering with your current workflow. It is a singular operation that produces incredible benefits.</h3>
-  <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-  <img src="/assets/img/logo.png" alt="" style="width: 30%; margin-top: -50px; margin-left: 20px; margin-right: 20px">
-  <i class="fa fa-database w3-margin-bottom w3-jumbo" id="featuresmobile"></i>
-</div>
-
-<!-- Features fullscreen banner -->
-<div class="w3-hide-small w3-hide-medium w3-container w3-content w3-center bgimg2" style="min-width: 100vw; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-    <h1 class="w3-jumbo w3-text-white w3-wide">Features & Benefits</h1>
-  </div>
-</div>
-
-<!-- Features mobile banner -->
-<div class="w3-hide-large w3-container w3-content w3-center bgimg2" style="width: 90vw; border-radius: 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-  <div class=" w3-center">
-    <h1 class="w3-text-white w3-wide" style="font-size: 10vw">Features</h1>
-  </div>
-</div>
-
-
-
-
-
-<!-- About Section -->
-<div class="w3-row w3-padding-64" id="about">
-  <div class="w3-col m6 w3-padding-large w3-hide-small">
-    <img src="/assets/img/computer.jpg" class="w3-round w3-image" alt="Table Setting" style="width: 50vw">
-  </div>
-
-  <div class="w3-col m6 w3-padding-large">
-    <h1 class="w3-center">About Catering</h1><br>
-    <h5 class="w3-center">Tradition since 1889</h5>
-    <p class="w3-large">The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey">seasonal</span> ingredients.</p>
-    <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
-</div>
-
-<!-- Menu Section -->
-  <div class="w3-row w3-padding-64" id="menu">
-    <div class="w3-col l6 w3-padding-large">
-      <h1 class="w3-center">FEATURES</h1><br>
-      <h4 class="w3-center">COMPRESSION</h4>
-      <p class="w3-text-grey w3-center">Trinity losslessly reduces contextual files by 15% or 30%, resulting in a 24% or 39% increase in usable storage space.</p><br>
-    
-      <h4 class="w3-center">INDEXABILITY</h4>
-      <p class="w3-text-grey w3-center">Trinity files are always indexable and computational, offering access to a unified, non-categorical search feature.</p><br>
-    
-      <h4 class="w3-center">PROTECTION</h4>
-      <p class="w3-text-grey w3-center">Trinity manages data based upon its unique characteristics, rendering it non-normalized. Each file must be targeted for breach, rather than an intruder simply breaking into the user's system.</p><br>
-    
-      <h4 class="w3-center">INTUITIVE</h4>
-      <p class="w3-text-grey w3-center">Trinity also uses machine learning to constantly manage your data's storage locations. Thus, it further reduces latency during indexing operations and lowers costs associated with computational load.</p><br>
+  <div class="w3-third" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">
+    <div class="w3-card w3-container" style="max-height:460px; position: relative;">
+      <img src="assets/img/logo.png" alt="" style="object-fit: cover; height: 460px; position: relative;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px;">
+        <span>Text 1</span>
+      </div>
     </div>
-    <div class="w3-col l6 w3-padding-large">
-      <img src="/assets/img/interaction.jpg" class="w3-round w3-image" alt="Menu" style="width: 50vw">
-    </div>
-  </div>
-
-
-
-
-
-<!-- Features fullscreen first section -->
-<div class="w3-hide-small w3-hide-medium w3-container w3-content w3-center" style="min-width:100%">
-  <div class="w3-row">
-    <div class="w3-half">
-      <h1 class="w3-wide w3-center" style="font-size: 300%; margin-bottom: 2vh">Compression</h1>
-      <h3 class="w3-justify w3-center" style="">Trinity losslessly reduces contextual files by 15% or 30%, resulting in a 24% or 39% increase in usable storage space.</h3>
-    </div>
-    <div class="w3-half" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-      <img src="/assets/img/flexable.jpg" alt="" style="width: 100%" >
-    </div>
-  </div>
-</div>
-
-<!-- Features fullscreen first section -->
-<div class="w3-hide-small w3-hide-medium w3-container w3-content w3-center" style="min-width: 100%">
-  <div class="w3-row">
-    <div class="w3-half" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-      <img src="/assets/img/flexable.jpg" alt="" style="width: 100%" >
-    </div>
-    <div class="w3-half">
-      <h1 class="w3-wide w3-center" style="font-size: 300%; margin-bottom: 2vh">Indexability</h1>
-      <h3 class="w3-justify w3-center" style="margin-bottom: 5vh">Trinity files are always indexable and computational, offering access to a unified, non-categorical search feature.</h3>
-    </div>
-  </div>
-</div>
-
-<!-- Features fullscreen second section -->
-<div class="w3-hide-small w3-hide-medium w3-container w3-content w3-center w3-padding-32" style="min-width:100vw">
-  <div class="w3-row">
-    <div class="w3-half">
-      <h1 class="w3-wide" style="font-size: 300%">Protection</h1>
-      <i class="fa fa-lock w3-jumbo w3-margin-bottom w3-center"></i>
-      <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 2vw; margin-right: 2vw">Trinity manages data based upon its unique characteristics, rendering it non-normalized. Each file must be targeted for breach, rather than an intruder simply breaking into the user's system.</h3>
-    </div>
-    <div class="w3-half">
-      <img src="/assets/img/security.jpg" alt="" style="width: 60%; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-    </div>
-  </div>
-</div>
-
-<!-- Features fullscreen second section -->
-<div class="w3-hide-small w3-hide-medium w3-container w3-content w3-center w3-padding-32" style="min-width:100vw">
-  <div class="w3-row">
-    <div class="w3-half">
-      <img src="/assets/img/interaction.jpg" alt="" style="width: 60%; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-    </div>
-    <div class="w3-half">
-      <h1 class="w3-wide" style="font-size: 300%; margin-bottom: 2vh">Intuitive</h1>
-      <i class='fa fa-gears w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-left: 2vw; margin-right: 2vw; margin-bottom: 5vh">Trinity also uses machine learning to constantly manage your data's storage locations. Thus, it further reduces latency during indexing operations and lowers costs associated with computational load.</h3>
-    </div>
-  </div>
-</div>
-
-<!-- Features mobile first section -->
-<div class="w3-hide-large w3-container w3-content w3-center w3-padding-32" style="min-width:100vw">
-  <div class="w3-row">
-  <div class="w3-half">
-      <h1 class="w3-wide w3-center" style="font-size: 300%; margin-bottom: 2vh">Compression</h1>
-      <i class='fa fa-compress w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-left: 2vw; margin-right: 2vw">Trinity losslessly reduces contextual files by 15% or 30%, resulting in a 24% or 39% increase in usable storage space.</h3>
-    </div>
-    <div class="w3-half">
-      <h1 class="w3-wide" style="font-size: 300%">Indexability</h1>
-      <i class='fa fa-search w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-left: 2vw; margin-right: 2vw; margin-bottom: 5vh">Trinity files are always indexable and computational, offering access to a unified, non-categorical search feature.</h3>
-    </div>
-  </div>
-</div>
-
-<!-- Features mobile second section -->
-<div class="w3-hide-large w3-container w3-content w3-center w3-padding-32" style="min-width:100vw">
-  <div class="w3-row">
-    <div class="w3-half">
-      <h1 class="w3-wide" style="font-size: 300%">Protection</h1>
-      <i class="fa fa-lock w3-jumbo w3-margin-bottom w3-center"></i>
-      <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 2vw; margin-right: 2vw">Trinity manages data based upon its unique characteristics, rendering it non-normalized. Each file must be targeted for breach, rather than an intruder simply breaking into the user's system.</h3>
-    </div>
-    <div class="w3-half">
-      <h1 class="w3-wide" style="font-size: 300%; margin-bottom: 2vh">Intuitive</h1>
-      <i class='fa fa-gears w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-left: 2vw; margin-right: 2vw; margin-bottom: 5vh">Trinity also uses machine learning to constantly manage your data's storage locations. Thus, it further reduces latency during indexing operations and lowers costs associated with computational load.</h3>
-    </div>
-  </div>
-</div>
-<div id="implementation" class="w3-container w3-content w3-center" style="min-width:100vw; margin-bottom: 5vh"></div>
-
-<!-- Features fullscreen banner -->
-<div id="featuresfull" class="w3-hide-small w3-hide-medium w3-container w3-content w3-center bgimg2" style="min-width: 90vw; border-radius: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-  <div class=" w3-center">
-    <h1 class="w3-jumbo w3-text-white w3-wide">Implementation</h1>
-  </div>
-</div>
-
-<!-- Features mobile banner -->
-<div id="featuresmobile" class="w3-hide-large w3-container w3-content w3-center bgimg2" style="width: 90vw; border-radius: 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-  <div class=" w3-center">
-    <h1 class="w3-text-white w3-wide" style="font-size: 10vw">Imlementation</h1>
-  </div>
-</div>
-
-<!-- Features fullscreen adoptive section -->
-<div class="w3-hide-small w3-container w3-content w3-center w3-padding-32" style="min-width:100vw">
-  <div class="w3-row">
-  <div class="w3-third">
-      <h1 class="w3-wide" style="font-size: 300%">Lightweight</h1>
-      <i class='fa fa-microchip w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 2vw; margin-right: 2vw">Trinity utilizes legacy hardware with a minimal physical footprint, similar to firewall products. Trinity hardware is a passthrough system and lacks memory to store data once processed.</h3>
-    </div>
-    <div class="w3-third">
-      <h1 class="w3-wide" style="font-size: 300%">Flexable</h1>
-      <i class='fa fa-gears w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-left: 2vw; margin-right: 2vw; margin-bottom: 5vh">Build new systems or adjust your equipment leases with ease. </h3>
-    </div>
-    <div class="w3-third">
-      <h1 class="w3-wide" style="font-size: 300%">Next Generation</h1>
-      <i class="fa fa-lock w3-jumbo w3-margin-bottom w3-center"></i>
-      <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 2vw; margin-right: 2vw">Trinity is a logically based solution, so it can always be applied to new advancements in computing.</h3>
-    </div>
-  </div>
-</div>
-
-<!-- Features fullscreen adoptive section -->
-<div class="w3-hide-large w3-content w3-center w3-padding-32" style="min-width:100vw">
-  <div class="w3-row">
-  <div class="w3-third">
-      <h1 class="w3-wide" style="font-size: 300%">Lightweight</h1>
-      <i class='fa fa-microchip w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 2vw; margin-right: 2vw">Trinity utilizes legacy hardware with a minimal physical footprint, similar to firewall products. Trinity hardware is a passthrough system and lacks memory to store data once processed.</h3>
-    </div>
-    <div class="w3-third">
-      <h1 class="w3-wide" style="font-size: 300%">Flexable</h1>
-      <i class='fa fa-gears w3-margin-bottom w3-jumbo w3-center'></i>
-      <h3 class="w3-justify w3-center" style="margin-left: 2vw; margin-right: 2vw; margin-bottom: 5vh">Build new systems or adjust your equipment leases with ease. </h3>
-    </div>
-    <div class="w3-third">
-      <h1 class="w3-wide" style="font-size: 300%">Next Generation</h1>
-      <i class="fa fa-lock w3-jumbo w3-margin-bottom w3-center"></i>
-      <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 2vw; margin-right: 2vw">Trinity is a logically based solution, so it can always be applied to new advancements in computing.</h3>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- Fullscreen Features banner -->
-<div id="aboutfull" class="w3-hide-small w3-hide-medium w3-container w3-content w3-center bgimg2" style="min-width: 90vw; border-radius: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-  <div class=" w3-center">
-    <h1 class="w3-jumbo w3-text-white w3-wide">About Us</h1>
-  </div>
-</div>
-
-<!-- Mobile Features banner -->
-<div id="aboutmobile" class="w3-hide-large w3-container w3-content w3-center bgimg2" style="width: 90vw; border-radius: 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-  <div class=" w3-center">
-    <h1 class="w3-text-white w3-wide" style="font-size: 10vw">About Us</h1>
   </div>
 </div>
 
 <!-- Philosophy and Next section -->
 <div class="w3-container w3-content w3-center" style="min-width:100vw">
-  <h2 class="w3-wide" style="margin-top: 5vh">OUR PHILOSOPHY</h2>
-  <h3 class="w3-opacity"><i>Be Better!</i></h3>
-  <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 5vw; margin-right: 5vw">“That's just the way we do things” doesn't work for us. Because, with enough time, good enough is never enough.</h3>
+  <h1 class="w3-wide" style="margin-top: 5vh">OUR PHILOSOPHY</h1>
+  <h2 class="w3-opacity"><i>Be Better!</i></h2>
+  <h1 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 5vw; margin-right: 5vw">“That's just the way we do things” doesn't work for us. Because, with enough time, good enough is never enough.</h1>
   <p id="next">_____</p>
-  <h2 class="w3-wide" style="margin-top: 5vh">WHAT'S NEXT?</h2>
-  <h3 class="w3-opacity"><i>Show the world!</i></h3>
-  <h3 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 5vw; margin-right: 5vw">After years of dedication, we have solved some of the biggest problems facing the digital frontier. Look out for updates about trade shows and locations where you can come and test out the system. </h3>
+  <h1 class="w3-wide" style="margin-top: 5vh">WHAT'S NEXT?</h1>
+  <h2 class="w3-opacity"><i>Show the world!</i></h2>
+  <h1 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 5vw; margin-right: 5vw">After years of dedication, we have solved some of the biggest problems facing the digital frontier. Look out for updates about trade shows and locations where you can come and test out the system. </h1>
   
   <p id="contact">_____</p>
-  <h2 class="w3-wide w3-center" style="margin-top: 5vh">CONTACT</h2>
-  <h4 class="w3-opacity w3-center"><i>The line starts here!</i></h4>
-  <h5 class="w3-center"><a href="mailto:contact@validiti.com" class="w3-center w3-button w3-grey w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" style="min-width: 45vw; border-radius: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">Setup a private demonstration now!</a></h5><br>
+  <h1 class="w3-wide w3-center" style="margin-top: 5vh">CONTACT</h1>
+  <h2 class="w3-opacity w3-center"><i>The line starts here!</i></h2>
+  <h1 class="w3-center"><a href="mailto:contact@validiti.com" class="w3-center w3-button w3-grey w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" style="min-width: 25vw; border-radius: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">Setup a demonstration now!</a></h1><br>
 </div>
 
 <!-- Footer -->
 <footer id="footer" class="w3-container w3-padding-12 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <p class="w3-medium">Powered by <a href="index.html" target="_blank">Validiti</a></p>
+  <h3 class="w3-medium">Powered by <a href="index.html" target="_blank">Validiti</a></h3>
 </footer>
 
+<!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
 <script>
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
+
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
+
+// Show the modal
+function showModal() {
+  modal.style.display = "block";
+}
+
 </script>
 
 </body>
