@@ -9,104 +9,10 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
-<style>
-.w3-modal-content {
-  margin: auto;
-  max-width: 600px;
-  width: 90%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
 
-.w3-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-.w3-animate-opacity {
-  animation: opac 0.8s
-}
-
-.w3-modal-content .w3-btn:hover {
-  background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
-}
-
-.w3-modal-content .w3-btn:hover .w3-btn-text {
-  display: none; /* Hide the original text */
-}
-
-.w3-modal-content .w3-btn:hover .w3-btn-hover-text {
-  display: block; /* Show the new text */
-}
-
-.w3-modal-content .w3-btn:hover .w3-btn-img {
-  opacity: 0.5; /* Fade out the image */
-}
-.w3-third:hover .w3-card {
-    background-color: rgba(0, 0, 0, 0.5); /* Darken the background */
-  }
-
-  .w3-third:hover .w3-card img {
-    opacity: 0.5; /* Fade out the image */
-  }
-
-  .w3-third:hover .w3-card div > span {
-    visibility: hidden;
-  }
-
-  .w3-third:nth-child(1):hover .w3-card div:after {
-    content: "New text 1"; /* Change the text content for the first element */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff; /* Change the text color to white */
-    font-size: 24px; /* You can also change the font size if you want */
-    z-index: 1; /* Ensure the text is on top of the image */
-  }
-
-  .w3-third:nth-child(2):hover .w3-card div:after {
-    content: "New text 2"; /* Change the text content for the second element */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff; /* Change the text color to white */
-    font-size: 24px; /* You can also change the font size if you want */
-    z-index: 1; /* Ensure the text is on top of the image */
-  }
-
-  .w3-third:nth-child(3):hover .w3-card div:after {
-    content: "New text 3"; /* Change the text content for the third element */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff; /* Change the text color to white */
-    font-size: 24px; /* You can also change the font size if you want */
-    z-index: 1; /* Ensure the text is on top of the image */
-  }
-.w3-third:nth-child
-@keyframes opac {
-  from {opacity:0} 
-  to {opacity:1}
-}
-
-
-</style>
 <body>
 
 <!-- Navbar -->
@@ -122,89 +28,73 @@
   <a href="index.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">HOME</a>
 </div>
 
-<!-- top image -->
-<div class="w3-content" style="min-width:100vw;margin-top:46px">
-  <div class="w3-display-container w3-center">
-    <img class="w3-hide-small w3-hide-medium" src="assets/img/main.png" style="width:100vw; max-height: 75vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-    <img class="w3-hide-large" src="assets/img/R.jpg" style="width:100vw;">
-    <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
-      <img src="assets/img/logo.png" alt="" style="width: 30vw;opacity: 0.4;">
-    </div>
-    <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-large">
-      <img src="assets/img/logo.png" alt="" style="width: 90vw; margin-top: vh; opacity: 0.5;">
-    </div>
-    <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small w3-hide-medium">
-      <h1 class="w3-wide" style="font-size: 10vw; font-family: 'baskerville'; margin-top: 10vh;">Trinity</h1>
-      <p style="font-size: 2vw;">Data Management Solutions</p>  
-    </div>
-    <div class="w3-display-middle w3-container w3-text-white w3-hide-large">
-      <h1 style="font-size: 20vw;">Trinity</h1>
-      <p style="font-size: 6vw;">Data Management Solutions</p>   
-    </div>
-  </div>
-</div>
-<!-- Header -->
-<header class="w3-container w3-theme w3-padding" id="myHeader">
-  <div class="w3-center">
-  <h4>EMBARRASSING MYSELF INTO WEALTH</h4>
-  <h1 class="w3-xxxlarge w3-animate-bottom">Whats happening mofos</h1>
-    <div class="w3-padding-32">
-      <a href="http://x.com/realvaliditi" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Enjoy the show every Tues. @ 2pm</a>
-    </div>
-  </div>
-</header>
 
-<!-- Modal -->
-<div id="id01" class="w3-modal" style="display:none;">
-    <div class="w3-modal-content w3-card-4 w3-animate-opacity" style="max-width:600px;margin: auto;">
-      <img src="assets/img/w2.jpg" alt="" style="width:100%; object-fit: cover;">
-    </div>
+
+
+
+
+<div class="left-text">
+  <div class="text-element">First</div>
+  <div class="text-element rotating-text">
+    <span class="left-rotating-text-item">Value 1</span>
+    <span class="left-rotating-text-item">Value 2</span>
+    <span class="left-rotating-text-item">Value 3</span>
+  </div>
+  <div class="text-element">Third</div>
 </div>
 
-<div class="w3-container w3-row-padding w3-center w3-margin-top">
-  <div class="w3-third" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">
-    <div class="w3-card w3-container" style="max-height: 20vw; position: relative;">
-  <img src="assets/img/logo.png" alt="" style="object-fit: cover; width: 20vw; position: relative;">
-  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px;">
-    <span>Text 1</span>
+<div class="centered-text">
+  <div class="text-element">First</div>
+  <div class="text-element rotating-text">
+    <span class="rotating-text-item">Value 1</span>
+    <span class="rotating-text-item">Value 2</span>
+    <span class="rotating-text-item">Value 3</span>
   </div>
-</div>
-  </div>
-
-  <div class="w3-third" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">
-    <div class="w3-card w3-container" style="max-height:20vw; position: relative;">
-      <img src="assets/img/logo.png" alt="" style="object-fit: cover; height: 20vw; position: relative;">
-      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px;">
-        <span>Text 1</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="w3-third" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">
-    <div class="w3-card w3-container" style="max-height:20vw; position: relative;">
-      <img src="assets/img/logo.png" alt="" style="object-fit: cover; height: 20vw; position: relative;">
-      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 24px;">
-        <span>Text 1</span>
-      </div>
-    </div>
-  </div>
+  <div class="text-element">Third</div>
 </div>
 
-<!-- Philosophy and Next section -->
-<div class="w3-container w3-content w3-center" style="min-width:100vw">
-  <h1 class="w3-wide" style="margin-top: 5vh">OUR PHILOSOPHY</h1>
-  <h2 class="w3-opacity"><i>Be Better!</i></h2>
-  <h1 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 5vw; margin-right: 5vw">“That's just the way we do things” doesn't work for us. Because, with enough time, good enough is never enough.</h1>
-  <p id="next">_____</p>
-  <h1 class="w3-wide" style="margin-top: 5vh">WHAT'S NEXT?</h1>
-  <h2 class="w3-opacity"><i>Show the world!</i></h2>
-  <h1 class="w3-justify w3-center" style="margin-bottom: 5vh; margin-left: 5vw; margin-right: 5vw">After years of dedication, we have solved some of the biggest problems facing the digital frontier. Look out for updates about trade shows and locations where you can come and test out the system. </h1>
+<div class="right-text">
+  <div class="text-element">First</div>
+  <div class="text-element rotating-text">
+    <span class="right-rotating-text-item">Value 1</span>
+    <span class="right-rotating-text-item">Value 2</span>
+    <span class="right-rotating-text-item">Value 3</span>
+  </div>
+  <div class="text-element">Third</div>
+</div>
+
+
+
+
+
+<div class="wrapper">
+    
+    <div class="block animatable bounceIn">bounceIn</div>
+    <div class="block animatable bounceInLeft">bounceInLeft</div>
+    <div class="block animatable bounceInRight">bounceInRight</div>
+    
+    <div class="block animatable fadeIn">fadeIn</div>
+    <div class="block animatable fadeInDown">fadeInDown</div>
+    <div class="block animatable fadeInUp">fadeInUp</div>
+    
+    
+  </div>
+
+<div class="slideshow-container">
+  <div class="slideshow">
+    <img src="image1.jpg" alt="" class="slide">
+    <img src="image2.jpg" alt="" class="slide">
+    <img src="image3.jpg" alt="" class="slide">
+    <!-- Add more images here -->
+  </div>
+</div>
   
-  <p id="contact">_____</p>
-  <h1 class="w3-wide w3-center" style="margin-top: 5vh">CONTACT</h1>
-  <h2 class="w3-opacity w3-center"><i>The line starts here!</i></h2>
-  <h1 class="w3-center"><a href="mailto:contact@validiti.com" class="w3-center w3-button w3-grey w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" style="min-width: 25vw; border-radius: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">Setup a demonstration now!</a></h1><br>
-</div>
+
+
+
+
+
+
 
 <!-- Footer -->
 <footer id="footer" class="w3-container w3-padding-12 w3-center w3-opacity w3-light-grey w3-xlarge">
@@ -213,22 +103,44 @@
 
 <!-- Script for Sidebar, Tabs, Accordions, Progress bars and slideshows -->
 <script>
+const slideshow = document.querySelector('.slideshow');
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
 
-// Get the modal
-var modal = document.getElementById('id01');
+// Calculate the height of the slideshow container
+const slideshowHeight = slideshow.offsetHeight;
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+// Set the initial scroll position to the top of the slideshow container
+window.scrollTo(0, slideshow.offsetTop);
+
+// Add an event listener to the window's scroll event
+window.addEventListener('scroll', () => {
+  // Calculate the current scroll position
+  const scrollPosition = window.scrollY;
+
+  // Check if the scroll position is within the slideshow container
+  if (scrollPosition >= slideshow.offsetTop && scrollPosition < slideshow.offsetTop + slideshowHeight) {
+    // Calculate the scroll position within the slideshow container
+    const slideshowScrollPosition = scrollPosition - slideshow.offsetTop;
+
+    // Calculate the index of the current slide
+    currentSlide = Math.floor(slideshowScrollPosition / (slideshowHeight / slides.length));
+
+    // Add the active class to the current slide
+    slides.forEach((slide, index) => {
+      if (index === currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+  } else {
+    // Remove the active class from all slides if the scroll position is outside the slideshow container
+    slides.forEach((slide) => {
+      slide.classList.remove('active');
+    });
   }
-}
-
-// Show the modal
-function showModal() {
-  modal.style.display = "block";
-}
-
+});
 </script>
 
 </body>
