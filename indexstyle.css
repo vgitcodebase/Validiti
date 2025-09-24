@@ -344,6 +344,7 @@ sup {
 }
 
 .button-text {
+	color: var(--gray-25);
 	z-index: 2;
 	position: relative;
 }
