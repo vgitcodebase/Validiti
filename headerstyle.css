@@ -15,7 +15,7 @@
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
 }
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 768px) {
   .main_h {
     padding-top: 5px;
   }
@@ -47,7 +47,7 @@
   line-height: 1;
   margin-bottom: 10px;
 }
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 768px) {
   .logo {
     margin-top: 0;
     float: none;
@@ -58,7 +58,7 @@ nav {
   float: right;
   width: 60%;
 }
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 768px) {
   nav {
     width: 100%;
   }
@@ -71,7 +71,7 @@ nav ul {
   text-align: right;
   float: right;
 }
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 768px) {
   nav ul {
     margin-bottom: 22px;
     float: left;
@@ -84,7 +84,7 @@ nav ul li {
   margin-left: 35px;
   line-height: 1.5;
 }
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 768px) {
   nav ul li {
     width: 100%;
     padding: 7px 0;
@@ -109,7 +109,7 @@ nav ul a {
   -moz-transition: all 200ms ease-in;
   transition: all 200ms ease-in;
 }
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 768px) {
   .mobile-toggle {
     display: block;
   }
