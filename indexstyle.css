@@ -164,7 +164,7 @@ sup {
 	padding-bottom: 7rem;
 	position: relative;
 }
-@media(max-width: 576px) {
+@media(max-width: 768px) {
   .padding-section-large {
     padding-top: 2rem;
     padding-bottom: 0rem;
@@ -174,7 +174,7 @@ sup {
 .tabs_height {
 	height: 550vh;
 }
-@media(max-width: 576px) {
+@media(max-width: 768px) {
   .tabs_height {
     height: 600vh;
   }
@@ -206,7 +206,7 @@ sup {
 	padding-right: 3.3%;
 	display: grid;
 }
-@media(max-width: 576px) {
+@media(max-width: 768px) {
   .tabs_component {
     grid-template-columns: 1fr;
   }
@@ -252,7 +252,7 @@ sup {
 	font-weight: 500;
 	line-height: 1.05;
 }
-@media(max-width: 576px) {
+@media(max-width: 768px) {
   .heading-style-h4 {
     margin: 0;
     font-size: 20px;
@@ -276,7 +276,7 @@ sup {
 .text-size-small {
 	font-size: 1rem;
 }
-@media(max-width: 576px) {
+@media(max-width: 768px) {
   .text-size-small {
     font-size: .875rem;
   }
