@@ -128,7 +128,7 @@ body {
 @media(max-width: 768px) {
   .heading-style-h5 {
 	letter-spacing: -.02em;
-	font-size: 1.125rem;
+	font-size: 3.125rem;
 	font-weight: 500;
 	line-height: 1.05;
 }

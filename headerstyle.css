@@ -30,7 +30,7 @@
 }
 
 .sticky {
-  background-color: rgba(255, 255, 255, 0.93);
+  background-color: rgba(243, 243, 243, 0.93);
   opacity: 1;
   top: 0px;
   border-bottom: 1px solid gainsboro;
@@ -136,7 +136,7 @@ nav ul a {
 }
 
 body {
-  color: #8f8f8f;
+  color: #b74040;
   background: rgb(0, 0, 0);
   font-family: "Cardo", serif;
   font-weight: 300;
@@ -157,12 +157,11 @@ a {
 
 .hero {
   position: relative;
-  background: url(http://www.philippefercha.com/cd/toggle-menu-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   text-align: center;
-  color: #fff;
+  color: #6b6b6b;
   padding-top: 10px;
   min-height: 500px;
   letter-spacing: 2px;
