@@ -91,6 +91,13 @@ body {
 	max-width: 300rem;
 }
 
+@media only screen and (max-width: 768px) {
+	.max-width-small {
+	width: 60%;
+	max-width: 200rem;
+}
+}
+
 .margin-small {
 	margin: 3.5rem;
 	margin-bottom: 0;
@@ -118,6 +125,17 @@ body {
 	line-height: 1;
 }
 
+@media only screen and (max-width: 768px) {
+	.heading-style-h3-2 {
+		margin-left: -35%;
+		margin-top: 40%;
+		color: var(--white);
+		font-size: 70px;
+		font-weight: 500;
+		line-height: 1;
+}
+}
+
 .heading-style-h5 {
 	letter-spacing: -.02em;
 	font-size: 3.125rem;
@@ -128,7 +146,7 @@ body {
 @media(max-width: 768px) {
   .heading-style-h5 {
 	letter-spacing: -.02em;
-	font-size: 3.125rem;
+	font-size: 2.125rem;
 	font-weight: 500;
 	line-height: 1.05;
 }
