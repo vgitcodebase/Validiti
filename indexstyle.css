@@ -127,10 +127,10 @@ body {
 
 @media only screen and (max-width: 768px) {
 	.heading-style-h3-2 {
-		margin-left: -35%;
+		margin-left: -15%;
 		margin-top: 40%;
 		color: var(--white);
-		font-size: 70px;
+		font-size: 50px;
 		font-weight: 500;
 		line-height: 1;
 }
@@ -146,7 +146,7 @@ body {
 @media(max-width: 768px) {
   .heading-style-h5 {
 	letter-spacing: -.02em;
-	font-size: 2.125rem;
+	font-size: 1.125rem;
 	font-weight: 500;
 	line-height: 1.05;
 }
@@ -249,6 +249,8 @@ sup {
 	padding: 1.5rem;
 	display: flex;
 }
+
+.mobile-hide{ visibility: hidden; }
 
 .tabs_left-top {
 	height: 100%;
