@@ -18,23 +18,13 @@ document.addEventListener("scroll", function () {
   let lastSectionIndex = sections.length - 1;
 
   sections.forEach((section, index) => {
-    if (index === 0) {
-      // Adjust the scroll position for the first section
-      let adjustedScrollPosition = scrollPosition - (scrollDistance - windowHeight);
-      if (adjustedScrollPosition >= 0 &&
-        adjustedScrollPosition < scrollDistance) {
-        section.classList.add('is-1');
-        videos[index].classList.add('is-1');
-      } else {
-        section.classList.remove('is-1');
-        videos[index].classList.remove('is-1');
-      }
+    if (scrollPosition >= (index * scrollDistance) &&
+      scrollPosition < ((index + 1) * scrollDistance)) {
+      section.classList.add('is-1');
+      videos[index].classList.add('is-1');
     } else {
-      if (scrollPosition >= (index * scrollDistance) &&
-        scrollPosition < ((index + 1) * scrollDistance)) {
-        section.classList.add('is-1');
-        videos[index].classList.add('is-1');
-      } else {
+      // Remove is-1 class from all sections except the last one
+      if (index !== lastSectionIndex) {
         section.classList.remove('is-1');
         videos[index].classList.remove('is-1');
       }
