@@ -12,7 +12,7 @@ ScrollTrigger.create({
 // Handling the scroll for the tabs
 document.addEventListener("scroll", function () {
   let scrollPosition = window.scrollY;
-  let windowHeight = window.innerHeight + 550; // +550 = increasing the scroll distance before each class changes
+  let windowHeight = window.innerHeight + 250; // +550 = increasing the scroll distance before each class changes
   let sections = document.querySelectorAll('.tabs_let-content');
   let videos = document.querySelectorAll('.tabs_video');
   let lastSectionIndex = sections.length - 1;
