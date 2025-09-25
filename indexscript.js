@@ -9,16 +9,17 @@ ScrollTrigger.create({
   pinSpacing: false
 });
 
-// Handling the scroll for the tabs
 document.addEventListener("scroll", function () {
   let scrollPosition = window.scrollY;
-  let windowHeight = window.innerHeight + 250; // +550 = increasing the scroll distance before each class changes
+  let windowHeight = window.innerHeight;
+  let scrollDistance = windowHeight * 2; // Adjust this value to set the desired scroll distance for each section
   let sections = document.querySelectorAll('.tabs_let-content');
   let videos = document.querySelectorAll('.tabs_video');
   let lastSectionIndex = sections.length - 1;
 
   sections.forEach((section, index) => {
-    if (scrollPosition >= (index * windowHeight) && scrollPosition < ((index + 1) * windowHeight)) {
+    if (scrollPosition >= (index * scrollDistance) &&
+      scrollPosition < ((index + 1) * scrollDistance)) {
       section.classList.add('is-1');
       videos[index].classList.add('is-1');
     } else {
@@ -31,7 +32,7 @@ document.addEventListener("scroll", function () {
   });
 
   // Keep is-1 class on the last section until user scrolls past it
-  if (scrollPosition > (lastSectionIndex * windowHeight)) {
+  if (scrollPosition > (lastSectionIndex * scrollDistance)) {
     sections[lastSectionIndex].classList.add('is-1');
     videos[lastSectionIndex].classList.add('is-1');
   } else {
