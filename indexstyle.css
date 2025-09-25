@@ -236,6 +236,7 @@ sup {
 }
 @media(max-width: 768px) {
   .tabs_component {
+	height: 85vh;
     grid-template-columns: 1fr;
   }
 }
