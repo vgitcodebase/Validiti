@@ -25,10 +25,7 @@
 
         <nav>
             <ul>
-                <li><a href="#video-1">Smaller</a></li>
-                <li><a href="#video-2">Faster</a></li>
-                <li><a href="#video-3">Safer</a></li>
-                <li><a href="#better">Better</a></li>
+                <li><a href="#better">Contact</a></li>
             </ul>
         </nav>
 
@@ -46,15 +43,15 @@
                <h2 class="heading-style-h3" >Smaller.  Faster.  Safer.</h2>
                <h2 class="heading-style-h3-1" >Better</h2>
                <p class="text-size-medium">
-               Text placement just in case Mason wants to put something here. 
+               It's time for a better way. 
                </p>
-               <a href="#video-1"><i class="fa fa-angle-double-down" aria-hidden="true" style="margin-top: 0%; color: rgb(156, 156, 156); font-size: 50px"></i></a>
+               <a href="#smaller"><i class="fa fa-angle-double-down" aria-hidden="true" style="margin-top: 0%; color: rgb(156, 156, 156); font-size: 50px"></i></a>
             </div>
          </div>
       </div>
    </div>
 
-<section class="section_tabs" style="z-index: 2;">
+<section class="section_tabs" style="z-index: 2;" id="smaller">
    <div class="padding-section-large">
       <div class="tabs_height">
          <div class="tabs_sticky-wrapper">
@@ -97,7 +94,7 @@
                   </div>
                   <div class="tabs_right">
                      <div class="tabs_video w-background-video w-background-video-atom" style="display: flex; justify-content: flex-end; align-items: flex-start;">
-                        <video id="video-1" autoplay="" loop="" muted="" playsinline="" data-object-fit="cover">
+                        <video autoplay="" loop="" muted="" playsinline="" data-object-fit="cover">
                            <source src="/assets/img/faster.mp4" data-wf-ignore="true">
                            <source src="/assets/img/faster.mp4" data-wf-ignore="true">
                         </video>
@@ -122,7 +119,7 @@
    </div>
 </section>
 <div>
-   <div class="intro-wrapper">
+   <div class="intro-wrapper" id="better">
       <div class="intro" style="display: flex; justify-content: center; align-items: center; position: relative; z-index: 1;">
          <div class="text-align-center" id="js-pin">
             <div class="max-width-small align-center">
@@ -130,7 +127,7 @@
                <h2 class="heading-style-h3" > Smaller.  Faster.  Safer.</h2>
                <h2 class="heading-style-h3-1" >Better</h2>
                <p class="text-size-medium">
-               Text placement just in case Mason wants to put something here.V1 
+               Let's get started building a safer, faster, and more efficient future. 
                </p>
                <p class="text-size-medium mobile-hide" style="margin-top: 30%;">
                Explore below to learn more about a new era in digital language 
@@ -140,9 +137,21 @@
       </div>
    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
 <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
 <script src='https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js'></script><script  src="./indexscript.js"></script>
 <script  src="./headerscript.js"></script>
+<script>
+   $('nav a').click(function(event) {
+  var id = $(this).attr("href");
+  var offset = 70;
+  var target = $(id).offset().top - offset;
+  $('html, body').animate({
+    scrollTop: target
+  }, 500);
+  event.preventDefault();
+});
+</script>
 </body>
 </html>
