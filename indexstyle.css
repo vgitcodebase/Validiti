@@ -127,7 +127,6 @@ body {
 
 @media only screen and (max-width: 768px) {
 	.heading-style-h3-2 {
-		margin-left: -15%;
 		margin-top: 40%;
 		color: var(--white);
 		font-size: 50px;
