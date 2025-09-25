@@ -312,6 +312,15 @@ sup {
   }
 }
 
+.text-size-medium {
+	font-size: 1.25rem;
+}
+@media(max-width: 768px) {
+  .text-size-medium {
+    font-size: .875rem;
+  }
+}
+
 .tabs_left-bottom {
 	flex-direction: column;
 	display: flex;
