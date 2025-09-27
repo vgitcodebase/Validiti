@@ -30,16 +30,16 @@
 }
 
 .sticky {
-  background-color: rgba(243, 243, 243, 0.93);
+  background-color: rgba(115, 115, 115, 0.93);
   opacity: 1;
   top: 0px;
-  border-bottom: 1px solid gainsboro;
+  border-bottom: 1px solid rgb(115, 115, 115);
 }
 
 .logo {
   width: 50px;
   font-size: 25px;
-  color: #8f8f8f;
+  color: #e2e2e2;
   text-transform: uppercase;
   float: left;
   display: block;
@@ -92,7 +92,7 @@ nav ul li {
   }
 }
 nav ul a {
-  color: #888888;
+  color: #e2e2e2;
   text-transform: uppercase;
   font-size: 12px;
 }
@@ -119,7 +119,7 @@ nav ul a {
   height: 4px;
   margin-bottom: 3px;
   border-radius: 1000px;
-  background: #8f8f8f;
+  background: #e2e2e2;
   display: block;
 }
 
