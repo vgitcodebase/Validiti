@@ -207,7 +207,7 @@ sup {
 }
 @media(max-width: 768px) {
   .tabs_height {
-    height: 600vh;
+    height: 550vh;
   }
 }
 
