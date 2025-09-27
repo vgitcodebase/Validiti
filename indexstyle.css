@@ -118,7 +118,7 @@ body {
 }
 
 .heading-style-h3-2 {
-	margin-top: 20%;
+	margin-top: 20vh;
 	color: var(--white);
 	font-size: 100px;
 	font-weight: 500;
