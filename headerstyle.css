@@ -12,7 +12,7 @@
   opacity: 0;
   top: -100px;
   padding-bottom: 6px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Arimo", sans-serif;
   border-radius: 5px;
 }
 @media only screen and (max-width: 768px) {
@@ -138,7 +138,7 @@ nav ul a {
 body {
   color: #b74040;
   background: rgb(0, 0, 0);
-  font-family: "Cardo", serif;
+  font-family: "Arimo", sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
@@ -165,7 +165,6 @@ a {
   padding-top: 10px;
   min-height: 500px;
   letter-spacing: 2px;
-  font-family: "Montserrat", sans-serif;
 }
 .hero h1 {
   font-size: 50px;
