@@ -57,7 +57,7 @@ body {
 .intro-wrapper {
   position: relative;
   height: 95vh;
-  
+  background-image: url('assets/img/main.png');
   background-size: cover;
   background-position: center;
 }
@@ -69,7 +69,7 @@ body {
   position: relative;
 }
 .text-align-center {
-  max-width: 600px;
+  max-width: 100vw;
   text-align: center;
   position: absolute;
   top: 50px;
