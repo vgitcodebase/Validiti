@@ -231,7 +231,7 @@ sup {
 	grid-column-gap: 1.5rem;
 	grid-row-gap: 1.5rem;
 	grid-template-rows: auto;
-	grid-template-columns: .5fr 1fr;
+	grid-template-columns: .6fr 1fr;
 	grid-auto-columns: 1fr;
 	padding-left: 3.3%;
 	padding-right: 3.3%;
